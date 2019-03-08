@@ -8,6 +8,11 @@
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-cloud-netflix/eureka-server</module>
+        <module>spring-cloud-netflix/eureka-client1</module>
+        <module>spring-cloud-netflix/eureka-client2</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,6 +42,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
         </dependency>
     </dependencies>
     <build>
