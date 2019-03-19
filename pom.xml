@@ -8,10 +8,13 @@
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>spring-cloud-netflix/eureka-server</module>
         <module>spring-cloud-netflix/eureka-client1</module>
         <module>spring-cloud-netflix/eureka-client2</module>
+        <module>spring-cloud-stream/spring-cloud-stream-kafka-producer</module>
+        <module>spring-cloud-stream/spring-cloud-stream-kafka-consumer</module>
     </modules>
 
     <properties>
@@ -50,6 +53,7 @@
             <version>1.2.56</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
