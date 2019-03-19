@@ -11,7 +11,7 @@ public class EurekaClient1Application {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello world";
+        return "Hello client1";
     }
 
     public static void main(String[] args) {

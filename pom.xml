@@ -13,8 +13,9 @@
         <module>spring-cloud-netflix/eureka-server</module>
         <module>spring-cloud-netflix/eureka-client1</module>
         <module>spring-cloud-netflix/eureka-client2</module>
-        <module>spring-cloud-stream/spring-cloud-stream-kafka-producer</module>
-        <module>spring-cloud-stream/spring-cloud-stream-kafka-consumer</module>
+        <module>spring-cloud-stream/kafka-producer</module>
+        <module>spring-cloud-stream/kafka-consumer</module>
+        <module>spring-cloud-netflix/eureka-zuul</module>
     </modules>
 
     <properties>
