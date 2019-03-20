@@ -12,7 +12,7 @@
         <module>spring-cloud-netflix/eureka-server</module>
         <module>spring-cloud-netflix/eureka-client1</module>
         <module>spring-cloud-netflix/eureka-client2</module>
-        <module>spring-cloud-netflix/netflix-zuul</module>
+        <module>spring-cloud-netflix/zuul</module>
     </modules>
 
     <properties>
