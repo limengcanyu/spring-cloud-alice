@@ -8,6 +8,12 @@
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-cloud-netflix/eureka-server</module>
+        <module>spring-cloud-netflix/eureka-client1</module>
+        <module>spring-cloud-netflix/eureka-client2</module>
+        <module>spring-cloud-netflix/netflix-zuul</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +30,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.M1</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -38,8 +44,13 @@
             <version>1.18.2</version>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
