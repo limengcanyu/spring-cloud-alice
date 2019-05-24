@@ -8,11 +8,15 @@
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>spring-cloud-netflix/eureka-server</module>
         <module>spring-cloud-netflix/eureka-client1</module>
         <module>spring-cloud-netflix/eureka-client2</module>
         <module>spring-cloud-netflix/zuul</module>
+        <module>spring-cloud-gateway/gateway</module>
+        <module>spring-cloud-alibaba/nacos-discovery-provider-example</module>
+        <module>spring-cloud-alibaba/nacos-discovery-consumer-example</module>
     </modules>
 
     <properties>
