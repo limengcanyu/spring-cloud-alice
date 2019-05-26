@@ -10,53 +10,61 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>spring-cloud-netflix/eureka-server</module>
-        <module>spring-cloud-netflix/eureka-product-clients</module>
-        <module>spring-cloud-netflix/eureka-product-feign-clients</module>
-        <module>spring-cloud-netflix/eureka-order-clients</module>
+        <module>spring-cloud-microservice1</module>
+        <module>spring-cloud-microservice2</module>
+        <module>spring-cloud-microservice3</module>
+        <module>spring-cloud-security</module>
+        <module>spring-cloud-gateway</module>
+        <module>spring-cloud-sleuth</module>
+        <module>spring-cloud-eureka-server</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
+        <version>2.1.5.RELEASE</version>
     </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-                    <!-- Skipping Tests -->
-                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
 

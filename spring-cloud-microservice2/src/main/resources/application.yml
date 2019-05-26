@@ -1,0 +1,15 @@
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
+# IDENTITY (ContextIdApplicationContextInitializer)
+spring.application.name: spring-cloud-microservice2 # Application name.
+
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+server.port: 8772 # Server HTTP port.
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

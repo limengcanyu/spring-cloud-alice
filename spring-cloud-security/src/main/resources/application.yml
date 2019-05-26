@@ -1,0 +1,18 @@
+# ----------------------------------------
+# CORE PROPERTIES
+# ----------------------------------------
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
+# IDENTITY (ContextIdApplicationContextInitializer)
+spring.application.name: spring-cloud-security # Application name.
+
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+server.port: 8781 # Server HTTP port.
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+spring.security.user.name: rock
+spring.security.user.password: 123456
