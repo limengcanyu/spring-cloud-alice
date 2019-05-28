@@ -17,6 +17,7 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-sleuth</module>
         <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-admin-server</module>
     </modules>
 
     <parent>
@@ -71,14 +72,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.0.3.RELEASE</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

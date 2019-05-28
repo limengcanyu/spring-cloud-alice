@@ -54,11 +54,11 @@
             <version>2.9.2</version>
         </dependency>
 
-        <!-- com/google/common/base/Supplier.class 未定义异常添加依赖 -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>27.1-jre</version>
-        </dependency>
+<!--        &lt;!&ndash; com/google/common/base/Supplier.class 未定义异常添加依赖 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.google.guava</groupId>-->
+<!--            <artifactId>guava</artifactId>-->
+<!--            <version>27.1-jre</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

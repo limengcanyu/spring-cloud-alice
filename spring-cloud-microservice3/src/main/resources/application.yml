@@ -1,15 +1,4 @@
-# ----------------------------------------
-# CORE PROPERTIES
-# ----------------------------------------
-debug: true # Enable debug logs.
-trace: true # Enable trace logs.
-
-# IDENTITY (ContextIdApplicationContextInitializer)
-spring.application.name: spring-cloud-microservice3 # Application name.
-
-# ----------------------------------------
-# WEB PROPERTIES
-# ----------------------------------------
-server.port: 8773 # Server HTTP port.
+server.port: 8773
+spring.application.name: spring-cloud-microservice3
 
 eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
