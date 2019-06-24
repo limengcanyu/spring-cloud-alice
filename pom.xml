@@ -18,12 +18,15 @@
         <module>spring-cloud-sleuth</module>
         <module>spring-cloud-eureka-server</module>
         <module>spring-cloud-admin-server</module>
+        <module>spring-cloud-stream-rabbitmq</module>
+        <module>spring-cloud-stream-kafka</module>
+        <module>spring-cloud-stream-kafka-streams</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.1.6.RELEASE</version>
     </parent>
 
     <properties>

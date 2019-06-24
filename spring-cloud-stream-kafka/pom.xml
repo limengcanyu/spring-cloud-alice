@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.spring.cloud.gateway</groupId>
-    <artifactId>spring-cloud-gateway</artifactId>
+    <groupId>com.spring.cloud.stream.kafka</groupId>
+    <artifactId>spring-cloud-stream-kafka</artifactId>
 
-    <name>spring-cloud-gateway</name>
+    <name>spring-cloud-stream-kafka</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -44,7 +44,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
         </dependency>
     </dependencies>
 </project>

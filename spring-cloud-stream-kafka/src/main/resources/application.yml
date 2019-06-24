@@ -1,0 +1,29 @@
+server.port: 8781
+spring.application.name: spring-cloud-stream-kafka
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+# Kafka Binder Properties
+spring.cloud.stream.kafka.binder.brokers: localhost
+spring.cloud.stream.kafka.binder.defaultBrokerPort: 9092
+spring.cloud.stream.kafka.binder.autoCreateTopics: true
+spring.cloud.stream.kafka.binder.autoAddPartitions: true
+
+
+# Kafka Consumer Properties
+spring.cloud.stream.kafka.bindings.input.consumer.autoRebalanceEnabled: true
+spring.cloud.stream.kafka.bindings.input.consumer.ackEachRecord: false
+spring.cloud.stream.kafka.bindings.input.consumer.autoCommitOffset: true
+spring.cloud.stream.kafka.bindings.input.consumer.resetOffsets: false
+spring.cloud.stream.kafka.bindings.input.consumer.startOffset: latest
+
+# Kafka Producer Properties
+spring.cloud.stream.kafka.bindings.input.producer.bufferSize: 16384
+spring.cloud.stream.kafka.bindings.input.producer.sync: false
+spring.cloud.stream.kafka.bindings.input.producer.batchTimeout: 0
+
+
+
+
+
+
