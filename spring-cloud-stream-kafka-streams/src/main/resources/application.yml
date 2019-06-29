@@ -1,13 +1,9 @@
 server.port: 8781
-spring.application.name: spring-cloud-stream-kafka
-
-eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
-
+spring.application.name: spring-cloud-stream-kafka-streams
 
 # Kafka Streams Properties
 spring.cloud.stream.kafka.streams.binder.brokers: localhost
 spring.cloud.stream.kafka.streams.binder.serdeError: logAndFail
-spring.cloud.stream.kafka.streams.binder.useNativeEncoding: false
 
 # Kafka Streams producers Properties
 spring.cloud.stream.kafka.streams.bindings.<binding name>.producer.useNativeEncoding: false

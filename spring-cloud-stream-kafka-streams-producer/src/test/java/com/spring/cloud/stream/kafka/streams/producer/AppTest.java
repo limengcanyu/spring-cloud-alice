@@ -1,4 +1,4 @@
-package com.spring.cloud.stream.kafka;
+package com.spring.cloud.stream.kafka.streams.producer;
 
 import static org.junit.Assert.assertTrue;
 

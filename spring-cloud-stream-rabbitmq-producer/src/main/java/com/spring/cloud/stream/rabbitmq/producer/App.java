@@ -1,4 +1,4 @@
-package com.spring.cloud.stream.kafka;
+package com.spring.cloud.stream.rabbitmq.producer;
 
 /**
  * Hello world!

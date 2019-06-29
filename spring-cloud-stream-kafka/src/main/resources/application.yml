@@ -1,29 +1,117 @@
-server.port: 8781
+server.port: 8780
 spring.application.name: spring-cloud-stream-kafka
 
-eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+#eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
 
+# Configuration Options
+########################################################################################################################
+# Binding Service Properties
+# 部署的应用实例数量。必须在生产者端设置，用于分区。使用RabbitMQ或者Kafka时，如果autoRebalanceEnabled=false，则必须在消费者端设置。
+spring.cloud.stream.instanceCount: 1
+# 应用的实例索引，取值在 0 到 instanceCount - 1 之间。使用RabbitMQ或者Kafka时，如果autoRebalanceEnabled=false，用于分区。
+# 在云计算中会自动设置，以匹配应用的实例索引。
+spring.cloud.stream.instanceIndex: 1
+# 当binder不支持延迟绑定，或者broker挂了时，重新创建binding之间的间隔，单位为秒。
+spring.cloud.stream.bindingRetryInterval: 30
+########################################################################################################################
+
+
+# Binding Properties
+########################################################################################################################
+# Common Binding Properties
+# 绑定中间件上的channel的 destination (例如，the RabbitMQ exchange 或者 Kafka topic)。
+# 如果 channel 被绑定为消费者，则它可以被绑定到多个 destinations 上，并且 destination 名称可以被指定为逗号分隔的 String 值。如果未设置，则使用 channel 名称代替。
+# 该属性的默认值不能被覆盖。
+spring.cloud.stream.bindings.topic.destination: topic
+# channel 的消费者组。仅适用于入站绑定，即接收消息。
+spring.cloud.stream.bindings.topic.group: spring-cloud-stream-kafka
+# channel 的 content type。
+spring.cloud.stream.bindings.topic.contentType: application/json
+
+
+# Consumer Binding Properties
+# 该消费者是否需要自动启动。
+spring.cloud.stream.bindings.topic.consumer.autoStartup: true
+# The concurrency of the inbound consumer. 入站消费者的并发数量。
+spring.cloud.stream.bindings.topic.consumer.concurrency: 1
+# consumer是否从分区producer中接收数据。
+spring.cloud.stream.bindings.topic.consumer.partitioned: true
+# 如果处理失败，尝试处理消息的次数。设置为1可关闭重试。
+spring.cloud.stream.bindings.topic.consumer.maxAttempts: 3
+# 重试时，回退的初始间隔。
+spring.cloud.stream.bindings.topic.consumer.backOffInitialInterval: 1000
+# 最大回退间隔。
+spring.cloud.stream.bindings.topic.consumer.backOffMaxInterval: 1000
+# 回退倍数
+spring.cloud.stream.bindings.topic.consumer.backOffMultiplier: 2.0
+# 值大于等于0时，允许自定义该消费者的 instance index (它与 spring.cloud.stream.instanceIndex 不同)。
+# 值为负数时，默认为 spring.cloud.stream.instanceIndex 。
+spring.cloud.stream.bindings.topic.consumer.instanceIndex: 1
+# 值大于等于0时，允许自定义该消费者的 instance count (它与 spring.cloud.stream.instanceCount 不同)。
+# 值为负数时，默认为 spring.cloud.stream.instanceCount 。
+spring.cloud.stream.bindings.topic.consumer.instanceCount: 1
+
+# Producer Binding Properties
+# 该生产者是否需要自动启动。
+spring.cloud.stream.bindings.topic.producer.autoStartup: 1
+# topic分区数量。如果producer分区的话，值必须大于1。在Kafka中，它被解释为一个提示。
+spring.cloud.stream.bindings.topic.producer.partitionCount: 1
+# 逗号分隔的组列表，生产者必须确保消息投递到这些组，即便这些组在消息创建之后启动 (例如，RabbitMQ 中，消息通过预创建的持久化队列创建)。
+#spring.cloud.stream.bindings.topic.producer.requiredGroups:
+########################################################################################################################
+
+
+# Apache Kafka Binder
+########################################################################################################################
 # Kafka Binder Properties
-spring.cloud.stream.kafka.binder.brokers: localhost
-spring.cloud.stream.kafka.binder.defaultBrokerPort: 9092
+# Kafka binder连接的brokers列表
+spring.cloud.stream.kafka.binder.brokers: 192.168.31.131:9092
+# 获取分区信息的等待事件，单位为秒。如果计时器过期，健康情况报告为挂了。
+spring.cloud.stream.kafka.binder.healthTimeout: 10
+# broker上要求的确认数量。
+spring.cloud.stream.kafka.binder.requiredAcks: 1
+# autoCreateTopics or autoAddPartitions 设置时才有效。binder 在 topics 上配置的全局最小分区数量。
+# 它可以被替换为 producer 的 partitionCount 设置，或者 producer 的 instanceCount * concurrency 设置，如果这两个设置中有一个比它大。
+spring.cloud.stream.kafka.binder.minPartitionCount: 1
+# autoCreateTopics 激活时，自动创建的 topics 的复制因子。可以被每个 binding 覆盖。
+spring.cloud.stream.kafka.binder.replicationFactor: 1
+# true时，binder 会自动创建新的 topics。false时，binder 依赖已配置的 topics。如果 topics 不存在，binder 就会启动失败。
 spring.cloud.stream.kafka.binder.autoCreateTopics: true
+# true时，binder 会在需要时自动创建新的 partitions。false时，binder 依赖已配置的 topic 的分区大小。
+# 如果 topic 的分区数量小于预期值，binder 就会启动失败。
 spring.cloud.stream.kafka.binder.autoAddPartitions: true
 
 
 # Kafka Consumer Properties
-spring.cloud.stream.kafka.bindings.input.consumer.autoRebalanceEnabled: true
-spring.cloud.stream.kafka.bindings.input.consumer.ackEachRecord: false
-spring.cloud.stream.kafka.bindings.input.consumer.autoCommitOffset: true
-spring.cloud.stream.kafka.bindings.input.consumer.resetOffsets: false
-spring.cloud.stream.kafka.bindings.input.consumer.startOffset: latest
+# true时，topic 分区在消费者组的成员之间自动重新平衡。
+# false时，每个消费者被分配一个固定的分区集合，基于spring.cloud.stream.instanceCount 和 spring.cloud.stream.instanceIndex。
+# 这要求 spring.cloud.stream.instanceCount 和 spring.cloud.stream.instanceIndex 属性在每个启动的实例上正确设置。
+# 在这种情况下（false时），spring.cloud.stream.instanceCount 属性的值通常大于1.
+spring.cloud.stream.kafka.bindings.topic.consumer.autoRebalanceEnabled: true
+# autoCommitOffset 为 true时，该设置决定每条记录被处理后是否提交偏移量。默认，consumer.poll() 返回的记录批次中的所有记录都被处理之后才会提交偏移量。
+# 通过 poll 返回的记录数量可以使用 Kafka 属性 max.poll.records 控制，该属性通过消费者 configuration 属性设置。
+# 设置该属性为 true 会引起性能降低，但是这样做可以减少错误发生时重新投递记录的可能性。而且，binder 的 requiredAcks 属性，也会影响提交偏移量的性能。
+spring.cloud.stream.kafka.bindings.topic.consumer.ackEachRecord: false
+# 消息处理后是否自动提交偏移量。
+# false 时，入站消息中存在一个 key 为 kafka_acknowledgment 的 header，该 header 类型为 org.springframework.kafka.support.Acknowledgment。
+# 应用可以使用该 header 来确认消息。
+# 该属性设置为 false 时，Kafka binder 会将确认模式设置为 org.springframework.kafka.listener.AbstractMessageListenerContainer.AckMode.MANUAL，并且由应用负责确认消息。
+spring.cloud.stream.kafka.bindings.topic.consumer.autoCommitOffset: true
+# 是否在消费者上将偏移量重置为 startOffset 提供的值。如果提供了 KafkaRebalanceListener ，该属性必须设置为 false 。
+spring.cloud.stream.kafka.bindings.topic.consumer.resetOffsets: false
+# 新消费者组的起始偏移量。取值：earliest 和 latest。如果为消费者 'binding' 显式设置消费者组 (通过 spring.cloud.stream.bindings.<channelName>.group)，
+# 那么 'startOffset' 被设置为 earliest。否则，对于 anonymous 消费者组，它被设置为 latest 。
+spring.cloud.stream.kafka.bindings.topic.consumer.startOffset: null # equivalent to earliest
+
 
 # Kafka Producer Properties
-spring.cloud.stream.kafka.bindings.input.producer.bufferSize: 16384
-spring.cloud.stream.kafka.bindings.input.producer.sync: false
-spring.cloud.stream.kafka.bindings.input.producer.batchTimeout: 0
-
-
-
-
-
-
+# Kafka producer 发送的批量数据上限，单位为 bytes，
+spring.cloud.stream.kafka.bindings.topic.producer.bufferSize: 16384
+# producer 是否为异步。
+spring.cloud.stream.kafka.bindings.topic.producer.sync: false
+# 发送消息之前，producer 允许更多消息累积到同一批次中等待的时间。(通常，生产者一点也不会等待，并且只发送累积到上一次发送处理时的所有消息。)
+# 非 0 值会增加吞吐量，但会增加延时。
+spring.cloud.stream.kafka.bindings.topic.producer.batchTimeout: 0
+# 配置 topics 时使用的复制因子。会覆盖 binder 范围内的设置。如果 replicas-assignments 存在，则被忽略。
+spring.cloud.stream.kafka.bindings.topic.producer.topic.replication-factor: none # the binder-wide default of 1 is used
+########################################################################################################################

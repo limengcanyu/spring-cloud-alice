@@ -1,4 +1,4 @@
-package com.spring.cloud.stream.kafka.streams;
+package com.spring.cloud.stream.kafka.streams.consumer;
 
 /**
  * Hello world!
