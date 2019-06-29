@@ -26,7 +26,7 @@ public class SpringCloudMicroService2Application {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello world";
+        return "Hello MicroService2";
     }
 
     @GetMapping("/echo/{str}")

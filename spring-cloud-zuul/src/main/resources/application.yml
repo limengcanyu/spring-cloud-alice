@@ -1,0 +1,9 @@
+server.port: 8790
+spring.application.name: spring-cloud-zuul
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+# 对 /microservice1 的调用跳转到 SPRING-CLOUD-MICROSERVICE1 服务
+zuul.routes.SPRING-CLOUD-MICROSERVICE1: /microservice1/**
+zuul.routes.SPRING-CLOUD-MICROSERVICE2: /microservice2/**
+zuul.routes.SPRING-CLOUD-MICROSERVICE3: /microservice3/**

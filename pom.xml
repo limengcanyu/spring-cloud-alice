@@ -27,6 +27,7 @@
         <module>spring-cloud-stream-kafka-streams-consumer</module>
         <module>spring-cloud-stream-rabbitmq-producer</module>
         <module>spring-cloud-stream-rabbitmq-consumer</module>
+        <module>spring-cloud-zuul</module>
     </modules>
 
     <parent>

@@ -23,10 +23,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class SpringCloudMicroService1Application {
+
     @ApiOperation(value = "获取用户列表", notes = "获取所有用户信息")
     @GetMapping("/")
     public String home() {
-        return "Hello world";
+        return "Hello MicroService1";
     }
 
     @GetMapping("/echo/{string}")
