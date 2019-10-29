@@ -2,6 +2,8 @@ package com.spring.cloud.microservice1;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -23,6 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class SpringCloudMicroService1Application {
+    private static Logger logger = LoggerFactory.getLogger(SpringCloudMicroService1Application.class);
 
     @ApiOperation(value = "获取用户列表", notes = "获取所有用户信息")
     @GetMapping("/")
@@ -32,6 +35,7 @@ public class SpringCloudMicroService1Application {
 
     @GetMapping("/echo/{string}")
     public String echo(@PathVariable String string) {
+        logger.info("MicroService1 Hello " + string);
         return "MicroService1 Hello " + string;
     }
 

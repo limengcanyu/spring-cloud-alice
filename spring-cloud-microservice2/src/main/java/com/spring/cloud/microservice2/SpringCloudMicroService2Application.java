@@ -1,6 +1,8 @@
 package com.spring.cloud.microservice2;
 
 import com.spring.cloud.microservice2.feignclient.EchoClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableFeignClients
 @SpringBootApplication
 public class SpringCloudMicroService2Application {
+    private static Logger logger = LoggerFactory.getLogger(SpringCloudMicroService2Application.class);
 
     @Autowired
     private EchoClient echoClient;
@@ -31,6 +34,7 @@ public class SpringCloudMicroService2Application {
 
     @GetMapping("/echo/{str}")
     public String echo(@PathVariable String str) {
+        logger.info("echo " + str);
         return echoClient.echo("alita");
     }
 
