@@ -6,6 +6,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedisTemplateUtils {
@@ -17,12 +18,24 @@ public class RedisTemplateUtils {
         stringRedisTemplate.opsForValue().set(key, value);
     }
 
+    public void setString(String key, String value, long timeout, TimeUnit unit) {
+        stringRedisTemplate.opsForValue().set(key, value, timeout, unit);
+    }
+
     public void setObject(String key, Object value) {
         stringRedisTemplate.opsForValue().set(key, JSONObject.toJSONString(value));
     }
 
+    public void setObject(String key, Object value, long timeout, TimeUnit unit) {
+        stringRedisTemplate.opsForValue().set(key, JSONObject.toJSONString(value), timeout, unit);
+    }
+
     public <T> void setList(String key, List<T> valueList) {
         stringRedisTemplate.opsForValue().set(key, JSONObject.toJSONString(valueList));
+    }
+
+    public <T> void setList(String key, List<T> valueList, long timeout, TimeUnit unit) {
+        stringRedisTemplate.opsForValue().set(key, JSONObject.toJSONString(valueList), timeout, unit);
     }
 
     public String getString(String key) {

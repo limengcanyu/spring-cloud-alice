@@ -6,26 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Spring Cloud Security Application
  *
  * @author jxf
- * @date 2019/5/26
+ * @date 2019/11/01
  */
-@RestController
+@EnableSwagger2
 @SpringBootApplication
 public class SpringCloudSecurityApplication {
-    @RequestMapping("/")
-    public String home() {
-        return "Hello world";
-    }
-
-    @GetMapping("/echo/{string}")
-    public String echo(@PathVariable String string) {
-        return "Security Hello " + string;
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudSecurityApplication.class, args);
     }
