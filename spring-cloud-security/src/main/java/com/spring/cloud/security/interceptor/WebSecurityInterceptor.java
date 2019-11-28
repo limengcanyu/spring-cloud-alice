@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.spring.cloud.security.constant.TokenConstant;
 import com.spring.cloud.security.constant.UriConstant;
 import com.spring.cloud.security.entity.RedisPlatformUser;
-import com.spring.cloud.security.service.PlatformUserCommonService;
-import com.spring.cloud.security.utils.*;
+import com.spring.cloud.security.utils.JJwtHsAlgorithmsUtils;
+import com.spring.cloud.security.utils.RedisTemplateUtils;
+import com.spring.cloud.security.utils.TenantContextUtils;
+import com.spring.cloud.security.utils.UserContextUtils;
 import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,16 +22,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * <p>Description: Web SecurityInterceptor</p>
+ *
+ * @author rock.jiang
+ * Date 2019/11/28 17:18
+ */
 @Component
-public class SecurityInterceptor extends HandlerInterceptorAdapter {
-    private static final Logger logger = LoggerFactory.getLogger(SecurityInterceptor.class);
+public class WebSecurityInterceptor extends HandlerInterceptorAdapter {
+    private static final Logger logger = LoggerFactory.getLogger(WebSecurityInterceptor.class);
 
     @Autowired
     private RedisTemplateUtils redisTemplateUtils;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.debug("安全拦截器 验证 开始");
+        logger.debug("Web安全拦截器 验证 开始");
 
         // 验证token #######################################################################
 
@@ -130,7 +138,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
             logger.debug("安全拦截器 上下文中用户: " + UserContextUtils.getUser());
         }
 
-        logger.debug("安全拦截器 验证 结束");
+        logger.debug("Web安全拦截器 验证 结束");
         return true;
     }
 

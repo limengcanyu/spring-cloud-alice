@@ -1,7 +1,8 @@
 package com.spring.cloud.security.config;
 
 import com.spring.cloud.security.constant.UriConstant;
-import com.spring.cloud.security.interceptor.SecurityInterceptor;
+import com.spring.cloud.security.interceptor.WebSecurityInterceptor;
+import com.spring.cloud.security.interceptor.WeixinSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -16,7 +17,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MyWebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
-    private SecurityInterceptor securityInterceptor;
+    private WebSecurityInterceptor webSecurityInterceptor;
+
+    @Autowired
+    private WeixinSecurityInterceptor weixinSecurityInterceptor;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -28,10 +32,15 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                 .maxAge(3600);
     }
 
+    /**
+     * 拦截器按添加顺序依次执行
+     *
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // swagger-ui、注册、登录不拦截
-        registry.addInterceptor(securityInterceptor).addPathPatterns("/**")
+        registry.addInterceptor(webSecurityInterceptor).addPathPatterns("/**")
                 .excludePathPatterns(
                         "/swagger-resources/**",
                         "/webjars/**",
@@ -43,6 +52,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         UriConstant.URI_REGISTER,
                         UriConstant.URI_LOGIN
                 );
+        registry.addInterceptor(weixinSecurityInterceptor);
     }
 
     @Override

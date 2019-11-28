@@ -45,6 +45,7 @@ public class CodeGenerator {
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
         pc.setParent("com.spring.cloud.security.mybatisplus");
+        pc.setService("syncService"); // 放同步服务目录，异步服务放异步服务目录
         mpg.setPackageInfo(pc);
 
         // 自定义配置

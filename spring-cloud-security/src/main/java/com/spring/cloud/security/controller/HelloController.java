@@ -1,11 +1,8 @@
 package com.spring.cloud.security.controller;
 
 
-import com.spring.cloud.security.dto.RegisterUserDTO;
 import com.spring.cloud.security.result.JSONResult;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
