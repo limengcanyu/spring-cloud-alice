@@ -1,20 +1,17 @@
 package com.spring.cloud.security.config;
 
 import com.baomidou.mybatisplus.core.parser.ISqlParser;
-import com.baomidou.mybatisplus.core.parser.ISqlParserFilter;
 import com.baomidou.mybatisplus.core.parser.SqlParserHelper;
 import com.baomidou.mybatisplus.extension.parsers.BlockAttackSqlParser;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantHandler;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
-import com.spring.cloud.security.utils.TenantContextUtils;
-import net.sf.jsqlparser.expression.LongValue;
+import com.spring.cloud.security.utils.ApplicationContextUtils;
 import net.sf.jsqlparser.expression.StringValue;
 import net.sf.jsqlparser.statement.delete.Delete;
 import net.sf.jsqlparser.expression.Expression;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,9 +68,11 @@ public class MyBatisPlusConfig {
         tenantSqlParser.setTenantHandler(new TenantHandler() {
             @Override
             public Expression getTenantId(boolean where) {
-                String tenantId = TenantContextUtils.getTenantId();
+                logger.debug("MyBatisPlusConfig 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+
+                String tenantId = ApplicationContextUtils.getTenantId();
                 if (StringUtils.isEmpty(tenantId)) {
-                    throw  new RuntimeException("租户上下文中未设置租户ID！");
+                    throw  new RuntimeException("应用上下文中未设置租户ID！");
                 }
 
                 // 该 where 条件 3.2.0 版本开始添加的，用于分区是否为在 where 条件中使用

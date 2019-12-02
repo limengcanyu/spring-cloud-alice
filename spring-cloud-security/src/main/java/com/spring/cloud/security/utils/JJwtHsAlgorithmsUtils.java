@@ -20,10 +20,11 @@ public class JJwtHsAlgorithmsUtils {
                 .compact();
     }
 
-    public static String creatJWS(String tenantId, String userId, String loginUUID) {
+    public static String creatJWS(String tenantId, String companyId, String userId, String loginUUID) {
         Claims claims = Jwts.claims();
 
         claims.put(TokenConstant.TOKEN_NAME_TENANT_ID, tenantId);
+        claims.put(TokenConstant.TOKEN_NAME_COMPANY_ID, companyId);
         claims.put(TokenConstant.TOKEN_NAME_USER_ID, userId);
         claims.put(TokenConstant.TOKEN_NAME_LOGIN_UUID, loginUUID);
 

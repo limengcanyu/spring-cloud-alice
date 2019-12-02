@@ -37,7 +37,9 @@ public class AuthenticateController {
     @ApiOperation("登录Controller 登录")
     @PostMapping("/login")
     public JSONResult login(@RequestBody LoginUserDTO loginUserDTO) {
-        logger.debug("登录 registerUserDTO: {}", JSONObject.toJSONString(loginUserDTO));
+        logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+
+        logger.debug("登录 参数: {}", JSONObject.toJSONString(loginUserDTO));
 
         PlatformUser loginUser = new PlatformUser();
         BeanUtils.copyProperties(loginUserDTO, loginUser);

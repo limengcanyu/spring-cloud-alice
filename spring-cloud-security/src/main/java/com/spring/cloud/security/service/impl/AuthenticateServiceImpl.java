@@ -61,6 +61,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         logger.debug("登录 处理 开始");
 
         String tenantId = loginUser.getTenantId();
+        String companyId = loginUser.getCompanyId();
         String userId = loginUser.getUserId();
 
         // 根据userId从数据库中获取用户信息
@@ -95,8 +96,8 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         BeanUtils.copyProperties(dbUser, redisPlatformUser);
         redisTemplateUtils.setObject(TokenConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, redisPlatformUser, 2, TimeUnit.HOURS);
 
-//        String token = JJwtRsaAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID); // 该算法耗时较长
-        String token = JJwtHsAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID);
+//        String token = JJwtRsaAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID); // 该算法耗时较长 大约12m
+        String token = JJwtHsAlgorithmsUtils.creatJWS(tenantId, companyId, userId, loginUUID);
         logger.debug("登录 成功 token: {}", token);
 
         logger.debug("登录 处理 结束");

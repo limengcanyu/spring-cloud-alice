@@ -2,6 +2,8 @@ package com.spring.cloud.security.controller;
 
 
 import com.spring.cloud.security.result.JSONResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,9 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+    private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     @RequestMapping("/hello")
     public JSONResult hello() {
+        logger.debug("HelloController 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+
         return JSONResult.SUCCESS;
     }
 }

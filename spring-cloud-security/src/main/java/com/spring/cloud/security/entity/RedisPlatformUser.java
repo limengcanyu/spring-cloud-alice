@@ -18,6 +18,11 @@ public class RedisPlatformUser {
     private String tenantId;
 
     /**
+     * 公司ID
+     */
+    private String companyId;
+
+    /**
      * 用户ID
      */
     private String userId;

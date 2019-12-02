@@ -10,6 +10,7 @@ public class TokenConstant {
     public static final String REQUEST_TOKEN_NAME = "token";
 
     public static final String TOKEN_NAME_TENANT_ID = "tenant_id";
+    public static final String TOKEN_NAME_COMPANY_ID = "company_id";
     public static final String TOKEN_NAME_USER_ID = "user_id";
     public static final String TOKEN_NAME_LOGIN_UUID = "login_uuid";
     public static final String TOKEN_NAME_REQUEST_UUID = "request_uuid";

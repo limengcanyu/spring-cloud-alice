@@ -4,10 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.spring.cloud.security.constant.TokenConstant;
 import com.spring.cloud.security.constant.UriConstant;
 import com.spring.cloud.security.entity.RedisPlatformUser;
+import com.spring.cloud.security.utils.ApplicationContextUtils;
 import com.spring.cloud.security.utils.JJwtHsAlgorithmsUtils;
 import com.spring.cloud.security.utils.RedisTemplateUtils;
-import com.spring.cloud.security.utils.TenantContextUtils;
-import com.spring.cloud.security.utils.UserContextUtils;
 import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +36,8 @@ public class WebSecurityInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.debug("WebSecurityInterceptor 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+
         logger.debug("Web安全拦截器 验证 开始");
 
         // 验证token #######################################################################
@@ -129,13 +130,9 @@ public class WebSecurityInterceptor extends HandlerInterceptorAdapter {
             }
             logger.debug("安全拦截器 Redis中用户信息: {}", JSONObject.toJSONString(loginUser));
 
-            String tenantId = loginUser.getTenantId();
-            // 设置当前租户上下文
-            TenantContextUtils.setTenantId(tenantId);
-
             // 设置当前用户上下文
-            UserContextUtils.setUser(loginUser);
-            logger.debug("安全拦截器 上下文中用户: " + UserContextUtils.getUser());
+            ApplicationContextUtils.setUser(loginUser);
+            logger.debug("安全拦截器 上下文中用户: " + ApplicationContextUtils.getUser());
         }
 
         logger.debug("Web安全拦截器 验证 结束");
