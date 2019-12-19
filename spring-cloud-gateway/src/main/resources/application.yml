@@ -1,16 +1,22 @@
 server.port: 8770
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+# LOGGING
+# Instead of logging the request in the handler explicitly, you could set
+logging.level.com.spring.cloud.gateway: DEBUG
+logging.pattern.console: ${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %4line %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
 
 # 关闭gateway
 #spring.cloud.gateway.enabled: false
 
+spring.cloud.gateway.discovery.locator.lower-case-service-id: true
+spring.cloud.gateway.discovery.locator.enabled: true
 
-
-
-
-
-
-
-
-
-
-
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: microservice1_path_route
+          uri: lb://SPRING-CLOUD-MICROSERVICE1
+          predicates:
+            - Path=/microservice1/**
