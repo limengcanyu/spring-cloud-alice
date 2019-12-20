@@ -6,25 +6,27 @@ http://localhost:8761
 
 # route microservice1
 
-http://localhost:8770/microservice1/echo/str
+http://localhost:8780/microservice1/echo/str
+http://localhost:8781/microservice1/echo/str
+http://localhost:8782/microservice1/echo/str
 
-http://localhost:8770/spring-cloud-microservice1/echo/str
+http://localhost:8780/spring-cloud-microservice1/echo/str
 
 服务启动3个实例，可以负载均衡
 
 # route microservice2
 
-http://localhost:8770/microservice2/
+http://localhost:8780/microservice2/
 
-http://localhost:8770/spring-cloud-microservice2/
+http://localhost:8780/spring-cloud-microservice2/
 
 # see actuator
 
-http://localhost:8770/actuator
+http://localhost:8780/actuator
 
 # see actuator routes
 
-http://localhost:8770/actuator/gateway/routes
+http://localhost:8780/actuator/gateway/routes
 
 输出:
 
@@ -78,7 +80,7 @@ http://localhost:8770/actuator/gateway/routes
 
 由输出可知，gateway的路由不仅可以通过指定配置的Paths，例如：/microservice1/**，还可以通过服务的Eureka实例名称，例如：/spring-cloud-microservice1/**
 因此以下两种是相同效果：
-http://localhost:8770/microservice1/echo/str
-http://localhost:8770/spring-cloud-microservice1/echo/str
+http://localhost:8780/microservice1/echo/str
+http://localhost:8780/spring-cloud-microservice1/echo/str
 
 
