@@ -1,6 +1,6 @@
 spring.profiles.active: company
 
-server.port: 8781
+server.port: 8830
 spring.application.name: spring-cloud-security
 
 #eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

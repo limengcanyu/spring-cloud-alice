@@ -1,4 +1,4 @@
-server.port: 8792
+server.port: 8870
 
 eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
 

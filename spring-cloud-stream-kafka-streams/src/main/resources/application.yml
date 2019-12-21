@@ -1,4 +1,4 @@
-server.port: 8781
+server.port: 8910
 spring.application.name: spring-cloud-stream-kafka-streams
 
 # Kafka Streams Properties

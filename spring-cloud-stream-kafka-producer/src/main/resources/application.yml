@@ -1,4 +1,4 @@
-server.port: 8790
+server.port: 8900
 spring.application.name: spring-cloud-stream-kafka-producer
 
 #eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

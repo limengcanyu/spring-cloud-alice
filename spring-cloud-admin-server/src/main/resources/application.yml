@@ -1,4 +1,4 @@
-server.port: 8781
+server.port: 8770
 spring.application.name: spring-cloud-admin-server
 
 #eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
