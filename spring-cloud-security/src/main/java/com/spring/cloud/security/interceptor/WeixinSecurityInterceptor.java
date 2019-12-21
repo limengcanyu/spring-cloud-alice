@@ -22,6 +22,7 @@ public class WeixinSecurityInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.debug("微信安全拦截器 验证 开始");
 
-        return super.preHandle(request, response, handler);
+        logger.debug("微信安全拦截器 验证 结束");
+        return true;
     }
 }

@@ -2,7 +2,7 @@ package com.spring.cloud.security.jwt;
 
 import com.google.gson.Gson;
 import com.spring.cloud.security.entity.RedisPlatformUser;
-import com.spring.cloud.security.utils.JwtConstant;
+import com.spring.cloud.security.constant.JwtConstant;
 import com.spring.cloud.security.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.junit.Test;

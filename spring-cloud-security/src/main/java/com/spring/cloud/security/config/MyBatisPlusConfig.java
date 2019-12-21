@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantHandler;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
-import com.spring.cloud.security.utils.ApplicationContextUtils;
+import com.spring.cloud.security.utils.ContextUtils;
 import net.sf.jsqlparser.expression.StringValue;
 import net.sf.jsqlparser.statement.delete.Delete;
 import net.sf.jsqlparser.expression.Expression;
@@ -70,7 +70,7 @@ public class MyBatisPlusConfig {
             public Expression getTenantId(boolean where) {
                 logger.debug("MyBatisPlusConfig 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
-                String tenantId = ApplicationContextUtils.getTenantId();
+                String tenantId = ContextUtils.getTenantId();
                 if (StringUtils.isEmpty(tenantId)) {
                     throw  new RuntimeException("应用上下文中未设置租户ID！");
                 }

@@ -11,8 +11,8 @@ import org.springframework.util.ObjectUtils;
  * @author rock.jiang
  * Date 2019/11/28 17:16
  */
-public class ApplicationContextUtils {
-    private static final Logger logger = LoggerFactory.getLogger(ApplicationContextUtils.class);
+public class ContextUtils {
+    private static final Logger logger = LoggerFactory.getLogger(ContextUtils.class);
 
     private static ThreadLocal<RedisPlatformUser> userContext = new ThreadLocal<>();
 

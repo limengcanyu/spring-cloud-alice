@@ -1,7 +1,7 @@
 package com.spring.cloud.security.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.security.constant.TokenConstant;
+import com.spring.cloud.security.constant.RedisConstant;
 import com.spring.cloud.security.entity.RedisPlatformUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,19 +16,19 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RedisTemplateUtilsTest {
+public class RedisUtilsTest {
     @Autowired
-    private RedisTemplateUtils redisTemplateUtils;
+    private RedisUtils redisUtils;
 
     @Test
     public void set() {
         String key = "age";
         String value = "10";
-        redisTemplateUtils.setString(key, value);
+        redisUtils.setString(key, value);
 
-        redisTemplateUtils.increment(key, 20);
+        redisUtils.increment(key, 20);
 
-        System.out.println(redisTemplateUtils.getString(key));
+        System.out.println(redisUtils.getString(key));
     }
 
     @Test
@@ -37,8 +37,8 @@ public class RedisTemplateUtilsTest {
         loginUser.setTenantId("tenant_000001");
         loginUser.setUserId("user_000001");
 
-        redisTemplateUtils.setObject("login_user", loginUser);
-        System.out.println(redisTemplateUtils.getObject("login_user", RedisPlatformUser.class));
+        redisUtils.setObject("login_user", loginUser);
+        System.out.println(redisUtils.getObject("login_user", RedisPlatformUser.class));
     }
 
     @Test
@@ -60,8 +60,8 @@ public class RedisTemplateUtilsTest {
         loginUser.setUserId("user_000003");
         loginUserList.add(loginUser);
 
-        redisTemplateUtils.setList("login_user_list", loginUserList);
-        System.out.println(redisTemplateUtils.getList("login_user_list", RedisPlatformUser.class));
+        redisUtils.setList("login_user_list", loginUserList);
+        System.out.println(redisUtils.getList("login_user_list", RedisPlatformUser.class));
     }
 
     @Test
@@ -73,17 +73,17 @@ public class RedisTemplateUtilsTest {
             dbUser.setTenantId("tenant_00000" + i);
             dbUser.setUserId(userId);
 
-            redisTemplateUtils.setString(TokenConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId, loginUUID, 2, TimeUnit.HOURS);
-            redisTemplateUtils.setObject(TokenConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, dbUser, 2, TimeUnit.HOURS);
+            redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId, loginUUID, 2, TimeUnit.HOURS);
+            redisUtils.setObject(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, dbUser, 2, TimeUnit.HOURS);
         }
     }
 
     @Test
     public void request() {
         String userId = "user_000001";
-        String loginUUID = redisTemplateUtils.getString(TokenConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId);
+        String loginUUID = redisUtils.getString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId);
         System.out.println("loginUUID: " + loginUUID);
-        RedisPlatformUser dbUser = redisTemplateUtils.getObject(TokenConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, RedisPlatformUser.class);
+        RedisPlatformUser dbUser = redisUtils.getObject(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, RedisPlatformUser.class);
         System.out.println("dbUser: " + JSONObject.toJSONString(dbUser));
     }
 }

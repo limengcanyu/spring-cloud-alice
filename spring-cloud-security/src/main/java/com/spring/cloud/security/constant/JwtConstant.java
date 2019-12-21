@@ -1,4 +1,4 @@
-package com.spring.cloud.security.utils;
+package com.spring.cloud.security.constant;
 
 import java.util.UUID;
 

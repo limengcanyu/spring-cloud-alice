@@ -33,7 +33,7 @@ public class SpringCloudMicroService1Application {
         return "Hello MicroService1";
     }
 
-    @GetMapping("/echo/{string}")
+    @RequestMapping("/echo/{string}")
     public String echo(@PathVariable String string) {
         logger.info("MicroService1 Hello " + string);
         return "MicroService1 Hello " + string;

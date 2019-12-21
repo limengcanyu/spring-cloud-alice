@@ -12,15 +12,10 @@ public class JSONResult {
     private Integer code;
 
     /**
-     * 返回信息：成功时为空，错误时才有信息
+     * 成功时无须设置，失败时返回错误消息
      */
     private String message;
 
-    private String token;
-
-    /**
-     * 返回数据
-     */
     private Object data;
 
     public JSONResult(Integer code, String message) {
@@ -34,16 +29,4 @@ public class JSONResult {
         this.data = data;
     }
 
-    public JSONResult(Integer code, String message, String token) {
-        this.code = code;
-        this.message = message;
-        this.token = token;
-    }
-
-    public JSONResult(Integer code, String message, String token, Object data) {
-        this.code = code;
-        this.message = message;
-        this.token = token;
-        this.data = data;
-    }
 }

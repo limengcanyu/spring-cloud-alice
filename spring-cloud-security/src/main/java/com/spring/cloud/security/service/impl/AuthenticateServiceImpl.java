@@ -1,5 +1,6 @@
 package com.spring.cloud.security.service.impl;
 
+import com.spring.cloud.security.constant.RedisConstant;
 import com.spring.cloud.security.constant.TokenConstant;
 import com.spring.cloud.security.entity.RedisPlatformUser;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
@@ -8,8 +9,7 @@ import com.spring.cloud.security.result.JSONResult;
 import com.spring.cloud.security.service.AuthenticateService;
 import com.spring.cloud.security.service.PlatformUserCommonService;
 import com.spring.cloud.security.utils.JJwtHsAlgorithmsUtils;
-import com.spring.cloud.security.utils.JJwtRsaAlgorithmsUtils;
-import com.spring.cloud.security.utils.RedisTemplateUtils;
+import com.spring.cloud.security.utils.RedisUtils;
 import org.jasypt.encryption.StringEncryptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +22,12 @@ import org.springframework.util.StringUtils;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-@Service
+//@Service
 public class AuthenticateServiceImpl implements AuthenticateService {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticateServiceImpl.class);
 
     @Autowired
-    private RedisTemplateUtils redisTemplateUtils;
+    private RedisUtils redisUtils;
 
     @Autowired
     private StringEncryptor stringEncryptor;
@@ -85,16 +85,16 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         logger.debug("登录 密码验证 成功");
 
         // 密码验证通过，从Redis中获取用户登录uuid，若不存在，则生成登录uuid
-        String loginUUID = redisTemplateUtils.getString(TokenConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId);
+        String loginUUID = redisUtils.getString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId);
         if (StringUtils.isEmpty(loginUUID)) {
             loginUUID = UUID.randomUUID().toString();
         }
 
-        redisTemplateUtils.setString(TokenConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId, loginUUID, 2, TimeUnit.HOURS);
+        redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + userId, loginUUID, 2, TimeUnit.HOURS);
 
         RedisPlatformUser redisPlatformUser = new RedisPlatformUser();
         BeanUtils.copyProperties(dbUser, redisPlatformUser);
-        redisTemplateUtils.setObject(TokenConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, redisPlatformUser, 2, TimeUnit.HOURS);
+        redisUtils.setObject(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, redisPlatformUser, 2, TimeUnit.HOURS);
 
 //        String token = JJwtRsaAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID); // 该算法耗时较长 大约12m
         String token = JJwtHsAlgorithmsUtils.creatJWS(tenantId, companyId, userId, loginUUID);
@@ -107,8 +107,8 @@ public class AuthenticateServiceImpl implements AuthenticateService {
     @Override
     public JSONResult logout(String loginUserId) {
         logger.debug("退出 清除Redis中用户数据 开始");
-        redisTemplateUtils.setString(TokenConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
-        redisTemplateUtils.setString(TokenConstant.REDIS_TOKEN_PREFIX_USER_INFO + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
+        redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
+        redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
         logger.debug("退出 清除Redis中用户数据 结束");
         return JSONResult.SUCCESS;
     }

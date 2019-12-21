@@ -46,9 +46,6 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         "/webjars/**",
                         "/v2/**",
                         "/swagger-ui.html/**",
-                        "/api/download/**",
-                        "/api/export/**",
-                        "/api/upload/**",
                         UriConstant.URI_REGISTER,
                         UriConstant.URI_LOGIN
                 );

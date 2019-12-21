@@ -1,5 +1,6 @@
 package com.spring.cloud.security.utils;
 
+import com.spring.cloud.security.constant.JwtConstant;
 import com.spring.cloud.security.constant.TokenConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

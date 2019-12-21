@@ -7,7 +7,7 @@ import com.spring.cloud.security.service.PlatformUserCommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class PlatformUserCommonServiceImpl implements PlatformUserCommonService {
     @Autowired
     private IPlatformUserService platformUserService;

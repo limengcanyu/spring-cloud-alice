@@ -20,6 +20,13 @@ spring:
   cloud:
     gateway:
       routes:
+        # 以 /security 开头的调用认证微服务，例如 http://localhost:8780/security/auth/register，后面的 /auth/register 传递给认证微服务
+        - id: security_route
+          uri: lb://spring-cloud-security
+          predicates:
+            - Path=/security/**
+          filters:
+            - StripPrefix=1
         - id: microservice1_route
           uri: lb://spring-cloud-microservice1
           predicates:

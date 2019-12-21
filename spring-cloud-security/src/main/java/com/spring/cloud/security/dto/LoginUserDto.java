@@ -3,7 +3,7 @@ package com.spring.cloud.security.dto;
 import lombok.Data;
 
 @Data
-public class LoginUserDTO {
+public class LoginUserDto {
     private String userId;
     private String password;
 }

@@ -7,7 +7,7 @@ package com.spring.cloud.security.constant;
  * date 2019/06/28
  */
 public class UriConstant {
-    public static final String URI_REGISTER = "/authenticate/register";
-    public static final String URI_LOGIN = "/authenticate/login";
-    public static final String URI_LOGOUT = "/authenticate/logout";
+    public static final String URI_REGISTER = "/auth/register";
+    public static final String URI_LOGIN = "/auth/login";
+    public static final String URI_LOGOUT = "/auth/logout";
 }

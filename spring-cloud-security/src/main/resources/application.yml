@@ -1,9 +1,9 @@
-spring.profiles.active: company
+spring.profiles.active: home
 
 server.port: 8830
 spring.application.name: spring-cloud-security
 
-#eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
 
 spring.datasource.driver-class-name: com.p6spy.engine.spy.P6SpyDriver
 
