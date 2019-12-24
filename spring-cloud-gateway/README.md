@@ -1,16 +1,14 @@
 # spring-cloud-gateway
 
-# Eureka Server
-
-http://localhost:8761
-
-# route auth
+## route auth
 
 http://localhost:8780/security/auth/register
 
-# route microservice1
+## route microservice1
 
+https://localhost:8780/microservice1/echo/str
 http://localhost:8780/microservice1/echo/str
+
 http://localhost:8781/microservice1/echo/str
 http://localhost:8782/microservice1/echo/str
 
@@ -18,19 +16,19 @@ http://localhost:8780/spring-cloud-microservice1/echo/str
 
 服务启动3个实例，可以负载均衡
 
-# route microservice2
+## route microservice2
 
 http://localhost:8780/microservice2/
 
 http://localhost:8780/spring-cloud-microservice2/
 
-# see actuator
+## see actuator
 
 http://localhost:8780/actuator
 
-# see actuator routes
+## see actuator routes
 
-http://localhost:8780/actuator/gateway/routes
+https://localhost:8780/actuator/gateway/routes
 
 输出:
 
@@ -87,4 +85,37 @@ http://localhost:8780/actuator/gateway/routes
 http://localhost:8780/microservice1/echo/str
 http://localhost:8780/spring-cloud-microservice1/echo/str
 
+## delete routes using HTTP Method DELETE
+
+https://localhost:8780/actuator/gateway/routes/microservice2_route
+
+## 添加SSL配置
+
+进入JDK bin目录，执行以下命令生成key文件 scg-keystore.p12
+
+D:
+cd D:\IdeaProjects-MyProjects\spring-cloud-alice\spring-cloud-gateway\src\main\resources
+E:\Java\jdk1.8.0_202\bin\keytool -genkey -alias scg -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore scg-keystore.p12 -validity 3650
+
+注：
+https 访问后出现异常 javax.net.ssl.SSLException: Received fatal alert: certificate_unknown，原因是证书是非认证证书，需要申请认证证书
+
+## GatewayAutoConfiguration 中定义了各种类型的 RouteDefinitionRepository
+可以仿照 InMemoryRouteDefinitionRepository 构造自己的动态路由，路由信息从数据库中加载
+
+### http 方式：
+
+#### 新增路由
+
+http://localhost:8780/route/save
+
+{
+    "id": "microservice2_route",
+    "uri": "lb://spring-cloud-microservice2",
+    "path": "Path=/microservice2/**",
+}
+
+#### 删除路由
+
+http://localhost:8780/route/delete?routeId=microservice2_route
 

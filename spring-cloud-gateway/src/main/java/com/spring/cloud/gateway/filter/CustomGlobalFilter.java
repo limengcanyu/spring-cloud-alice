@@ -22,15 +22,15 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         logger.debug("custom global filter ====================================== ");
 
-        // 从请求参数中获取token http://localhost:8780/microservice1/echo/str?token=sdfsdf
-//        String token = exchange.getRequest().getQueryParams().getFirst("token");
-        // 从请求header中获取token http://localhost:8780/microservice1/echo/str
-        String token = exchange.getRequest().getHeaders().getFirst("token");
-        if (token == null || token.isEmpty()) {
-            logger.debug("请求中token为空！");
-            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-            return exchange.getResponse().setComplete();
-        }
+//        // 从请求参数中获取token http://localhost:8780/microservice1/echo/str?token=sdfsdf
+////        String token = exchange.getRequest().getQueryParams().getFirst("token");
+//        // 从请求header中获取token http://localhost:8780/microservice1/echo/str
+//        String token = exchange.getRequest().getHeaders().getFirst("token");
+//        if (token == null || token.isEmpty()) {
+//            logger.debug("请求中token为空！");
+//            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+//            return exchange.getResponse().setComplete();
+//        }
 
         return chain.filter(exchange);
     }
