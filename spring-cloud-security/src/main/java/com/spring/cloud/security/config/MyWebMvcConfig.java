@@ -1,6 +1,7 @@
 package com.spring.cloud.security.config;
 
 import com.spring.cloud.security.constant.UriConstant;
+import com.spring.cloud.security.interceptor.SignatureVerificationInterceptor;
 import com.spring.cloud.security.interceptor.WebSecurityInterceptor;
 import com.spring.cloud.security.interceptor.WeixinSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private WeixinSecurityInterceptor weixinSecurityInterceptor;
 
+    @Autowired
+    private SignatureVerificationInterceptor signatureVerificationInterceptor;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/*/**")
@@ -39,7 +43,10 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // swagger-ui、注册、登录不拦截
+        // 签名验证拦截器
+        registry.addInterceptor(signatureVerificationInterceptor);
+
+        // Web安全拦截器 swagger-ui、注册、登录不拦截
         registry.addInterceptor(webSecurityInterceptor).addPathPatterns("/**")
                 .excludePathPatterns(
                         "/swagger-resources/**",
@@ -49,7 +56,10 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         UriConstant.URI_REGISTER,
                         UriConstant.URI_LOGIN
                 );
+
+        // 微信安全拦截器
         registry.addInterceptor(weixinSecurityInterceptor);
+
     }
 
     @Override

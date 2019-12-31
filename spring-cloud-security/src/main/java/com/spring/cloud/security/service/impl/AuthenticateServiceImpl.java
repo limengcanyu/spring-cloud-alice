@@ -1,21 +1,19 @@
 package com.spring.cloud.security.service.impl;
 
 import com.spring.cloud.security.constant.RedisConstant;
-import com.spring.cloud.security.constant.TokenConstant;
 import com.spring.cloud.security.entity.RedisPlatformUser;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
 import com.spring.cloud.security.mybatisplus.service.IPlatformUserService;
 import com.spring.cloud.security.result.JSONResult;
 import com.spring.cloud.security.service.AuthenticateService;
 import com.spring.cloud.security.service.PlatformUserCommonService;
-import com.spring.cloud.security.utils.JJwtHsAlgorithmsUtils;
+import com.spring.cloud.security.utils.JJwtHsUtils;
 import com.spring.cloud.security.utils.RedisUtils;
 import org.jasypt.encryption.StringEncryptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -97,7 +95,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         redisUtils.setObject(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, redisPlatformUser, 2, TimeUnit.HOURS);
 
 //        String token = JJwtRsaAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID); // 该算法耗时较长 大约12m
-        String token = JJwtHsAlgorithmsUtils.creatJWS(tenantId, companyId, userId, loginUUID);
+        String token = JJwtHsUtils.creatJWS(tenantId, companyId, userId, loginUUID);
         logger.debug("登录 成功 token: {}", token);
 
         logger.debug("登录 处理 结束");

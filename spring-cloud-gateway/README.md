@@ -119,3 +119,48 @@ http://localhost:8780/route/save
 
 http://localhost:8780/route/delete?routeId=microservice2_route
 
+### 签名验证
+
+前端将重要参数进行md5摘要处理，生成参数签名，后台再根据参数生成参数签名，之后比较前端和后端的签名，若两者一致，则表示参数未被篡改
+
+示例地址: https://localhost:8780/microservice1/signature/verify
+示例参数: 
+
+{
+	"tenantId": "tenant_001",
+	"companyId": "company_001",
+	"companyName": "公司_001",
+	"salaryMonth": "2019-12",
+	"salaryBatch": 1,
+	"employee": {
+		"employeeId": "employee_001",
+		"age": 21,
+		"employeeName": "王三",
+		"departmentId": "department_001",
+		"departmentName": "部门_001"
+	},
+	"employeeIdList": [
+		"employee_001",
+		"employee_002",
+		"employee_003"
+	],
+	"itemList": [
+		{
+			"itemCode": "item_001",
+			"itemName": "name_001",
+			"dataType": 1
+		},
+		{
+			"itemCode": "item_003",
+			"itemName": "name_003",
+			"dataType": 1
+		},
+		{
+			"itemCode": "item_002",
+			"itemName": "name_002",
+			"dataType": 2
+		}
+	]
+}
+
+

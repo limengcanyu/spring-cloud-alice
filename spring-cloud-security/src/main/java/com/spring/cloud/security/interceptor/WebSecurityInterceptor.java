@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>Description: Web SecurityInterceptor</p>
+ * <p>Description: Web Security Interceptor</p>
  *
  * @author rock.jiang
  * Date 2019/11/28 17:18

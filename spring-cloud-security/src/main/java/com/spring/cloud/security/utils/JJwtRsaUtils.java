@@ -13,7 +13,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 
-public class JJwtRsaAlgorithmsUtils {
+public class JJwtRsaUtils {
     private static PublicKey getPublicKey() {
         int keySizeInBits = 4096;
         SecureRandom random = new SecureRandom(JwtConstant.JWT_SECRET.getBytes());

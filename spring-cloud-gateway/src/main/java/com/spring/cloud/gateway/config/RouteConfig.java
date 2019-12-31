@@ -59,6 +59,11 @@ public class RouteConfig {
 //        return new RedisRateLimiter(1, 2);
 //    }
 
+    /**
+     * 动态路由获取Bean定义
+     *
+     * @return
+     */
     @Bean
     public MysqlRouteDefinitionRepository mysqlRouteDefinitionRepository() {
         return new MysqlRouteDefinitionRepository();

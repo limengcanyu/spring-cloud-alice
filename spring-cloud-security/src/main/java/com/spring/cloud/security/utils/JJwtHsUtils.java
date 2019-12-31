@@ -8,7 +8,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-public class JJwtHsAlgorithmsUtils {
+public class JJwtHsUtils {
     private static SecretKey getSecretKey() {
         byte[] encodedKey = Base64.decodeBase64(JwtConstant.JWT_SECRET);
         return new SecretKeySpec(encodedKey, "HmacSHA256");
