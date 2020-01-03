@@ -1,5 +1,6 @@
 package com.spring.cloud.zuul.config;
 
+import com.spring.cloud.zuul.constant.UriConstant;
 import com.spring.cloud.zuul.interceptor.WebSecurityInterceptor;
 import com.spring.cloud.zuul.interceptor.WeixinSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +46,8 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         "/webjars/**",
                         "/v2/**",
                         "/swagger-ui.html/**",
-                        "/api/download/**",
-                        "/api/export/**",
-                        "/api/upload/**"
-//                        UriConstant.URI_REGISTER,
-//                        UriConstant.URI_LOGIN
+                        UriConstant.URI_REGISTER,
+                        UriConstant.URI_LOGIN
                 );
         registry.addInterceptor(weixinSecurityInterceptor);
     }
