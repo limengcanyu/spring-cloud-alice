@@ -5,14 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
-import org.springframework.core.io.buffer.DataBuffer;
-import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -45,18 +41,18 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 //            return exchange.getResponse().setComplete();
 //        }
 
-        // 获取请求Body
-        Flux<DataBuffer> bodyFlux = request.getBody();
-        bodyFlux.subscribe(dataBuffer -> {
-            logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-            logger.debug("dataBuffer: {}", dataBuffer);
-
-            byte[] bytes = new byte[dataBuffer.readableByteCount()];
-            dataBuffer.read(bytes);
-            DataBufferUtils.release(dataBuffer);
-            String bodyString = new String(bytes, StandardCharsets.UTF_8);
-            logger.debug("bodyString: {}", bodyString);
-        });
+//        // 获取请求Body
+//        Flux<DataBuffer> bodyFlux = request.getBody();
+//        bodyFlux.subscribe(dataBuffer -> {
+//            logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+//            logger.debug("dataBuffer: {}", dataBuffer);
+//
+//            byte[] bytes = new byte[dataBuffer.readableByteCount()];
+//            dataBuffer.read(bytes);
+//            DataBufferUtils.release(dataBuffer);
+//            String bodyString = new String(bytes, StandardCharsets.UTF_8);
+//            logger.debug("bodyString: {}", bodyString);
+//        });
 
         logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
         return chain.filter(exchange);
@@ -64,7 +60,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE + 1001;
+        return -1;
     }
 
 }

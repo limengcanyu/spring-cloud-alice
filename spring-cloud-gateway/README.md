@@ -22,6 +22,10 @@ http://localhost:8780/microservice2/
 
 http://localhost:8780/spring-cloud-microservice2/
 
+## zuul 
+
+https://localhost:8780/zuul/echo
+
 ## see actuator
 
 http://localhost:8780/actuator
