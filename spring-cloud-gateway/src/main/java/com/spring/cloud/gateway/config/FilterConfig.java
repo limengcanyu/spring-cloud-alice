@@ -17,4 +17,5 @@ public class FilterConfig {
     public GlobalFilter authFilter() {
         return new AuthGlobalFilter();
     }
+
 }

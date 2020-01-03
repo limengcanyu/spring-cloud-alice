@@ -1,7 +1,5 @@
 package com.spring.cloud.gateway.filter;
 
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -11,14 +9,11 @@ import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.server.ServerWebExchange;
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import rx.internal.reactivestreams.SubscriberAdapter;
 
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
+import java.util.Map;
 
 /**
  * <p>Description: Auth Global Filter </p>
@@ -37,6 +32,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest();
         logger.debug("请求对象类型: {}", request.getClass());
 
+        Map<String, Object> requestAttributes = exchange.getAttributes();
+        logger.debug("请求属性: {}", requestAttributes);
+
 //        // 从请求参数中获取token http://localhost:8780/microservice1/echo/str?token=sdfsdf
 //        String token = request.getQueryParams().getFirst("token");
 //        // 从请求header中获取token http://localhost:8780/microservice1/echo/str
@@ -47,9 +45,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 //            return exchange.getResponse().setComplete();
 //        }
 
+        // 获取请求Body
         Flux<DataBuffer> bodyFlux = request.getBody();
-
-        Consumer<DataBuffer> consumer = dataBuffer -> {
+        bodyFlux.subscribe(dataBuffer -> {
             logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
             logger.debug("dataBuffer: {}", dataBuffer);
 
@@ -58,16 +56,15 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             DataBufferUtils.release(dataBuffer);
             String bodyString = new String(bytes, StandardCharsets.UTF_8);
             logger.debug("bodyString: {}", bodyString);
-        };
+        });
 
-        Disposable disposable = bodyFlux.subscribe(consumer);
-
+        logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
         return chain.filter(exchange);
     }
 
     @Override
     public int getOrder() {
-        return Ordered.LOWEST_PRECEDENCE;
+        return Ordered.HIGHEST_PRECEDENCE + 1001;
     }
 
 }
