@@ -1,5 +1,6 @@
 package com.spring.cloud.security.utils;
 
+import com.spring.cloud.common.utils.JJwtHsUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.junit.Test;

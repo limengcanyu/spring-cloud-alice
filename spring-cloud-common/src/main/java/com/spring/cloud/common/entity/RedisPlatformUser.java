@@ -1,4 +1,4 @@
-package com.spring.cloud.security.entity;
+package com.spring.cloud.common.entity;
 
 import lombok.Data;
 

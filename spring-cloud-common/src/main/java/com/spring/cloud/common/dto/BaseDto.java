@@ -1,4 +1,4 @@
-package com.spring.cloud.security.dto;
+package com.spring.cloud.common.dto;
 
 import lombok.Data;
 

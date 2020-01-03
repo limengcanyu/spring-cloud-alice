@@ -1,14 +1,17 @@
 package com.spring.cloud.security.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.security.dto.LoginUserDto;
-import com.spring.cloud.security.dto.RegisterUserDto;
-import com.spring.cloud.security.result.JSONResult;
+import com.spring.cloud.common.dto.LoginUserDto;
+import com.spring.cloud.common.dto.RegisterUserDto;
+import com.spring.cloud.common.result.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @Api("登录Controller")
 @RequestMapping("/auth")

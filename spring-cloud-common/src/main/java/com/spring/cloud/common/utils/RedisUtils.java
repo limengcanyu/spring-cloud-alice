@@ -1,4 +1,4 @@
-package com.spring.cloud.security.utils;
+package com.spring.cloud.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

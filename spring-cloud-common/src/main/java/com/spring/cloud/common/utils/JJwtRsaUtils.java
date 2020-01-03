@@ -1,7 +1,8 @@
-package com.spring.cloud.security.utils;
+package com.spring.cloud.common.utils;
 
-import com.spring.cloud.security.constant.JwtConstant;
-import com.spring.cloud.security.constant.TokenConstant;
+import com.spring.cloud.common.constant.JwtConstant;
+import com.spring.cloud.common.constant.TokenConstant;
+import com.spring.cloud.common.entity.JwtClaims;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
@@ -16,14 +17,14 @@ import java.security.SecureRandom;
 public class JJwtRsaUtils {
     private static PublicKey getPublicKey() {
         int keySizeInBits = 4096;
-        SecureRandom random = new SecureRandom(JwtConstant.JWT_SECRET.getBytes());
+        SecureRandom random = new SecureRandom(JwtConstant.SECRET_KEY.getBytes());
         KeyPair keyPair = RsaProvider.generateKeyPair(keySizeInBits, random);
         return keyPair.getPublic();
     }
 
     private static PrivateKey getPrivateKey() {
         int keySizeInBits = 4096;
-        SecureRandom random = new SecureRandom(JwtConstant.JWT_SECRET.getBytes());
+        SecureRandom random = new SecureRandom(JwtConstant.SECRET_KEY.getBytes());
         KeyPair keyPair = RsaProvider.generateKeyPair(keySizeInBits, random);
         return keyPair.getPrivate();
     }
@@ -35,12 +36,13 @@ public class JJwtRsaUtils {
                 .compact();
     }
 
-    public static String creatJWS(String tenantId, String userId, String loginUUID) {
+    public static String creatJWS(JwtClaims jwtClaims) {
         Claims claims = Jwts.claims();
 
-        claims.put(TokenConstant.TOKEN_NAME_TENANT_ID, tenantId);
-        claims.put(TokenConstant.TOKEN_NAME_USER_ID, userId);
-        claims.put(TokenConstant.TOKEN_NAME_LOGIN_UUID, loginUUID);
+        claims.put(TokenConstant.TOKEN_NAME_TENANT_ID, jwtClaims.getTenantId());
+        claims.put(TokenConstant.TOKEN_NAME_COMPANY_ID, jwtClaims.getCompanyId());
+        claims.put(TokenConstant.TOKEN_NAME_USER_ID, jwtClaims.getUserId());
+        claims.put(TokenConstant.TOKEN_NAME_LOGIN_UUID, jwtClaims.getLoginUUID());
 
         return Jwts.builder()
                 .setClaims(claims)

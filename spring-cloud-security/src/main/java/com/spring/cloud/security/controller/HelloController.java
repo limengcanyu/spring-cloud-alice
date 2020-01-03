@@ -1,7 +1,7 @@
 package com.spring.cloud.security.controller;
 
 
-import com.spring.cloud.security.result.JSONResult;
+import com.spring.cloud.common.result.JSONResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +24,7 @@ public class HelloController {
     public JSONResult hello() {
         logger.debug("HelloController 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
-        return JSONResult.SUCCESS;
+        return new JSONResult(0, null);
     }
 }
 

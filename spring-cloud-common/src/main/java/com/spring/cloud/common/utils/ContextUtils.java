@@ -1,12 +1,12 @@
-package com.spring.cloud.security.utils;
+package com.spring.cloud.common.utils;
 
-import com.spring.cloud.security.entity.RedisPlatformUser;
+import com.spring.cloud.common.entity.RedisPlatformUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 
 /**
- * <p>Description: Application Context Utils</p>
+ * <p>Description: Context Utils</p>
  *
  * @author rock.jiang
  * Date 2019/11/28 17:16
@@ -17,7 +17,7 @@ public class ContextUtils {
     private static ThreadLocal<RedisPlatformUser> userContext = new ThreadLocal<>();
 
     public static void setUser(RedisPlatformUser user) {
-        logger.debug("ApplicationContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        logger.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
         userContext.remove();
         userContext.set(user);
@@ -28,7 +28,7 @@ public class ContextUtils {
     }
 
     public static String getTenantId() {
-        logger.debug("ApplicationContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        logger.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getTenantId();
@@ -37,7 +37,7 @@ public class ContextUtils {
     }
 
     public static String getCompanyId() {
-        logger.debug("ApplicationContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        logger.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getCompanyId();
@@ -46,7 +46,7 @@ public class ContextUtils {
     }
 
     public static String getUserId() {
-        logger.debug("ApplicationContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        logger.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getUserId();

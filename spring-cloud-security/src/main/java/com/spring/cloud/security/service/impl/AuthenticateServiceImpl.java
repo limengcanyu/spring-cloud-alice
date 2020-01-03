@@ -1,14 +1,15 @@
 package com.spring.cloud.security.service.impl;
 
-import com.spring.cloud.security.constant.RedisConstant;
-import com.spring.cloud.security.entity.RedisPlatformUser;
+import com.spring.cloud.common.constant.RedisConstant;
+import com.spring.cloud.common.entity.JwtClaims;
+import com.spring.cloud.common.entity.RedisPlatformUser;
+import com.spring.cloud.common.result.JSONResult;
+import com.spring.cloud.common.utils.JJwtHsUtils;
+import com.spring.cloud.common.utils.RedisUtils;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
 import com.spring.cloud.security.mybatisplus.service.IPlatformUserService;
-import com.spring.cloud.security.result.JSONResult;
 import com.spring.cloud.security.service.AuthenticateService;
 import com.spring.cloud.security.service.PlatformUserCommonService;
-import com.spring.cloud.security.utils.JJwtHsUtils;
-import com.spring.cloud.security.utils.RedisUtils;
 import org.jasypt.encryption.StringEncryptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +52,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
 
         platformUserService.save(registerUser);
 
-        return JSONResult.SUCCESS;
+        return new JSONResult(0, null);
     }
 
     @Override
@@ -95,11 +96,11 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         redisUtils.setObject(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + userId, redisPlatformUser, 2, TimeUnit.HOURS);
 
 //        String token = JJwtRsaAlgorithmsUtils.creatJWS(tenantId, userId, loginUUID); // 该算法耗时较长 大约12m
-        String token = JJwtHsUtils.creatJWS(tenantId, companyId, userId, loginUUID);
+        String token = JJwtHsUtils.creatJWS(new JwtClaims(tenantId, companyId, userId, loginUUID));
         logger.debug("登录 成功 token: {}", token);
 
         logger.debug("登录 处理 结束");
-        return new JSONResult(0, null, token);
+        return new JSONResult(0, token);
     }
 
     @Override
@@ -108,6 +109,6 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_LOGIN_UUID + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
         redisUtils.setString(RedisConstant.REDIS_TOKEN_PREFIX_USER_INFO + loginUserId, "null", 1, TimeUnit.MILLISECONDS);
         logger.debug("退出 清除Redis中用户数据 结束");
-        return JSONResult.SUCCESS;
+        return new JSONResult(0, null);
     }
 }

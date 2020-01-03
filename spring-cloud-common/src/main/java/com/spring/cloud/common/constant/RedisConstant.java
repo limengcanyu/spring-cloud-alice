@@ -1,4 +1,4 @@
-package com.spring.cloud.security.constant;
+package com.spring.cloud.common.constant;
 
 /**
  * <p>Description: Token Field Constant</p>

@@ -1,11 +1,13 @@
-package com.spring.cloud.zuul.utils;
+package com.spring.cloud.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.spring.cloud.common.constant.TokenConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.ObjectUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,20 @@ import java.util.SortedMap;
  */
 public class SignatureUtils {
     private static final Logger logger = LoggerFactory.getLogger(SignatureUtils.class);
+
+    public static boolean verifySignature(HttpServletRequest request, String token) {
+        // level 加密级别： 0-无加密，1-参数加密，2-签名+时间戳； 默认0
+        int level = request.getIntHeader(TokenConstant.REQUEST_ENCRYPTION_LEVEL_NAME);
+        if (level == 2) {
+            long timestamp = Long.parseLong(request.getHeader("timestamp"));
+            String signOfRequest = request.getHeader(TokenConstant.REQUEST_SIGN_NAME);
+
+            SortedMap<String, Object> paramMap = RequestUtils.getRequestParams(request);
+            return verifySignature(timestamp, token, signOfRequest, paramMap);
+        }
+
+        return true;
+    }
 
     /**
      * 验证签名

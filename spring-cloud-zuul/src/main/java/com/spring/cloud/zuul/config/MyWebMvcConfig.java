@@ -1,6 +1,6 @@
 package com.spring.cloud.zuul.config;
 
-import com.spring.cloud.zuul.constant.UriConstant;
+import com.spring.cloud.common.constant.UriConstant;
 import com.spring.cloud.zuul.interceptor.WebSecurityInterceptor;
 import com.spring.cloud.zuul.interceptor.WeixinSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;

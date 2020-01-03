@@ -1,9 +1,9 @@
 package com.spring.cloud.security.config;
 
-import com.spring.cloud.security.constant.UriConstant;
-import com.spring.cloud.security.interceptor.SignatureVerificationInterceptor;
-import com.spring.cloud.security.interceptor.WebSecurityInterceptor;
-import com.spring.cloud.security.interceptor.WeixinSecurityInterceptor;
+import com.spring.cloud.common.constant.UriConstant;
+import com.spring.cloud.common.interceptor.SignatureVerificationInterceptor;
+import com.spring.cloud.common.interceptor.WebSecurityInterceptor;
+import com.spring.cloud.common.interceptor.WeiChatSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -21,7 +21,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     private WebSecurityInterceptor webSecurityInterceptor;
 
     @Autowired
-    private WeixinSecurityInterceptor weixinSecurityInterceptor;
+    private WeiChatSecurityInterceptor weiChatSecurityInterceptor;
 
     @Autowired
     private SignatureVerificationInterceptor signatureVerificationInterceptor;
@@ -58,7 +58,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                 );
 
         // 微信安全拦截器
-        registry.addInterceptor(weixinSecurityInterceptor);
+        registry.addInterceptor(weiChatSecurityInterceptor);
 
     }
 

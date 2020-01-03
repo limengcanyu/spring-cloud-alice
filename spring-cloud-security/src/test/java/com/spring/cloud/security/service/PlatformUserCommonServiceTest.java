@@ -1,8 +1,8 @@
 package com.spring.cloud.security.service;
 
-import com.spring.cloud.security.entity.RedisPlatformUser;
+import com.spring.cloud.common.entity.RedisPlatformUser;
+import com.spring.cloud.common.utils.ContextUtils;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
-import com.spring.cloud.security.utils.ContextUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

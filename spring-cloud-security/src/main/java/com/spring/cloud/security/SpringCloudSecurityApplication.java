@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2019/11/01
  */
 @EnableSwagger2
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.spring.cloud.security", "com.spring.cloud.common"})
 public class SpringCloudSecurityApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudSecurityApplication.class, args);
