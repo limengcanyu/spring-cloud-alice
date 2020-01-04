@@ -1,8 +1,8 @@
 package com.spring.cloud.zuul.config;
 
 import com.spring.cloud.common.constant.UriConstant;
-import com.spring.cloud.zuul.interceptor.WebSecurityInterceptor;
-import com.spring.cloud.zuul.interceptor.WeixinSecurityInterceptor;
+import com.spring.cloud.common.interceptor.WebSecurityInterceptor;
+import com.spring.cloud.common.interceptor.WeiChatSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -20,7 +20,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     private WebSecurityInterceptor webSecurityInterceptor;
 
     @Autowired
-    private WeixinSecurityInterceptor weixinSecurityInterceptor;
+    private WeiChatSecurityInterceptor weiChatSecurityInterceptor;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -49,7 +49,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         UriConstant.URI_REGISTER,
                         UriConstant.URI_LOGIN
                 );
-        registry.addInterceptor(weixinSecurityInterceptor);
+        registry.addInterceptor(weiChatSecurityInterceptor);
     }
 
     @Override
