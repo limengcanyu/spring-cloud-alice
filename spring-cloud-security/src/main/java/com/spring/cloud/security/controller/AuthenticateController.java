@@ -1,9 +1,9 @@
 package com.spring.cloud.security.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.common.dto.LoginUserDto;
-import com.spring.cloud.common.dto.RegisterUserDto;
-import com.spring.cloud.common.result.JSONResult;
+import com.spring.cloud.commons.dto.LoginUserDto;
+import com.spring.cloud.commons.dto.RegisterUserDto;
+import com.spring.cloud.commons.result.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

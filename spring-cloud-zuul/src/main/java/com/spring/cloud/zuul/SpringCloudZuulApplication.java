@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @EnableZuulProxy
-@SpringBootApplication(scanBasePackages = {"com.spring.cloud.zuul", "com.spring.cloud.common"})
+@SpringBootApplication(scanBasePackages = {"com.spring.cloud.zuul", "com.spring.cloud.commons"})
 public class SpringCloudZuulApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudZuulApplication.class, args);

@@ -1,9 +1,9 @@
 package com.spring.cloud.security.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.common.constant.RedisConstant;
-import com.spring.cloud.common.entity.RedisPlatformUser;
-import com.spring.cloud.common.utils.RedisUtils;
+import com.spring.cloud.commons.constant.RedisConstant;
+import com.spring.cloud.commons.entity.RedisPlatformUser;
+import com.spring.cloud.commons.utils.RedisUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

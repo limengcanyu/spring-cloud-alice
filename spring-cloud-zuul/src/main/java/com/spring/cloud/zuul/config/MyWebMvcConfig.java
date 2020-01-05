@@ -1,8 +1,8 @@
 package com.spring.cloud.zuul.config;
 
-import com.spring.cloud.common.constant.UriConstant;
-import com.spring.cloud.common.interceptor.WebSecurityInterceptor;
-import com.spring.cloud.common.interceptor.WeiChatSecurityInterceptor;
+import com.spring.cloud.commons.constant.UriConstant;
+import com.spring.cloud.commons.interceptor.WebSecurityInterceptor;
+import com.spring.cloud.commons.interceptor.WeiChatSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

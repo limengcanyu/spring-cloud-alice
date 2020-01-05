@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantHandler;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
-import com.spring.cloud.common.utils.ContextUtils;
+import com.spring.cloud.commons.utils.ContextUtils;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.StringValue;
 import net.sf.jsqlparser.statement.delete.Delete;

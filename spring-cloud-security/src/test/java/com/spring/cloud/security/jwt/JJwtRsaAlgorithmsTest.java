@@ -1,6 +1,6 @@
 package com.spring.cloud.security.jwt;
 
-import com.spring.cloud.common.constant.JwtConstant;
+import com.spring.cloud.commons.constant.JwtConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;

@@ -73,8 +73,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.spring.cloud.common</groupId>
-            <artifactId>spring-cloud-common</artifactId>
+            <groupId>com.spring.cloud.commons</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

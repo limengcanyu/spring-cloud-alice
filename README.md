@@ -21,3 +21,7 @@ spring-cloud-stream-kafka-streams-producer   localhost:8930
 spring-cloud-stream-rabbitmq                 localhost:8940
 spring-cloud-stream-rabbitmq-consumer        localhost:8950
 spring-cloud-stream-rabbitmq-producer        localhost:8960
+
+参考项目：
+
+https://github.com/chillzhuang/SpringBlade

@@ -1,7 +1,7 @@
 package com.spring.cloud.security.controller;
 
 
-import com.spring.cloud.common.result.JSONResult;
+import com.spring.cloud.commons.result.JSONResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;

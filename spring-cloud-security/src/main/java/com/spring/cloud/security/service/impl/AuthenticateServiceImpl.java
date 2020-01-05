@@ -1,11 +1,11 @@
 package com.spring.cloud.security.service.impl;
 
-import com.spring.cloud.common.constant.RedisConstant;
-import com.spring.cloud.common.entity.JwtClaims;
-import com.spring.cloud.common.entity.RedisPlatformUser;
-import com.spring.cloud.common.result.JSONResult;
-import com.spring.cloud.common.utils.JJwtHsUtils;
-import com.spring.cloud.common.utils.RedisUtils;
+import com.spring.cloud.commons.constant.RedisConstant;
+import com.spring.cloud.commons.entity.JwtClaims;
+import com.spring.cloud.commons.entity.RedisPlatformUser;
+import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.utils.JJwtHsUtils;
+import com.spring.cloud.commons.utils.RedisUtils;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
 import com.spring.cloud.security.mybatisplus.service.IPlatformUserService;
 import com.spring.cloud.security.service.AuthenticateService;
