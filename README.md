@@ -21,3 +21,5 @@ spring-cloud-stream-kafka-streams-producer   localhost:8930
 spring-cloud-stream-rabbitmq                 localhost:8940
 spring-cloud-stream-rabbitmq-consumer        localhost:8950
 spring-cloud-stream-rabbitmq-producer        localhost:8960
+
+Zuul验证token是否存在，后端微服务解析token，因为要获取租户信息，分工验证，就不用多次验证token。
