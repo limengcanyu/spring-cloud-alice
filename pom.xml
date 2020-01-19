@@ -25,6 +25,8 @@
         <module>spring-cloud-stream-rabbitmq-consumer</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-commons</module>
+        <module>spring-cloud-config-server</module>
+        <module>spring-cloud-config-client</module>
     </modules>
 
     <parent>

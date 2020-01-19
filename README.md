@@ -1,5 +1,6 @@
 # spring-cloud-alice
 
+````
 spring-cloud-eureka-server                   localhost:8761
 spring-cloud-admin-server                    localhost:8770
 spring-cloud-gateway                         localhost:8780   localhost:8781   localhost:8782
@@ -21,5 +22,8 @@ spring-cloud-stream-kafka-streams-producer   localhost:8930
 spring-cloud-stream-rabbitmq                 localhost:8940
 spring-cloud-stream-rabbitmq-consumer        localhost:8950
 spring-cloud-stream-rabbitmq-producer        localhost:8960
+spring-cloud-config-server                   localhost:8970
+spring-cloud-config-client                   localhost:8980
+````
 
 Zuul验证token是否存在，后端微服务解析token，因为要获取租户信息，分工验证，就不用多次验证token。
