@@ -8,17 +8,3 @@ eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
 logging.level.org.springframework.web.servlet.DispatcherServlet: DEBUG
 logging.level.com.spring.cloud.config.server: DEBUG
 logging.pattern.console: ${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %4line %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
-
-# config server
-# 从本地Git仓库加载配置 Linux前缀: file:// Windows前缀: file:/// 仓库位置 E:/config-repo
-spring.cloud.config.server.git.uri: file:///E:/config-repo
-# 从远程Git仓库加载配置
-# spring.cloud.config.server.git.uri: https://github.com/spring-cloud-samples/config-repo
-# spring.cloud.config.server.git.username: trolley
-# spring.cloud.config.server.git.password: strongpassword
-# 应用未找到的话，Server返回HTTP 404
-spring.cloud.config.server.accept-empty: false
-# Skipping SSL Certificate Validation
-spring.cloud.config.server.git.skipSslValidation: true
-# Setting HTTP Connection Timeout
-spring.cloud.config.server.git.timeout: 4
