@@ -13,6 +13,10 @@
         <module>spring-cloud-microservice1</module>
         <module>spring-cloud-microservice2</module>
         <module>spring-cloud-microservice3</module>
+        <module>spring-cloud-bussiness-microservice</module>
+        <module>spring-cloud-account-microservice</module>
+        <module>spring-cloud-order-microservice</module>
+        <module>spring-cloud-storage-microservice</module>
         <module>spring-cloud-security</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-eureka-server</module>
@@ -27,20 +31,22 @@
         <module>spring-cloud-commons</module>
         <module>spring-cloud-config-server</module>
         <module>spring-cloud-config-client</module>
+        <module>spring-cloud-sleuth-zipkin1</module>
+        <module>spring-cloud-sleuth-zipkin2</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <version>2.2.6.RELEASE</version>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <zipkin.server.version>2.12.9</zipkin.server.version>
         <zipkin.autoconfigure.ui.version>2.12.9</zipkin.autoconfigure.ui.version>
-        <lombok.version>1.18.10</lombok.version>
-        <fastjson.version>1.2.62</fastjson.version>
+        <lombok.version>1.18.12</lombok.version>
+        <fastjson.version>1.2.68</fastjson.version>
         <gson.version>2.8.6</gson.version>
     </properties>
 
@@ -49,7 +55,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
