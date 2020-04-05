@@ -14,10 +14,6 @@
     <name>spring-cloud-commons</name>
     <description>Spring Cloud Commons Project</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,23 +30,22 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
-            <version>0.10.7</version>
+            <version>${jjwt.api.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
-            <version>0.10.7</version>
+            <version>${jjwt.impl.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
-            <version>0.10.7</version>
+            <version>${jjwt.jackson.version}</version>
             <scope>runtime</scope>
         </dependency>
         <!-- jwt dependency end -->
-
 
         <!-- default lettuce -->
         <dependency>
@@ -81,8 +76,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-            <version>2.7.0</version>
+            <version>${commons.pool2.version}</version>
         </dependency>
-
     </dependencies>
 </project>

@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.isomorphism</groupId>
             <artifactId>token-bucket</artifactId>
-            <version>1.7</version>
+            <version>${token.bucket.version}</version>
         </dependency>
 
         <dependency>
