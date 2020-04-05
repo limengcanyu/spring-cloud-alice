@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>spring-cloud-alice</artifactId>
-		<groupId>com.spring.cloud</groupId>
+		<groupId>com.spring.cloud.seata</groupId>
+		<artifactId>spring-cloud-seata</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -47,6 +47,12 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>
 			<version>${druid.spring.boot.starter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis.plus.boot.starter.version}</version>
 		</dependency>
 
 		<dependency>

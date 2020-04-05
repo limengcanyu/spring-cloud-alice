@@ -1,5 +1,6 @@
 package com.spring.cloud.storage.microservice.controller;
 
+import com.spring.cloud.storage.microservice.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

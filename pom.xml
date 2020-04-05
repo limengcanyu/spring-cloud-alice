@@ -13,10 +13,6 @@
         <module>spring-cloud-microservice1</module>
         <module>spring-cloud-microservice2</module>
         <module>spring-cloud-microservice3</module>
-        <module>spring-cloud-business-microservice</module>
-        <module>spring-cloud-account-microservice</module>
-        <module>spring-cloud-order-microservice</module>
-        <module>spring-cloud-storage-microservice</module>
         <module>spring-cloud-security</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-eureka-server</module>
@@ -33,6 +29,8 @@
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
+        <module>spring-cloud-seata</module>
+        <module>spring-cloud-system-admin</module>
     </modules>
 
     <parent>
@@ -65,6 +63,7 @@
         <mybatis.plus.generator.version>3.2.0</mybatis.plus.generator.version>
         <velocity.engine.core.version>2.1</velocity.engine.core.version>
         <p6spy.version>3.8.6</p6spy.version>
+        <mybatis.plus.boot.starter.version>3.3.1</mybatis.plus.boot.starter.version>
     </properties>
 
     <dependencyManagement>

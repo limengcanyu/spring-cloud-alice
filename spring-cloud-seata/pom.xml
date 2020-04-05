@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-alice</artifactId>
+        <groupId>com.spring.cloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.spring.cloud.seata</groupId>
+    <artifactId>spring-cloud-seata</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spring-cloud-account-microservice</module>
+        <module>spring-cloud-business-microservice</module>
+        <module>spring-cloud-order-microservice</module>
+        <module>spring-cloud-storage-microservice</module>
+    </modules>
+
+</project>

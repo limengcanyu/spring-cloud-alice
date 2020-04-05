@@ -4,16 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>spring-cloud-alice</artifactId>
-        <groupId>com.spring.cloud</groupId>
+        <groupId>com.spring.cloud.seata</groupId>
+        <artifactId>spring-cloud-seata</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.spring.cloud.order.microservice</groupId>
-    <artifactId>spring-cloud-order-microservice</artifactId>
+    <groupId>com.spring.cloud.account.microservice</groupId>
+    <artifactId>spring-cloud-account-microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-order-microservice</name>
-    <description>Spring Cloud Order Microservice</description>
+    <name>spring-cloud-account-microservice</name>
+    <description>Spring Cloud Account Microservice</description>
 
     <dependencies>
         <dependency>
@@ -47,6 +47,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.spring.boot.starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.boot.starter.version}</version>
         </dependency>
 
         <dependency>
