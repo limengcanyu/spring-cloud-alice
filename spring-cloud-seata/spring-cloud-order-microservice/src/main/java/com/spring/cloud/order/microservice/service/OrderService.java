@@ -1,9 +1,14 @@
 package com.spring.cloud.order.microservice.service;
 
+import com.spring.cloud.order.microservice.dao.entity.Order;
+import com.spring.cloud.order.microservice.dao.mapper.OrderMapper;
+import com.spring.cloud.order.microservice.feign.AccountClient;
 import com.spring.cloud.order.microservice.feign.UserFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 /**
  * <p>Description: </p>
@@ -15,18 +20,22 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     @Autowired
-    private UserFeignClient userFeignClient;
+    private AccountClient accountClient;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private OrderMapper orderMapper;
 
     public void create(String userId, String commodityCode, Integer count) {
+        BigDecimal orderMoney = new BigDecimal(count).multiply(new BigDecimal(5));
+        Order order = new Order();
+        order.setUserId(userId);
+        order.setCommodityCode(commodityCode);
+        order.setCount(count);
+        order.setMoney(orderMoney);
 
-        int orderMoney = count * 100;
-        jdbcTemplate.update("insert order_tbl(user_id,commodity_code,count,money) values(?,?,?,?)",
-                new Object[] {userId, commodityCode, count, orderMoney});
+        orderMapper.insert(order);
 
-        userFeignClient.reduce(userId, orderMoney);
+        accountClient.debit(userId, orderMoney);
 
     }
 }

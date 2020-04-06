@@ -1,8 +1,10 @@
 package com.spring.cloud.account.microservice.service;
 
+import com.spring.cloud.account.microservice.dao.entity.Account;
+import com.spring.cloud.account.microservice.dao.mapper.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
 
 /**
  * <p>Description: </p>
@@ -13,10 +15,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountService {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private static final String ERROR_USER_ID = "1002";
 
-    public void reduce(String userId, int money) {
-        jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[] {money, userId});
+    @Autowired
+    private AccountMapper accountMapper;
+
+    public void debit(String userId, BigDecimal num) {
+        Account account = accountMapper.selectByUserId(userId);
+        account.setMoney(account.getMoney().subtract(num));
+        accountMapper.updateById(account);
+
+        if (ERROR_USER_ID.equals(userId)) {
+            throw new RuntimeException("account branch exception");
+        }
     }
 }
