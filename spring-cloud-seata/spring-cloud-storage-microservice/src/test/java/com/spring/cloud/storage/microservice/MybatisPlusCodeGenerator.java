@@ -1,4 +1,4 @@
-package com.spring.cloud.account.microservice;
+package com.spring.cloud.storage.microservice;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -26,7 +26,7 @@ public class MybatisPlusCodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        String modulePath = "/spring-cloud-seata/spring-cloud-account-microservice";
+        String modulePath = "/spring-cloud-seata/spring-cloud-storage-microservice";
         gc.setOutputDir(projectPath + modulePath + "/src/main/java");
         gc.setAuthor("Rock");
         gc.setOpen(false);
@@ -36,7 +36,7 @@ public class MybatisPlusCodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.17.135:3306/db_account?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true");
+        dsc.setUrl("jdbc:mysql://192.168.17.135:3306/db_storage?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -46,7 +46,7 @@ public class MybatisPlusCodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.spring.cloud.account.microservice");
+        pc.setParent("com.spring.cloud.storage.microservice");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
@@ -113,7 +113,7 @@ public class MybatisPlusCodeGenerator {
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
-        strategy.setInclude("account_tbl");
+        strategy.setInclude("storage_tbl");
         strategy.setControllerMappingHyphenStyle(true);
 //        strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
