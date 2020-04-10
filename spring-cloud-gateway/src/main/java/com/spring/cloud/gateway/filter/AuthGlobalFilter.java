@@ -2,6 +2,7 @@ package com.spring.cloud.gateway.filter;
 
 import com.spring.cloud.commons.utils.RedisUtils;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -25,6 +26,7 @@ import java.util.Map;
  * @author rock.jiang
  * Date 2019/12/21 17:59
  */
+@NoArgsConstructor
 @AllArgsConstructor
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
     private static final Logger logger = LoggerFactory.getLogger(AuthGlobalFilter.class);
