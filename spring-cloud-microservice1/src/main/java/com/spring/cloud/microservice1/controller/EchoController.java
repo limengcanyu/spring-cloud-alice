@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 /**
  * <p>Description: </p>
  *
@@ -28,6 +30,12 @@ public class EchoController {
     public String echo(@PathVariable String string) {
         logger.info("MicroService1 Hello " + string);
         return "MicroService1 Hello " + string;
+    }
+
+    @RequestMapping("/modifyRequestBody")
+    public String modifyRequestBody(@RequestBody Map<String, Object> param) {
+        logger.info("MicroService1 modifyRequestBody param " + param);
+        return "MicroService1 modifyRequestBody " + param;
     }
 
     @RequestMapping("/save")

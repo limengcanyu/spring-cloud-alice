@@ -20,6 +20,22 @@ public class FilterConfig {
 //        return new AuthGlobalFilter();
 //    }
 
+    @Bean
+    public RouteLocator routes(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("rewrite_request_obj", predicateSpec ->
+                        predicateSpec.path("/microservice1/modifyRequestBody").filters(gatewayFilterSpec ->
+                                gatewayFilterSpec.prefixPath("microservice1")
+                                        .modifyRequestBody(
+                                                String.class,
+                                                Hello.class,
+                                                MediaType.APPLICATION_JSON_VALUE,
+                                                (serverWebExchange, s) -> Mono.just(new Hello(s.toLowerCase()))
+                                        )
+                        ).uri("lb://spring-cloud-microservice1")
+                ).build();
+    }
+
     static class Hello {
         String message;
 
