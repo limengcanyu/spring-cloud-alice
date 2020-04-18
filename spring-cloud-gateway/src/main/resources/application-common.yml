@@ -4,7 +4,7 @@ eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
 
 # LOGGING
 logging.level.com.spring.cloud.gateway: DEBUG
-logging.level.org.springframework.cloud.gateway: TRACE
+#logging.level.org.springframework.cloud.gateway: TRACE
 #logging.level.org.springframework.http.server.reactive: TRACE
 #logging.level.org.springframework.web.reactive: TRACE
 #logging.level.org.springframework.boot.autoconfigure.web: TRACE
