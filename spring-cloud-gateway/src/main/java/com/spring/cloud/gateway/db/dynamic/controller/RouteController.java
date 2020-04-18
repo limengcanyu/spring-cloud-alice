@@ -1,7 +1,7 @@
-//package com.spring.cloud.gateway.controller;
+//package com.spring.cloud.gateway.db.dynamic.controller;
 //
 //import com.alibaba.fastjson.JSONObject;
-//import com.spring.cloud.gateway.repository.MysqlRouteDefinitionRepository;
+//import com.spring.cloud.gateway.db.dynamic.repository.MysqlRouteDefinitionRepository;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;

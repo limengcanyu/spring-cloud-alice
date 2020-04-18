@@ -1,4 +1,4 @@
-package com.spring.cloud.gateway.filter;
+package com.spring.cloud.gateway.config;
 
 import org.isomorphism.util.TokenBucket;
 import org.isomorphism.util.TokenBuckets;

@@ -1,8 +1,8 @@
-package com.spring.cloud.gateway.repository;
+package com.spring.cloud.gateway.db.dynamic.repository;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.gateway.service.RouteService;
+import com.spring.cloud.gateway.db.dynamic.service.RouteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

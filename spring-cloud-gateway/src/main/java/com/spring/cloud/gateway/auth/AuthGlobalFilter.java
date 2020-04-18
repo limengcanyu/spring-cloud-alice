@@ -1,10 +1,6 @@
-package com.spring.cloud.gateway.filter;
+package com.spring.cloud.gateway.auth;
 
-import com.spring.cloud.commons.utils.RedisUtils;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -26,23 +22,19 @@ import java.util.Map;
  * @author rock.jiang
  * Date 2019/12/21 17:59
  */
-@NoArgsConstructor
-@AllArgsConstructor
+@Slf4j
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
-    private static final Logger logger = LoggerFactory.getLogger(AuthGlobalFilter.class);
-
-    private RedisUtils redisUtils;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        logger.debug("Auth Global Filter ====================================== ");
-        logger.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        log.debug("Auth Global Filter ====================================== ");
+        log.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
         ServerHttpRequest request = exchange.getRequest();
-        logger.debug("Auth Global Filter 请求对象类型: {}", request.getClass());
+        log.debug("Auth Global Filter 请求对象类型: {}", request.getClass());
 
         Map<String, Object> requestAttributes = exchange.getAttributes();
-        logger.debug("Auth Global Filter 请求属性: {}", requestAttributes);
+        log.debug("Auth Global Filter 请求属性: {}", requestAttributes);
 
         // 从请求获取token
         String token = request.getHeaders().getFirst("token");
@@ -50,13 +42,13 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             token = request.getQueryParams().getFirst("token");
         }
         if (StringUtils.isEmpty(token)) {
-            logger.debug("Auth Global Filter 请求中token为空！");
+            log.debug("Auth Global Filter 请求中token为空！");
 
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
 
-        logger.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+        log.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
         return chain.filter(exchange);
     }
 
@@ -69,14 +61,14 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         // 获取请求Body
         Flux<DataBuffer> bodyFlux = request.getBody();
         bodyFlux.subscribe(dataBuffer -> {
-            logger.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-            logger.debug("Auth Global Filter dataBuffer: {}", dataBuffer);
+            log.debug("Auth Global Filter 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
+            log.debug("Auth Global Filter dataBuffer: {}", dataBuffer);
 
             byte[] bytes = new byte[dataBuffer.readableByteCount()];
             dataBuffer.read(bytes);
             DataBufferUtils.release(dataBuffer);
             String bodyString = new String(bytes, StandardCharsets.UTF_8);
-            logger.debug("Auth Global Filter bodyString: {}", bodyString);
+            log.debug("Auth Global Filter bodyString: {}", bodyString);
         });
     }
 

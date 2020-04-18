@@ -1,4 +1,4 @@
-package com.spring.cloud.gateway.service;
+package com.spring.cloud.gateway.db.dynamic.service;
 
 import com.alibaba.fastjson.JSONArray;
 
