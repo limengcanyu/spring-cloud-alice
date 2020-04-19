@@ -34,7 +34,11 @@
         <module>spring-cloud-seata</module>
         <module>spring-cloud-system-admin</module>
         <module>spring-cloud-sentinel</module>
-        <module>spring-cloud-uploadservice</module>
+        <module>spring-cloud-fileservice</module>
+        <module>spring-cloud-circuit-breaker-hystrix</module>
+        <module>spring-cloud-circuit-breaker-hystrix2</module>
+        <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
+        <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
     </modules>
 
     <parent>
