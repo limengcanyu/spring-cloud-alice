@@ -1,2 +1,0 @@
-#配置日志地址
-logging.config: classpath:log/logback_dev.xml

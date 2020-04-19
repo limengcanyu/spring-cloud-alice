@@ -1,6 +1,6 @@
 package com.spring.cloud.security.service;
 
-import com.spring.cloud.commons.entity.RedisPlatformUser;
+import com.spring.cloud.commons.entity.RedisUser;
 import com.spring.cloud.commons.utils.ContextUtils;
 import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
 import org.junit.Test;
@@ -17,10 +17,10 @@ public class PlatformUserCommonServiceTest {
 
     @Test
     public void getPlatformUser() {
-        RedisPlatformUser user = new RedisPlatformUser();
+        RedisUser user = new RedisUser();
         user.setTenantId("tenant_000001");
         user.setCompanyId("company_000001");
-        user.setUserId("user_000001");
+        user.setUsername("user_000001");
 
         ContextUtils.setUser(user);
 

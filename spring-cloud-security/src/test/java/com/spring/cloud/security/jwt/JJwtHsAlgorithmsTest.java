@@ -1,6 +1,6 @@
 package com.spring.cloud.security.jwt;
 
-import com.spring.cloud.commons.constant.JwtConstant;
+import com.spring.cloud.commons.constant.JwtConst;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class JJwtHsAlgorithmsTest {
     private SecretKey getSecretKey() {
-        byte[] encodedKey = Base64.decodeBase64(JwtConstant.JWT_SECRET);
+        byte[] encodedKey = Base64.decodeBase64(JwtConst.JWT_SECRET);
         return new SecretKeySpec(encodedKey, "HmacSHA256");
     }
 

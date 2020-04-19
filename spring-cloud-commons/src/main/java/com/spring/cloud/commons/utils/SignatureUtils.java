@@ -1,13 +1,10 @@
 package com.spring.cloud.commons.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.commons.constant.TokenConstant;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.ObjectUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +17,12 @@ import java.util.SortedMap;
  * @author rock.jiang
  * Date 2019/12/31 14:24
  */
+@Slf4j
 public class SignatureUtils {
-    private static final Logger logger = LoggerFactory.getLogger(SignatureUtils.class);
 
-    public static boolean verifySignature(HttpServletRequest request, String token) {
+    public static boolean verifySignature(int level, long timestamp, String signOfRequest, SortedMap<String, Object> paramMap, String token) {
         // level 加密级别： 0-无加密，1-参数加密，2-签名+时间戳； 默认0
-        int level = request.getIntHeader(TokenConstant.REQUEST_ENCRYPTION_LEVEL_NAME);
         if (level == 2) {
-            long timestamp = Long.parseLong(request.getHeader("timestamp"));
-            String signOfRequest = request.getHeader(TokenConstant.REQUEST_SIGN_NAME);
-
-            SortedMap<String, Object> paramMap = RequestUtils.getRequestParams(request);
             return verifySignature(timestamp, token, signOfRequest, paramMap);
         }
 
@@ -56,13 +48,13 @@ public class SignatureUtils {
 
     public static String generateSignString(long timestamp, String token, SortedMap<String, Object> paramMap) {
         String pramsString = getSortedParamsString(paramMap);
-        logger.debug("参数字符串： {}", pramsString);
+        log.debug("参数字符串： {}", pramsString);
 
         String signString = token + timestamp + pramsString;
-        logger.debug("签名字符串： {}", signString);
+        log.debug("签名字符串： {}", signString);
 
         String md5String = DigestUtils.md5DigestAsHex(signString.getBytes(StandardCharsets.UTF_8));
-        logger.debug("md5字符串： {}", md5String);
+        log.debug("md5字符串： {}", md5String);
 
         return md5String;
     }
@@ -78,33 +70,33 @@ public class SignatureUtils {
     }
 
     public static List<String> getParamsStringList(Object params) {
-        logger.debug("获取参数字符串数组 开始 ======================================================================");
-        logger.debug("参数: {}", JSONObject.toJSONString(params));
+        log.debug("获取参数字符串数组 开始 ======================================================================");
+        log.debug("参数: {}", JSONObject.toJSONString(params));
 
         List<String> paramsList = new ArrayList<>();
 
         if (params instanceof List) {
-            logger.debug("参数为数组 ======================================================================");
+            log.debug("参数为数组 ======================================================================");
             List paramsArray = (List) params;
             for (Object element : paramsArray) {
                 if (element instanceof String || element instanceof Number) {
-                    logger.debug("元素为字符串或者数字 元素: " + JSONObject.toJSONString(element));
+                    log.debug("元素为字符串或者数字 元素: " + JSONObject.toJSONString(element));
                     paramsList.add(element.toString());
                 } else {
-                    logger.debug("元素非字符串或者数字 元素: " + JSONObject.toJSONString(element));
+                    log.debug("元素非字符串或者数字 元素: " + JSONObject.toJSONString(element));
                     paramsList.add(String.join("", getParamsStringList(element)));
                 }
             }
         } else {
-            logger.debug("参数非数组 ======================================================================");
+            log.debug("参数非数组 ======================================================================");
 
             Map<String, Object> paramsMap = (Map) params;
             paramsMap.forEach((field, value) -> {
                 if (value instanceof String || value instanceof Number) {
-                    logger.debug("字段为字符串或者数字 名称: {} 值: {}", field, value);
+                    log.debug("字段为字符串或者数字 名称: {} 值: {}", field, value);
                     paramsList.add(field + value);
                 } else {
-                    logger.debug("字段非字符串或者数字 名称: {} 值: {}", field, value);
+                    log.debug("字段非字符串或者数字 名称: {} 值: {}", field, value);
                     paramsList.addAll(getParamsStringList(value));
                 }
             });
@@ -112,8 +104,8 @@ public class SignatureUtils {
 
         paramsList.sort(String::compareTo);
 
-        logger.debug("函数返回结果: {}", JSONObject.toJSONString(paramsList));
-        logger.debug("获取参数字符串数组 结束 ======================================================================\n");
+        log.debug("函数返回结果: {}", JSONObject.toJSONString(paramsList));
+        log.debug("获取参数字符串数组 结束 ======================================================================\n");
         return paramsList;
     }
 }

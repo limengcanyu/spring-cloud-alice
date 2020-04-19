@@ -1,6 +1,6 @@
 package com.spring.cloud.system.admin.controller;
 
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.result.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,28 +14,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrganizationController {
     @RequestMapping("/getOrgList")
-    public JSONResult getOrgList() {
-        return new JSONResult(0, null);
+    public Result getOrgList() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/addOrg")
-    public JSONResult addOrg() {
-        return new JSONResult(0, null);
+    public Result addOrg() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/deleteOrg")
-    public JSONResult deleteOrg() {
-        return new JSONResult(0, null);
+    public Result deleteOrg() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/updateOrg")
-    public JSONResult updateOrg() {
-        return new JSONResult(0, null);
+    public Result updateOrg() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/queryOrg")
-    public JSONResult queryOrg() {
-        return new JSONResult(0, null);
+    public Result queryOrg() {
+        return new Result(0, null);
     }
 
 }

@@ -29,13 +29,17 @@ public class SpringCloudMicroService2Application {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello MicroService2";
+        return "MicroService2 home";
     }
 
     @GetMapping("/echo/{str}")
     public String echo(@PathVariable String str) {
-        logger.info("echo " + str);
-        return echoClient.echo("alita");
+        return "MicroService2 echo " + str;
+    }
+
+    @GetMapping("/echoClient/{str}")
+    public String echoClient(@PathVariable String str) {
+        return "MicroService2 echoClient " + echoClient.echo("alita");
     }
 
     public static void main(String[] args) {

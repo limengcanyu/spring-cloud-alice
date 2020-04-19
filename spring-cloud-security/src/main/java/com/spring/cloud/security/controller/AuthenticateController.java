@@ -1,9 +1,9 @@
 package com.spring.cloud.security.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.spring.cloud.commons.dto.LoginUserDto;
-import com.spring.cloud.commons.dto.RegisterUserDto;
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.dto.LoginDto;
+import com.spring.cloud.commons.dto.RegisterDto;
+import com.spring.cloud.commons.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -24,37 +24,37 @@ public class AuthenticateController {
 
     @ApiOperation("登录Controller 注册")
     @RequestMapping("/register")
-    public JSONResult register(@RequestBody RegisterUserDto registerUserDto) {
-        logger.debug("注册 registerUserDTO: {}", JSONObject.toJSONString(registerUserDto));
+    public Result register(@RequestBody RegisterDto registerDto) {
+        logger.debug("注册 registerUserDTO: {}", JSONObject.toJSONString(registerDto));
 
 //        PlatformUser registerUser = new PlatformUser();
 //        BeanUtils.copyProperties(registerUserDto, registerUser);
 //
 //        return authenticateService.register(registerUser);
 
-        return new JSONResult(0, null);
+        return new Result(0, null, null);
     }
 
     @ApiOperation("登录Controller 登录")
     @RequestMapping("/login")
-    public JSONResult login(@RequestBody LoginUserDto loginUserDto) {
+    public Result login(@RequestBody LoginDto loginDto) {
         logger.debug("当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
 
-        logger.debug("登录 参数: {}", JSONObject.toJSONString(loginUserDto));
+        logger.debug("登录 参数: {}", JSONObject.toJSONString(loginDto));
 
 //        PlatformUser loginUser = new PlatformUser();
 //        BeanUtils.copyProperties(loginUserDto, loginUser);
 //
 //        return authenticateService.login(loginUser);
 
-        return new JSONResult(0, null);
+        return new Result(0, null, null);
     }
 
     @ApiOperation("登录Controller 退出")
     @RequestMapping("/logout")
-    public JSONResult logout(@RequestParam String loginUserId) {
+    public Result logout(@RequestParam String loginUserId) {
 //        return authenticateService.logout(loginUserId);
 
-        return new JSONResult(0, null);
+        return new Result(0, null, null);
     }
 }

@@ -1,0 +1,18 @@
+spring.profiles.active: commons
+
+spring.application.name: spring-cloud-fileservice
+server.port: 8100
+
+# LOGGING
+logging.level.com.spring.cloud.uploadservice: DEBUG
+
+# find Zipkin through service discovery
+spring.zipkin.baseUrl: https://spring-cloud-zipkin-server/
+spring.sleuth.sampler.probability: 1
+
+# upload max-file-size
+# specify that files be unlimited
+#spring.servlet.multipart.max-file-size: -1
+spring.servlet.multipart.max-file-size: 10MB
+# upload file location
+spring.servlet.multipart.location: E:/WorkSpace/IdeaProjects/spring-cloud-alice/spring-cloud-fileservice/upload

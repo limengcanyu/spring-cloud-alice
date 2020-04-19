@@ -1,8 +1,7 @@
 package com.spring.cloud.security.config;
 
-import com.spring.cloud.commons.constant.UriConstant;
+import com.spring.cloud.commons.constant.UriConst;
 import com.spring.cloud.commons.interceptor.SignatureVerificationInterceptor;
-import com.spring.cloud.commons.interceptor.WebSecurityInterceptor;
 import com.spring.cloud.commons.interceptor.WeiChatSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -53,8 +52,8 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                         "/webjars/**",
                         "/v2/**",
                         "/swagger-ui.html/**",
-                        UriConstant.URI_REGISTER,
-                        UriConstant.URI_LOGIN
+                        UriConst.REGISTER,
+                        UriConst.LOGIN
                 );
 
         // 微信安全拦截器

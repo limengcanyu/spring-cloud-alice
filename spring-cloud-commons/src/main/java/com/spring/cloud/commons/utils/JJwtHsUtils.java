@@ -1,17 +1,18 @@
 package com.spring.cloud.commons.utils;
 
-import com.spring.cloud.commons.constant.JwtConstant;
-import com.spring.cloud.commons.constant.TokenConstant;
+import com.spring.cloud.commons.constant.JwtConst;
+import com.spring.cloud.commons.constant.TokenConst;
 import com.spring.cloud.commons.entity.JwtClaims;
 import io.jsonwebtoken.*;
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.util.Base64Utils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 public class JJwtHsUtils {
     private static SecretKey getSecretKey() {
-        byte[] encodedKey = Base64.decodeBase64(JwtConstant.SECRET_KEY);
+//        byte[] encodedKey = Base64.decodeBase64(JwtConstant.SECRET_KEY);
+        byte[] encodedKey = Base64Utils.decodeFromString(JwtConst.SECRET_KEY);
         return new SecretKeySpec(encodedKey, "HmacSHA256");
     }
 
@@ -25,10 +26,10 @@ public class JJwtHsUtils {
     public static String creatJWS(JwtClaims jwtClaims) {
         Claims claims = Jwts.claims();
 
-        claims.put(TokenConstant.TOKEN_NAME_TENANT_ID, jwtClaims.getTenantId());
-        claims.put(TokenConstant.TOKEN_NAME_COMPANY_ID, jwtClaims.getCompanyId());
-        claims.put(TokenConstant.TOKEN_NAME_USER_ID, jwtClaims.getUserId());
-        claims.put(TokenConstant.TOKEN_NAME_LOGIN_UUID, jwtClaims.getLoginUUID());
+        claims.put(TokenConst.TENANT_ID, jwtClaims.getTenantId());
+        claims.put(TokenConst.COMPANY_ID, jwtClaims.getCompanyId());
+        claims.put(TokenConst.USER_ID, jwtClaims.getUsername());
+        claims.put(TokenConst.LOGIN_UUID, jwtClaims.getLoginUUID());
 
         return Jwts.builder()
                 .setClaims(claims)

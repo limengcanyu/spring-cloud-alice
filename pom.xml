@@ -25,6 +25,8 @@
         <module>spring-cloud-stream-rabbitmq-consumer</module>
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-commons</module>
+        <module>spring-cloud-web-commons</module>
+        <module>spring-cloud-webflux-commons</module>
         <module>spring-cloud-config-server</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-sleuth-zipkin1</module>
@@ -32,6 +34,7 @@
         <module>spring-cloud-seata</module>
         <module>spring-cloud-system-admin</module>
         <module>spring-cloud-sentinel</module>
+        <module>spring-cloud-uploadservice</module>
     </modules>
 
     <parent>

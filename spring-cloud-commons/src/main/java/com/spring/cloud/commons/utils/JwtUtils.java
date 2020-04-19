@@ -1,11 +1,11 @@
 package com.spring.cloud.commons.utils;
 
-import com.spring.cloud.commons.constant.JwtConstant;
+import com.spring.cloud.commons.constant.JwtConst;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.util.Base64Utils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -21,7 +21,8 @@ public class JwtUtils {
      */
     public static SecretKey getSecretKey() {
         // 本地的密码解码
-        byte[] encodedKey = Base64.decodeBase64(JwtConstant.SECRET_KEY);
+//        byte[] encodedKey = Base64.decodeBase64(JwtConstant.SECRET_KEY);
+        byte[] encodedKey = Base64Utils.decodeFromString(JwtConst.SECRET_KEY);
 
         // 根据给定的字节数组使用HmacSHA256加密算法构造一个密钥
         return new SecretKeySpec(encodedKey, "HmacSHA256");

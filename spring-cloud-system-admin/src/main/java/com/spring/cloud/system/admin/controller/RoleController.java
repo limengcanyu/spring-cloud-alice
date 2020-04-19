@@ -1,6 +1,6 @@
 package com.spring.cloud.system.admin.controller;
 
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.result.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoleController {
 
     @RequestMapping("/getRoleList")
-    public JSONResult getRoleList() {
-        return new JSONResult(0, null);
+    public Result getRoleList() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/addRole")
-    public JSONResult addRole() {
-        return new JSONResult(0, null);
+    public Result addRole() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/deleteRole")
-    public JSONResult deleteRole() {
-        return new JSONResult(0, null);
+    public Result deleteRole() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/updateRole")
-    public JSONResult updateRole() {
-        return new JSONResult(0, null);
+    public Result updateRole() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/queryRole")
-    public JSONResult queryRole() {
-        return new JSONResult(0, null);
+    public Result queryRole() {
+        return new Result(0, null);
     }
 
 }

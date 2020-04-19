@@ -1,6 +1,6 @@
 package com.spring.cloud.system.admin.controller;
 
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.result.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class TemplateController {
 
     @RequestMapping("/getTemplateList")
-    public JSONResult getTemplateList() {
-        return new JSONResult(0, null);
+    public Result getTemplateList() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/addTemplate")
-    public JSONResult addTemplate() {
-        return new JSONResult(0, null);
+    public Result addTemplate() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/deleteTemplate")
-    public JSONResult deleteTemplate() {
-        return new JSONResult(0, null);
+    public Result deleteTemplate() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/updateTemplate")
-    public JSONResult updateTemplate() {
-        return new JSONResult(0, null);
+    public Result updateTemplate() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/queryTemplate")
-    public JSONResult queryTemplate() {
-        return new JSONResult(0, null);
+    public Result queryTemplate() {
+        return new Result(0, null);
     }
 
 }

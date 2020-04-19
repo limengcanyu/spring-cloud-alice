@@ -1,6 +1,6 @@
 package com.spring.cloud.system.admin.controller;
 
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.result.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class DictionaryController {
 
     @RequestMapping("/getDictionaryList")
-    public JSONResult getDictionaryList() {
-        return new JSONResult(0, null);
+    public Result getDictionaryList() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/addDictionary")
-    public JSONResult addDictionary() {
-        return new JSONResult(0, null);
+    public Result addDictionary() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/deleteDictionary")
-    public JSONResult deleteDictionary() {
-        return new JSONResult(0, null);
+    public Result deleteDictionary() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/updateDictionary")
-    public JSONResult updateDictionary() {
-        return new JSONResult(0, null);
+    public Result updateDictionary() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/queryDictionary")
-    public JSONResult queryDictionary() {
-        return new JSONResult(0, null);
+    public Result queryDictionary() {
+        return new Result(0, null);
     }
 
 }

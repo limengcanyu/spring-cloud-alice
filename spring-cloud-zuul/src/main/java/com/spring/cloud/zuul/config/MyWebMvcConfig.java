@@ -1,9 +1,5 @@
 package com.spring.cloud.zuul.config;
 
-import com.spring.cloud.commons.constant.UriConstant;
-import com.spring.cloud.commons.interceptor.WebSecurityInterceptor;
-import com.spring.cloud.commons.interceptor.WeiChatSecurityInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,11 +12,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MyWebMvcConfig implements WebMvcConfigurer {
 
-    @Autowired
-    private WebSecurityInterceptor webSecurityInterceptor;
-
-    @Autowired
-    private WeiChatSecurityInterceptor weiChatSecurityInterceptor;
+//    @Autowired
+//    private WebSecurityInterceptor webSecurityInterceptor;
+//
+//    @Autowired
+//    private WeiChatSecurityInterceptor weiChatSecurityInterceptor;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -39,17 +35,17 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // swagger-ui、注册、登录不拦截
-        registry.addInterceptor(webSecurityInterceptor).addPathPatterns("/**")
-                .excludePathPatterns(
-                        "/swagger-resources/**",
-                        "/webjars/**",
-                        "/v2/**",
-                        "/swagger-ui.html/**",
-                        UriConstant.URI_REGISTER,
-                        UriConstant.URI_LOGIN
-                );
-        registry.addInterceptor(weiChatSecurityInterceptor);
+//        // swagger-ui、注册、登录不拦截
+//        registry.addInterceptor(webSecurityInterceptor).addPathPatterns("/**")
+//                .excludePathPatterns(
+//                        "/swagger-resources/**",
+//                        "/webjars/**",
+//                        "/v2/**",
+//                        "/swagger-ui.html/**",
+//                        UriConstant.URI_REGISTER,
+//                        UriConstant.URI_LOGIN
+//                );
+//        registry.addInterceptor(weiChatSecurityInterceptor);
     }
 
     @Override

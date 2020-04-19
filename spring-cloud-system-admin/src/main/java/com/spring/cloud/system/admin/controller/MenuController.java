@@ -1,6 +1,6 @@
 package com.spring.cloud.system.admin.controller;
 
-import com.spring.cloud.commons.result.JSONResult;
+import com.spring.cloud.commons.result.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RestController;
 public class MenuController {
 
     @RequestMapping("/getMenuList")
-    public JSONResult getMenuList() {
-        return new JSONResult(0, null);
+    public Result getMenuList() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/addMenu")
-    public JSONResult addMenu() {
-        return new JSONResult(0, null);
+    public Result addMenu() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/deleteMenu")
-    public JSONResult deleteMenu() {
-        return new JSONResult(0, null);
+    public Result deleteMenu() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/updateMenu")
-    public JSONResult updateMenu() {
-        return new JSONResult(0, null);
+    public Result updateMenu() {
+        return new Result(0, null);
     }
 
     @RequestMapping("/queryMenu")
-    public JSONResult queryMenu() {
-        return new JSONResult(0, null);
+    public Result queryMenu() {
+        return new Result(0, null);
     }
 
 }

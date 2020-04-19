@@ -1,8 +1,8 @@
 package com.spring.cloud.security.jwt;
 
 import com.google.gson.Gson;
-import com.spring.cloud.commons.constant.JwtConstant;
-import com.spring.cloud.commons.entity.RedisPlatformUser;
+import com.spring.cloud.commons.constant.JwtConst;
+import com.spring.cloud.commons.entity.RedisUser;
 import com.spring.cloud.commons.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.junit.Test;
@@ -10,10 +10,10 @@ import org.junit.Test;
 public class JwtUtilsTest {
     @Test
     public void createJwt() {
-        RedisPlatformUser user = new RedisPlatformUser();
+        RedisUser user = new RedisUser();
         String subject = new Gson().toJson(user);
 
-        String jwt = JwtUtils.createJWT(JwtConstant.JWT_ID, "Anson", subject, JwtConstant.JWT_TTL);
+        String jwt = JwtUtils.createJWT(JwtConst.JWT_ID, "Anson", subject, JwtConst.JWT_TTL);
         System.out.println("JWT：" + jwt);
     }
 

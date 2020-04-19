@@ -1,6 +1,6 @@
 package com.spring.cloud.security.jwt;
 
-import com.spring.cloud.commons.constant.JwtConstant;
+import com.spring.cloud.commons.constant.JwtConst;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
@@ -18,14 +18,14 @@ import java.util.Map;
 public class JJwtRsaAlgorithmsTest {
     private PublicKey getPublicKey() {
         int keySizeInBits = 4096;
-        SecureRandom random = new SecureRandom(JwtConstant.JWT_SECRET.getBytes());
+        SecureRandom random = new SecureRandom(JwtConst.JWT_SECRET.getBytes());
         KeyPair keyPair = RsaProvider.generateKeyPair(keySizeInBits, random);
         return keyPair.getPublic();
     }
 
     private PrivateKey getPrivateKey() {
         int keySizeInBits = 4096;
-        SecureRandom random = new SecureRandom(JwtConstant.JWT_SECRET.getBytes());
+        SecureRandom random = new SecureRandom(JwtConst.JWT_SECRET.getBytes());
         KeyPair keyPair = RsaProvider.generateKeyPair(keySizeInBits, random);
         return keyPair.getPrivate();
     }

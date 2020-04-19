@@ -1,6 +1,9 @@
 package com.spring.cloud.commons.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>Description: </p>
@@ -8,17 +11,13 @@ import lombok.Data;
  * @author rock.jiang
  * Date 2020/01/03 15:59
  */
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class JwtClaims {
     private String tenantId;
     private String companyId;
-    private String userId;
+    private String username;
     private String loginUUID;
-
-    public JwtClaims(String tenantId, String companyId, String userId, String loginUUID) {
-        this.tenantId = tenantId;
-        this.companyId = companyId;
-        this.userId = userId;
-        this.loginUUID = loginUUID;
-    }
 }
