@@ -8,6 +8,6 @@ import java.util.Map;
  * @author rock.jiang
  * Date 2020/04/19 19:41
  */
-public interface StoreService {
-    Object getStores(Map<String, Object> parameters) throws Exception;
+public interface OrderService {
+    Object getOrders(Map<String, Object> parameters) throws Exception;
 }

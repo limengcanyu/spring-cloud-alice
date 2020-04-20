@@ -1,6 +1,6 @@
 package com.spring.cloud.circuit.breaker.hystrix2.controller;
 
-import com.spring.cloud.circuit.breaker.hystrix2.service.StoreService;
+import com.spring.cloud.circuit.breaker.hystrix2.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
  * Date 2020/04/19 19:43
  */
 @RestController
-public class StoreController {
+public class OrderController {
     @Autowired
-    private StoreService storeService;
+    private OrderService orderService;
 
     /**
-     * localhost:8202/getStores
+     * localhost:8202/getOrders
      *
      * @return
      */
-    @RequestMapping("/getStores")
-    public Object getStores() {
+    @RequestMapping("/getOrders")
+    public Object getOrders() {
         try {
-            return storeService.getStores(null);
+            return orderService.getOrders(null);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
