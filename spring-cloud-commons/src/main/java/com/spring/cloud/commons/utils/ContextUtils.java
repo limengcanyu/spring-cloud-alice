@@ -15,19 +15,11 @@ public class ContextUtils {
     private static final ThreadLocal<RedisUser> userContext = new ThreadLocal<>();
 
     public static void setUser(RedisUser user) {
-        log.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-
         userContext.remove();
         userContext.set(user);
     }
 
-    public static RedisUser getUser() {
-        return userContext.get();
-    }
-
     public static String getTenantId() {
-//        log.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getTenantId();
         }
@@ -35,17 +27,13 @@ public class ContextUtils {
     }
 
     public static String getCompanyId() {
-//        log.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getCompanyId();
         }
         return null;
     }
 
-    public static String getUserId() {
-//        log.debug("ContextUtils 当前线程ID: {} 线程名称: {}", Thread.currentThread().getId(), Thread.currentThread().getName());
-
+    public static String getUsername() {
         if (!ObjectUtils.isEmpty(userContext.get())) {
             return userContext.get().getUsername();
         }

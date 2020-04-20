@@ -12,6 +12,7 @@
 
     <groupId>com.spring.cloud.microservice1</groupId>
     <artifactId>spring-cloud-microservice1</artifactId>
+
     <name>spring-cloud-microservice1</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
@@ -21,6 +22,19 @@
             <groupId>com.spring.cloud.web.commons</groupId>
             <artifactId>spring-cloud-web-commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- only in project dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>

@@ -29,8 +29,8 @@ import java.util.Map;
 public class MyFallbackProvider implements FallbackProvider {
     @Override
     public String getRoute() {
-        return "spring-cloud-microservice1"; // specify the route ID the fallback is for， zuul.routes.spring-cloud-microservice1: /microservice1/**
-//        return "*"; // provide a default fallback for all routes
+//        return "spring-cloud-microservice1"; // specify the route ID the fallback is for， zuul.routes.spring-cloud-microservice1: /microservice1/**
+        return "*"; // provide a default fallback for all routes
     }
 
     @Override
@@ -74,7 +74,7 @@ public class MyFallbackProvider implements FallbackProvider {
              */
             @Override
             public InputStream getBody() throws IOException {
-                return new ByteArrayInputStream("fallback text".getBytes());
+                return new ByteArrayInputStream("系统异常，请稍后重试！".getBytes());
             }
 
             @Override
