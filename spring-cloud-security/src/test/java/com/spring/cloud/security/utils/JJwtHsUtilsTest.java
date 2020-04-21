@@ -3,7 +3,7 @@ package com.spring.cloud.security.utils;
 import com.spring.cloud.commons.utils.JJwtHsUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class JJwtHsUtilsTest {
     @Test

@@ -17,6 +17,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.spring.cloud.commons</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
@@ -60,32 +66,34 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.19</version>
+            <version>${mysql.connector.java.version}</version>
         </dependency>
 
+        <!-- mybatis-plus start -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.1.tmp</version>
+            <version>${mybatis.plus.boot.starter.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.1.tmp</version>
+            <version>${mybatis.plus.generator.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
-            <version>2.2</version>
+            <version>${velocity.engine.core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>p6spy</groupId>
             <artifactId>p6spy</artifactId>
-            <version>3.9.0</version>
+            <version>${p6spy.version}</version>
         </dependency>
+        <!-- mybatis-plus end -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -125,10 +133,29 @@
         <!--            <version>2.2.0.RELEASE</version>-->
         <!--        </dependency>-->
 
+        <!-- default lettuce -->
         <dependency>
-            <groupId>com.spring.cloud.commons</groupId>
-            <artifactId>spring-cloud-commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- redis connect pool use -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons.pool2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

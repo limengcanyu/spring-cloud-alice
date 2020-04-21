@@ -5,8 +5,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.springframework.util.Base64Utils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -16,7 +16,8 @@ import java.util.Map;
 
 public class JJwtHsAlgorithmsTest {
     private SecretKey getSecretKey() {
-        byte[] encodedKey = Base64.decodeBase64(JwtConst.JWT_SECRET);
+//        byte[] encodedKey = Base64.decodeBase64(JwtConst.JWT_SECRET);
+        byte[] encodedKey = Base64Utils.decodeFromString(JwtConst.JWT_SECRET);
         return new SecretKeySpec(encodedKey, "HmacSHA256");
     }
 

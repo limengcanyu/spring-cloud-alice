@@ -5,7 +5,7 @@ import com.spring.cloud.commons.constant.JwtConst;
 import com.spring.cloud.commons.entity.RedisUser;
 import com.spring.cloud.commons.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class JwtUtilsTest {
     @Test

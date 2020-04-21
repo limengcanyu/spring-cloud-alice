@@ -1,12 +1,13 @@
 package com.spring.cloud.security.service;
 
+import com.spring.cloud.commons.dto.LoginDto;
+import com.spring.cloud.commons.dto.RegisterDto;
 import com.spring.cloud.commons.result.Result;
-import com.spring.cloud.security.mybatisplus.entity.PlatformUser;
 
 public interface AuthenticateService {
-    Result register(PlatformUser registerUser);
+    Result register(RegisterDto registerDto);
 
-    Result login(PlatformUser loginUser);
+    Result login(LoginDto loginDto);
 
     Result logout(String loginUserId);
 }

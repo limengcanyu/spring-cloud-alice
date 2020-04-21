@@ -16,6 +16,7 @@ import net.sf.jsqlparser.statement.delete.Delete;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +73,13 @@ public class MybatisPlusConfig {
             public Expression getTenantId(boolean where) {
                 // 该 where 条件 3.2.0 版本开始添加的，用于分区是否为在 where 条件中使用
                 // 如果是in/between之类的多个tenantId的情况，参考下方示例
-                return new StringValue(Objects.requireNonNull(ContextUtils.getTenantId()));
+
+                String tenantId = ContextUtils.getTenantId();
+                if (StringUtils.isEmpty(tenantId)) {
+                    throw new RuntimeException("应用上下文中未设置租户ID！");
+                }
+
+                return new StringValue(ContextUtils.getTenantId());
             }
 
             @Override

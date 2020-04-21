@@ -4,6 +4,7 @@ import com.spring.cloud.commons.constant.*;
 import com.spring.cloud.commons.entity.RedisUser;
 import com.spring.cloud.commons.result.Result;
 import com.spring.cloud.commons.utils.*;
+import com.spring.cloud.web.commons.utils.RedisUtils;
 import com.spring.cloud.web.commons.utils.RequestUtils;
 import com.spring.cloud.web.commons.utils.ResponseUtils;
 import io.jsonwebtoken.Claims;
@@ -92,6 +93,8 @@ public class WebSecurityInterceptor extends HandlerInterceptorAdapter {
             ResponseUtils.writeFailedResponse(response, new Result(ResponseConst.SIGNATURE_FAILED_CODE, ResponseConst.SIGNATURE_FAILED_MESSAGE));
             return false;
         }
+
+        log.debug("Web安全拦截器 验证参数签名成功！");
 
         // 刷新token #######################################################################
 
