@@ -1,1 +1,0 @@
-# spring boot admin server

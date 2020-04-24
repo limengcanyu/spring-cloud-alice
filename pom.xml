@@ -13,10 +13,8 @@
         <module>spring-cloud-microservice1</module>
         <module>spring-cloud-microservice2</module>
         <module>spring-cloud-microservice3</module>
-        <module>spring-cloud-security</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-eureka-server</module>
-        <module>spring-cloud-admin-server</module>
         <module>spring-cloud-stream-kafka-producer</module>
         <module>spring-cloud-stream-kafka-consumer</module>
         <module>spring-cloud-stream-kafka-streams-producer</module>
@@ -24,27 +22,15 @@
         <module>spring-cloud-stream-rabbitmq-producer</module>
         <module>spring-cloud-stream-rabbitmq-consumer</module>
         <module>spring-cloud-zuul</module>
-        <module>spring-cloud-commons</module>
-        <module>spring-cloud-web-commons</module>
-        <module>spring-cloud-webflux-commons</module>
         <module>spring-cloud-config-server</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
-        <module>spring-cloud-seata</module>
-        <module>spring-cloud-sentinel</module>
-        <module>spring-cloud-fileservice</module>
         <module>spring-cloud-circuit-breaker-hystrix</module>
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
         <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
     </modules>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,6 +57,12 @@
         <velocity.engine.core.version>2.2</velocity.engine.core.version>
         <p6spy.version>3.9.0</p6spy.version>
     </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
 
     <dependencyManagement>
         <dependencies>
