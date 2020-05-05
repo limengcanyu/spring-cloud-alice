@@ -18,12 +18,6 @@
     <url>http://www.example.com</url>
 
     <dependencies>
-        <dependency>
-            <groupId>com.spring.cloud.web.commons</groupId>
-            <artifactId>spring-cloud-web-commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!-- only in project dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
