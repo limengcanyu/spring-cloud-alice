@@ -1,4 +1,4 @@
-package com.spring.cloud.gateway.auth;
+package com.spring.cloud.gateway.gatewayFilterFactories;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -16,11 +16,7 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 @Configuration
-public class FilterConfig {
-//    @Bean
-//    public GlobalFilter authFilter() {
-//        return new AuthGlobalFilter();
-//    }
+public class ModifyRequestBodyGatewayFilterFactory {
 
     /**
      * modifyRequestBody
