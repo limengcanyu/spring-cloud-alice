@@ -4,7 +4,7 @@ spring.application.name: spring-cloud-microservice1
 server.port: 8800
 
 # LOGGING
-logging.level.com.spring.cloud.microservice1: DEBUG
+logging.level.com.spring.cloud: DEBUG
 
 ## find Zipkin through service discovery
 #spring.zipkin.baseUrl: https://spring-cloud-zipkin-server/
@@ -17,3 +17,5 @@ spring.datasource.driver-class-name: com.p6spy.engine.spy.P6SpyDriver
 spring.datasource.url: jdbc:p6spy:mysql://localhost:3306/artanis?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC
 spring.datasource.username: root
 spring.datasource.password: .P@ssW0rd,321
+
+spring.cloud.loadbalancer.ribbon.enabled: false
