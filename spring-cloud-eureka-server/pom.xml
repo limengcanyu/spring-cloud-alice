@@ -41,6 +41,7 @@
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-ribbon</artifactId>
                 </exclusion>
+
                 <exclusion>
                     <groupId>com.netflix.ribbon</groupId>
                     <artifactId>ribbon-eureka</artifactId>

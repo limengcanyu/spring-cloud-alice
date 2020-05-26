@@ -8,7 +8,6 @@ import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JConfigB
 import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.retry.policy.TimeoutRetryPolicy;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
