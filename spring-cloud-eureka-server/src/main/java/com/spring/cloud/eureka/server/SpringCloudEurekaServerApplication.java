@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 /**
  * Spring Cloud Eureka Server Application
  *
- * @author jxf
+ * @author rock.jxf
  * @date 2019/5/26
  */
 @EnableEurekaServer
