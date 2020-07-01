@@ -16,6 +16,8 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-eureka-server</module>
         <module>spring-boot-admin-server</module>
+        <module>spring-boot-admin-client1</module>
+        <module>spring-boot-admin-client2</module>
         <module>spring-cloud-stream-kafka-producer</module>
         <module>spring-cloud-stream-kafka-consumer</module>
         <module>spring-cloud-stream-kafka-streams-producer</module>
