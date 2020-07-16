@@ -1,0 +1,40 @@
+#spring.profiles.active: commons
+
+spring.application.name: spring-cloud-stream-rabbitmq-producer
+server.port: 8900
+
+# LOGGING
+logging.level.com.spring.cloud: DEBUG
+
+spring.rabbitmq.addresses: amqp://admin:admin@192.168.17.161:5672
+
+#spring.rabbitmq.template.receive-timeout: 12000
+#spring.rabbitmq.template.reply-timeout: 12000
+#
+## enable retries on the AmqpTemplate, disabled by default
+#spring.rabbitmq.template.retry.enabled: true
+#spring.rabbitmq.template.retry.initial-interval: 2s
+#
+#spring.rabbitmq.virtual-host: /
+#
+## Publisher Confirms and Returns
+#spring.rabbitmq.publisher-confirm-type: CORRELATED
+#spring.rabbitmq.publisher-returns: true
+#spring.rabbitmq.template.mandatory: true
+
+## Rabbit Producer Properties
+#spring.cloud.stream.rabbit.bindings.input.producer.autoBindDlq: true
+#spring.cloud.stream.rabbit.bindings.input.producer.batchingEnabled: true
+
+# 指定消息发送或者接收的函数
+spring.cloud.function.definition: uppercase
+
+# Functional binding names
+# map the input of this function to a remote destination (e.g., my-topic)
+#spring.cloud.stream.bindings.uppercase-in-0.destination: uppercase-in-topic
+#spring.cloud.stream.bindings.uppercase-out-0.destination: uppercase-out-topic
+
+# Descriptive Binding Names
+# renamed uppercase-in-0 binding name to input
+#spring.cloud.stream.function.bindings.uppercase-in-0: input
+#spring.cloud.stream.function.bindings.uppercase-out-0: output
