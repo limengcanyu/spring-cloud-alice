@@ -17,7 +17,7 @@ public class StoreController {
     private StoreService storeService;
 
     /**
-     * localhost:8200/getStores
+     * localhost:8201/getStores
      *
      * @return
      */

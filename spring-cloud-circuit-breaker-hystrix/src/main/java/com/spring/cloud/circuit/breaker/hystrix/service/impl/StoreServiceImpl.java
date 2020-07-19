@@ -15,12 +15,19 @@ import java.util.Map;
 @Service
 public class StoreServiceImpl implements StoreService {
 
-    @HystrixCommand(fallbackMethod = "defaultStores")
+    @HystrixCommand(fallbackMethod = "defaultStores" )
     @Override
     public Object getStores(Map<String, Object> parameters) throws Exception {
         //do stuff that might fail
+        // 正常返回
 //        return "normal return";
-        throw new RuntimeException(); // 出现异常调用 fallbackMethod 返回
+
+        // 出现异常调用 fallbackMethod 返回
+//        throw new RuntimeException();
+
+        // 调用超时
+        Thread.sleep(5000);
+        return "normal return";
     }
 
     public Object defaultStores(Map<String, Object> parameters) {

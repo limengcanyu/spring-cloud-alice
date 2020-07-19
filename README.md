@@ -26,27 +26,3 @@ spring-cloud-config-server                   localhost:8970
 spring-cloud-config-client                   localhost:8980
 ````
 
-Zuul验证token是否存在，后端微服务解析token，因为要获取租户信息，分工验证，就不用多次验证token。
-
-## Disabling Ribbon with Eureka Server and Client starters
-
-spring-cloud-starter-netflix-eureka-server and spring-cloud-starter-netflix-eureka-client come along with a spring-cloud-starter-netflix-ribbon. Since Ribbon load-balancer is now in maintenance mode, we suggest switching to using the Spring Cloud LoadBalancer, also included in Eureka starters, instead.
-
-In order to that, you can set the value of spring.cloud.loadbalancer.ribbon.enabled property to false.
-
-You can then also exclude ribbon-related dependencies from Eureka starters in your build files, like so:
-
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    <exclusions>
-        <exclusion>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>com.netflix.ribbon</groupId>
-            <artifactId>ribbon-eureka</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
