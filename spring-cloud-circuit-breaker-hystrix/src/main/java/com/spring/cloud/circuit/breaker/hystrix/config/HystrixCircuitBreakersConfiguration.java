@@ -31,10 +31,7 @@ public class HystrixCircuitBreakersConfiguration {
 //            return HystrixCommand.Setter
 //                    .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
 //                    .andCommandPropertiesDefaults(
-//                            HystrixCommandProperties.Setter()
-//                                    .withCircuitBreakerEnabled(true)
-//                                    .withExecutionTimeoutEnabled(true)
-//                                    .withExecutionTimeoutInMilliseconds(3000)
+//                            HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(3000)
 //                    );
 //        });
 //    }

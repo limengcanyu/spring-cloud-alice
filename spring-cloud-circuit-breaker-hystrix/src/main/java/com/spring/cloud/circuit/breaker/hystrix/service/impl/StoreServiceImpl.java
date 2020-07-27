@@ -26,7 +26,7 @@ public class StoreServiceImpl implements StoreService {
 //        throw new RuntimeException();
 
         // 调用超时
-        Thread.sleep(5000);
+        Thread.sleep(20000);
         return "normal return";
     }
 
