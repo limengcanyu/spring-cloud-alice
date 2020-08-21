@@ -6,9 +6,9 @@ localhost:8790/echo
 
 ## 调用 microservice1
 
-localhost:8800/echo/123
+localhost:8800/echo/service1
 
-localhost:8790/microservice1/echo/123
+localhost:8790/microservice1/echo/service1
 
 ### upload
 
@@ -47,5 +47,14 @@ A GET to the filters endpoint at /filters returns a map of Zuul filters by type.
 you get a list of all the filters of that type, along with their details.
 
 localhost:8790/actuator/filters
+
+## sentinel 网关限流 未完成
+
+
+D:
+cd D:\IdeaProjects-MyProject\spring-cloud-alice\spring-cloud-zuul\target
+
+E:\Java\jdk-14.0.2\bin\java -Dcsp.sentinel.app.type=1 -jar spring-cloud-zuul-1.0-SNAPSHOT.jar
+
 
 

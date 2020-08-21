@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Description: </p>
@@ -28,7 +27,7 @@ public class EchoController {
     }
 
     /**
-     * http://localhost:8800/echo/123
+     * localhost:8800/echo/1212
      *
      * @param string
      * @return
@@ -36,17 +35,19 @@ public class EchoController {
     @RequestMapping("/echo/{string}")
     public String echo(@PathVariable String string) {
         log.debug("calling MicroService1 echo");
-
-        long start = System.currentTimeMillis();
-        try {
-            TimeUnit.SECONDS.sleep(180);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        long end = System.currentTimeMillis() - start;
-        log.debug("耗时: " + end);
-
         return "MicroService1 echo " + string;
+    }
+
+    /**
+     * localhost:8800/echoParam?user=1212
+     *
+     * @param user
+     * @return
+     */
+    @RequestMapping("/echoParam")
+    public String echoParam(@RequestParam String user) {
+        log.debug("calling MicroService1 echoParam");
+        return "MicroService1 echoParam " + user;
     }
 
     @RequestMapping("/echo2/{string}")

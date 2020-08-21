@@ -11,7 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @date 2019/5/26
  */
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.spring.cloud"})
 public class SpringCloudMicroService1Application {
 
     public static void main(String[] args) {

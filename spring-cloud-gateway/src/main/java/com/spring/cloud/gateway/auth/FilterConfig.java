@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
  * Date 2019/12/24 17:21
  */
 @Slf4j
-@Configuration
+//@Configuration
 public class FilterConfig {
 //    @Bean
 //    public GlobalFilter authFilter() {

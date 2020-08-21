@@ -32,6 +32,12 @@ public class SpringCloudMicroService2Application {
         return "MicroService2 home";
     }
 
+    /**
+     * localhost:8810/echo/service2
+     *
+     * @param str
+     * @return
+     */
     @GetMapping("/echo/{str}")
     public String echo(@PathVariable String str) {
         return "MicroService2 echo " + str;

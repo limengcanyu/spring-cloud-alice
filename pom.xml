@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+    </parent>
+
     <groupId>com.spring.cloud</groupId>
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
@@ -38,6 +44,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>14</java.version>
         <zipkin.server.version>2.12.9</zipkin.server.version>
         <zipkin.autoconfigure.ui.version>2.12.9</zipkin.autoconfigure.ui.version>
         <lombok.version>1.18.12</lombok.version>
@@ -61,12 +68,6 @@
         <velocity.engine.core.version>2.2</velocity.engine.core.version>
         <p6spy.version>3.9.0</p6spy.version>
     </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.2.RELEASE</version>
-    </parent>
 
     <dependencyManagement>
         <dependencies>
@@ -135,8 +136,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>14</source>
+                    <target>14</target>
                 </configuration>
             </plugin>
 

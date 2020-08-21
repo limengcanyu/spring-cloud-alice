@@ -16,32 +16,32 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class HystrixCircuitBreakersConfiguration {
-//    /**
-//     * Default Configuration
-//     *
-//     * @return
-//     */
-//    @Bean
-//    public Customizer<HystrixCircuitBreakerFactory> defaultConfig() {
-//        return factory -> factory.configureDefault(id -> HystrixCommand.Setter
-//                .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
-//                .andCommandPropertiesDefaults(
-//                        HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(4000)
-//                )
-//        );
-//    }
-//
-//    /**
-//     * Specific Circuit Breaker Configuration
-//     *
-//     * @return
-//     */
-//    @Bean
-//    public Customizer<HystrixCircuitBreakerFactory> customizer() {
-//        return factory -> factory.configure(builder -> builder.commandProperties(
-//                HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(2000)
-//                ),
-//                "foo", "bar"
-//        );
-//    }
+    /**
+     * Default Configuration
+     *
+     * @return
+     */
+    @Bean
+    public Customizer<HystrixCircuitBreakerFactory> defaultConfig() {
+        return factory -> factory.configureDefault(id -> HystrixCommand.Setter
+                .withGroupKey(HystrixCommandGroupKey.Factory.asKey(id))
+                .andCommandPropertiesDefaults(
+                        HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(4000)
+                )
+        );
+    }
+
+    /**
+     * Specific Circuit Breaker Configuration
+     *
+     * @return
+     */
+    @Bean
+    public Customizer<HystrixCircuitBreakerFactory> customizer() {
+        return factory -> factory.configure(builder -> builder.commandProperties(
+                HystrixCommandProperties.Setter().withExecutionTimeoutInMilliseconds(2000)
+                ),
+                "foo", "bar"
+        );
+    }
 }
