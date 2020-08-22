@@ -22,12 +22,22 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/getOrders")
-    public Object getOrders() {
+    public String getOrders() {
         try {
             return orderService.getOrders(null);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
+    }
+
+    /**
+     * localhost:8202/getStores
+     *
+     * @return
+     */
+    @RequestMapping("/getStores")
+    public String getStores() {
+        return orderService.getStores();
     }
 }

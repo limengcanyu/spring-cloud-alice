@@ -1,7 +1,9 @@
 package com.spring.cloud.circuit.breaker.hystrix2.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.spring.cloud.circuit.breaker.hystrix2.feign.StoreClient;
 import com.spring.cloud.circuit.breaker.hystrix2.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -15,15 +17,23 @@ import java.util.Map;
 @Service
 public class OrderServiceImpl implements OrderService {
 
+    @Autowired
+    private StoreClient storeClient;
+
     @HystrixCommand(fallbackMethod = "defaultOrders")
     @Override
-    public Object getOrders(Map<String, Object> parameters) throws Exception {
+    public String getOrders(Map<String, Object> parameters) throws Exception {
         //do stuff that might fail
 //        return "normal return";
         throw new RuntimeException(); // 出现异常调用 fallbackMethod 返回
     }
 
-    public Object defaultOrders(Map<String, Object> parameters) {
+    public String defaultOrders(Map<String, Object> parameters) {
         return "fallback return";
+    }
+
+    @Override
+    public String getStores() {
+        return storeClient.getStores();
     }
 }

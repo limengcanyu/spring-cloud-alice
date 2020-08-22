@@ -9,5 +9,7 @@ import java.util.Map;
  * Date 2020/04/19 19:41
  */
 public interface OrderService {
-    Object getOrders(Map<String, Object> parameters) throws Exception;
+    String getOrders(Map<String, Object> parameters) throws Exception;
+
+    String getStores();
 }

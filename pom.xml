@@ -35,7 +35,7 @@
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
-        <module>spring-cloud-circuit-breaker-hystrix</module>
+        <module>spring-cloud-circuit-breaker-hystrix1</module>
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
         <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
