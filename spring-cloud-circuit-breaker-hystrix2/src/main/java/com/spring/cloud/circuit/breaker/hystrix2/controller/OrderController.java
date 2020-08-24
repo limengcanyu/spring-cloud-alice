@@ -17,7 +17,7 @@ public class OrderController {
     private OrderService orderService;
 
     /**
-     * localhost:8202/getOrders
+     * localhost:8300/getOrders
      *
      * @return
      */
@@ -32,7 +32,7 @@ public class OrderController {
     }
 
     /**
-     * localhost:8202/getStores
+     * localhost:8300/getStores
      *
      * @return
      */
