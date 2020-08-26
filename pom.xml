@@ -39,7 +39,8 @@
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
         <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
-        <module>spring-cloud-circuit-breaker-resilience4j</module>
+        <module>spring-cloud-circuit-breaker-resilience4j1</module>
+        <module>spring-cloud-circuit-breaker-resilience4j2</module>
     </modules>
 
     <properties>
