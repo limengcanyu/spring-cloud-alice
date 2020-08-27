@@ -1,7 +1,8 @@
 server.port: 8790
 spring.application.name: spring-cloud-zuul
 
-eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+#eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+spring.cloud.nacos.discovery.server-addr: 127.0.0.1:8848
 
 # LOGGING
 logging.level.com.spring.cloud.zuul: DEBUG
@@ -68,3 +69,12 @@ zuul.addProxyHeaders: false
 #ribbon.ConnectTimeout: 3000
 #ribbon.ReadTimeout: 60000
 #ribbon.SocketTimeout: 60000
+
+# sentinel dashboard
+spring.cloud.sentinel.transport.port: 8719
+spring.cloud.sentinel.transport.dashboard: localhost:8081
+
+# Sentinel 网关限流
+spring.cloud.sentinel.filter.enabled: false
+
+#spring.main.allow-bean-definition-overriding: true

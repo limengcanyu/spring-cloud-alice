@@ -15,15 +15,15 @@ spring:
 #          metadata:
 #            response-timeout: 200
 #            connect-timeout: 200
-#        - id: microservice1_route
-#          uri: lb://spring-cloud-microservice1
-#          predicates:
-#            - Path=/microservice1/**
-#          # StripPrefix: 接受一个非负整数，对应的具体实现是StripPrefixGatewayFilterFactory，做用是去掉前缀，整数对应层数。
-#          # 在本例中访问的 /microservice1/echo/str，网关服务向后转发请求的时候会去掉 /microservice1，
-#          # microservice1 收到的请求是：/echo/str。
-#          filters:
-#            - StripPrefix=1
+        - id: microservice1_route
+          uri: lb://spring-cloud-microservice1
+          predicates:
+            - Path=/microservice1/**
+          # StripPrefix: 接受一个非负整数，对应的具体实现是StripPrefixGatewayFilterFactory，做用是去掉前缀，整数对应层数。
+          # 在本例中访问的 /microservice1/echo/str，网关服务向后转发请求的时候会去掉 /microservice1，
+          # microservice1 收到的请求是：/echo/str。
+          filters:
+            - StripPrefix=1
 #        - id: microservice2_route
 #          uri: lb://spring-cloud-microservice2
 #          predicates:

@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+    </parent>
+
     <groupId>com.spring.cloud</groupId>
     <artifactId>spring-cloud-alice</artifactId>
     <packaging>pom</packaging>
@@ -29,15 +35,17 @@
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
-        <module>spring-cloud-circuit-breaker-hystrix</module>
+        <module>spring-cloud-circuit-breaker-hystrix1</module>
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
         <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
-        <module>spring-cloud-circuit-breaker-resilience4j</module>
+        <module>spring-cloud-circuit-breaker-resilience4j1</module>
+        <module>spring-cloud-circuit-breaker-resilience4j2</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
         <zipkin.server.version>2.12.9</zipkin.server.version>
         <zipkin.autoconfigure.ui.version>2.12.9</zipkin.autoconfigure.ui.version>
         <lombok.version>1.18.12</lombok.version>
@@ -62,18 +70,12 @@
         <p6spy.version>3.9.0</p6spy.version>
     </properties>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
-    </parent>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR6</version>
+                <version>Hoxton.SR7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

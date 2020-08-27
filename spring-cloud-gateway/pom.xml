@@ -49,10 +49,16 @@
             <version>${token.bucket.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.spring.cloud.commons</groupId>-->
-<!--            <artifactId>spring-cloud-commons</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <!-- Sentinel 网关限流 start -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+        </dependency>
+        <!-- Sentinel 网关限流 end -->
     </dependencies>
 </project>

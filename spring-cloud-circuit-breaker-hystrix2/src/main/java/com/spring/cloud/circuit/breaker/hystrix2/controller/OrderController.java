@@ -17,17 +17,27 @@ public class OrderController {
     private OrderService orderService;
 
     /**
-     * localhost:8202/getOrders
+     * localhost:8300/getOrders
      *
      * @return
      */
     @RequestMapping("/getOrders")
-    public Object getOrders() {
+    public String getOrders() {
         try {
             return orderService.getOrders(null);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
+    }
+
+    /**
+     * localhost:8300/getStores
+     *
+     * @return
+     */
+    @RequestMapping("/getStores")
+    public String getStores() {
+        return orderService.getStores();
     }
 }

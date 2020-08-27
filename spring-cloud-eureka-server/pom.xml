@@ -36,6 +36,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <!-- exclude ribbon-related dependencies from Eureka starters -->
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.cloud</groupId>

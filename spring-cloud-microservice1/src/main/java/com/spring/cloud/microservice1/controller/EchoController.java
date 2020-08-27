@@ -1,12 +1,7 @@
 package com.spring.cloud.microservice1.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,22 +16,38 @@ import java.util.Map;
  * @author rock.jiang
  * Date 2019/12/25 10:57
  */
-@Api("hello app")
 @Slf4j
 @RestController
 public class EchoController {
 
-    @ApiOperation(value = "获取用户列表", notes = "获取所有用户信息")
     @GetMapping("/")
     public String home() {
         log.debug("calling MicroService1 home");
         return "MicroService1 home";
     }
 
+    /**
+     * localhost:8800/echo/1212
+     *
+     * @param string
+     * @return
+     */
     @RequestMapping("/echo/{string}")
     public String echo(@PathVariable String string) {
         log.debug("calling MicroService1 echo");
         return "MicroService1 echo " + string;
+    }
+
+    /**
+     * localhost:8800/echoParam?user=1212
+     *
+     * @param user
+     * @return
+     */
+    @RequestMapping("/echoParam")
+    public String echoParam(@RequestParam String user) {
+        log.debug("calling MicroService1 echoParam");
+        return "MicroService1 echoParam " + user;
     }
 
     @RequestMapping("/echo2/{string}")
