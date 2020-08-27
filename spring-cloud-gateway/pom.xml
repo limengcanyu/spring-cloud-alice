@@ -48,17 +48,5 @@
             <artifactId>token-bucket</artifactId>
             <version>${token.bucket.version}</version>
         </dependency>
-
-        <!-- Sentinel 网关限流 start -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
-        </dependency>
-        <!-- Sentinel 网关限流 end -->
     </dependencies>
 </project>

@@ -5,7 +5,6 @@ import io.github.resilience4j.timelimiter.TimeLimiterConfig;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory;
 import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JConfigBuilder;
-import org.springframework.cloud.circuitbreaker.springretry.SpringRetryCircuitBreakerFactory;
 import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +25,7 @@ import java.time.Duration;
 public class CircuitBreakersConfig {
     /**
      * Configuring Resilience4J Circuit Breakers
-     *
+     * <p>
      * Default Configuration
      *
      * @return
@@ -80,25 +79,34 @@ public class CircuitBreakersConfig {
 //                .retryPolicy(new TimeoutRetryPolicy()).build());
 //    }
 
-    /**
-     * Configuring Spring Retry Circuit Breakers
-     *
-     * Specific Circuit Breaker Configuration
-     *
-     * @return
-     */
-    @Bean
-    public Customizer<SpringRetryCircuitBreakerFactory> delayRetryCustomizer() {
-        return factory -> factory.configure(builder -> builder.retryPolicy(new SimpleRetryPolicy(3)).build(), "delay");
-    }
+//    /**
+//     * Configuring Spring Retry Circuit Breakers
+//     *
+//     * Specific Circuit Breaker Configuration
+//     *
+//     * @return
+//     */
+//    @Bean
+//    public Customizer<SpringRetryCircuitBreakerFactory> delayRetryCustomizer() {
+//        return factory -> factory.configure(builder -> builder.retryPolicy(new SimpleRetryPolicy(3)).build(), "delay");
+//    }
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder().build();
     }
 
+    /**
+     * 需要定义RetryTemplate，否则无法启动
+     * <p>
+     * Consider defining a bean of type 'org.springframework.retry.support.RetryTemplate' in your configuration.
+     *
+     * @return
+     */
     @Bean
     public RetryTemplate retryTemplate() {
-        return new RetryTemplate();
+        RetryTemplate retryTemplate = new RetryTemplate();
+        retryTemplate.setRetryPolicy(new SimpleRetryPolicy(2));
+        return retryTemplate;
     }
 }

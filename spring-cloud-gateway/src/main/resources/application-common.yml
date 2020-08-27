@@ -39,6 +39,3 @@ spring.cloud.gateway.httpclient.ssl.close-notify-read-timeout: 0
 spring.cloud.gateway.httpclient.connect-timeout: 1000
 spring.cloud.gateway.httpclient.response-timeout: 5s
 
-# Sentinel 网关限流
-spring.cloud.sentinel.filter.enabled: false
-

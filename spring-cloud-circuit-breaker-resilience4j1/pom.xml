@@ -9,16 +9,26 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.spring.cloud.circuit.breaker.resilience4j</groupId>
-    <artifactId>spring-cloud-circuit-breaker-resilience4j</artifactId>
+    <groupId>com.spring.cloud.circuit.breaker.resilience4j1</groupId>
+    <artifactId>spring-cloud-circuit-breaker-resilience4j1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-circuit-breaker-resilience4j</name>
-    <description>Spring Cloud Circuit Breaker Resilience4j Project</description>
+    <name>spring-cloud-circuit-breaker-resilience4j1</name>
+    <description>Spring Cloud Circuit Breaker Resilience4j1 Project</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
@@ -28,12 +38,17 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-circuitbreaker-spring-retry -->

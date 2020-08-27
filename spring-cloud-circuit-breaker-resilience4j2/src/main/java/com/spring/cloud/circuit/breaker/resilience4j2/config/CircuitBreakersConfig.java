@@ -8,6 +8,9 @@ import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JConfigB
 import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.retry.policy.SimpleRetryPolicy;
+import org.springframework.retry.support.RetryTemplate;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
@@ -22,33 +25,32 @@ import java.time.Duration;
 public class CircuitBreakersConfig {
     /**
      * Configuring Resilience4J Circuit Breakers
-     *
+     * <p>
      * Default Configuration
-     *
-     * for all of your circuit breakers
      *
      * @return
      */
+    @Primary
     @Bean
     public Customizer<Resilience4JCircuitBreakerFactory> defaultCustomizer() {
         return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)
-                .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(3)).build()) // 超时断路
+                .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(2)).build()) // 超时断路
                 .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
                 .build());
     }
 
-    /**
-     * Configuring Resilience4J Circuit Breakers
-     *
-     * Specific Circuit Breaker Configuration
-     *
-     * @return
-     */
-    @Bean
-    public Customizer<Resilience4JCircuitBreakerFactory> slowCustomizer() {
-        return factory -> factory.configure(builder -> builder.circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
-                .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(2)).build()), "slow");
-    }
+//    /**
+//     * Configuring Resilience4J Circuit Breakers
+//     *
+//     * Specific Circuit Breaker Configuration
+//     *
+//     * @return
+//     */
+//    @Bean
+//    public Customizer<Resilience4JCircuitBreakerFactory> delayCustomizer() {
+//        return factory -> factory.configure(builder -> builder.circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+//                .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(2)).build()), "delay");
+//    }
 
 //    /**
 //     * Configuring Resilience4J Circuit Breakers
@@ -64,14 +66,47 @@ public class CircuitBreakersConfig {
 //                .onError(normalFluxErrorConsumer).onSuccess(normalFluxSuccessConsumer), "normalflux");
 //    }
 
+//    /**
+//     * Configuring Spring Retry Circuit Breakers
+//     *
+//     * Default Configuration
+//     *
+//     * @return
+//     */
 //    @Bean
 //    public Customizer<SpringRetryCircuitBreakerFactory> defaultRetryCustomizer() {
 //        return factory -> factory.configureDefault(id -> new SpringRetryConfigBuilder(id)
 //                .retryPolicy(new TimeoutRetryPolicy()).build());
 //    }
 
+//    /**
+//     * Configuring Spring Retry Circuit Breakers
+//     *
+//     * Specific Circuit Breaker Configuration
+//     *
+//     * @return
+//     */
+//    @Bean
+//    public Customizer<SpringRetryCircuitBreakerFactory> delayRetryCustomizer() {
+//        return factory -> factory.configure(builder -> builder.retryPolicy(new SimpleRetryPolicy(3)).build(), "delay");
+//    }
+
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder().build();
+    }
+
+    /**
+     * 需要定义RetryTemplate，否则无法启动
+     * <p>
+     * Consider defining a bean of type 'org.springframework.retry.support.RetryTemplate' in your configuration.
+     *
+     * @return
+     */
+    @Bean
+    public RetryTemplate retryTemplate() {
+        RetryTemplate retryTemplate = new RetryTemplate();
+        retryTemplate.setRetryPolicy(new SimpleRetryPolicy(2));
+        return retryTemplate;
     }
 }
