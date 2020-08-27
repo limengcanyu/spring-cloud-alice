@@ -20,6 +20,9 @@
         <module>spring-cloud-microservice2</module>
         <module>spring-cloud-microservice3</module>
         <module>spring-cloud-gateway</module>
+        <module>spring-cloud-gateway-dynamicroute</module>
+        <module>spring-cloud-gateway-resilience4j</module>
+        <module>spring-cloud-gateway-sentinel</module>
         <module>spring-cloud-eureka-server</module>
         <module>spring-boot-admin-server</module>
         <module>spring-boot-admin-client1</module>

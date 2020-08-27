@@ -34,6 +34,8 @@ http://localhost:8780/actuator
 
 https://localhost:8780/actuator/gateway/routes
 
+http://localhost:8780/actuator/gateway/routes
+
 输出:
 
 [
