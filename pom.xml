@@ -16,34 +16,40 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>spring-cloud-microservice1</module>
-        <module>spring-cloud-microservice2</module>
-        <module>spring-cloud-microservice3</module>
-        <module>spring-cloud-gateway</module>
-        <module>spring-cloud-gateway-dynamicroute</module>
-        <module>spring-cloud-gateway-resilience4j</module>
-        <module>spring-cloud-gateway-sentinel</module>
-        <module>spring-cloud-eureka-server</module>
-        <module>spring-boot-admin-server</module>
         <module>spring-boot-admin-client1</module>
         <module>spring-boot-admin-client2</module>
-        <module>spring-cloud-stream-kafka-producer</module>
-        <module>spring-cloud-stream-kafka-consumer</module>
-        <module>spring-cloud-stream-kafka-streams-producer</module>
-        <module>spring-cloud-stream-kafka-streams-consumer</module>
-        <module>spring-cloud-stream-rabbitmq-producer</module>
-        <module>spring-cloud-stream-rabbitmq-consumer</module>
-        <module>spring-cloud-zuul</module>
-        <module>spring-cloud-config-server</module>
-        <module>spring-cloud-config-client</module>
-        <module>spring-cloud-sleuth-zipkin1</module>
-        <module>spring-cloud-sleuth-zipkin2</module>
+        <module>spring-boot-admin-server</module>
         <module>spring-cloud-circuit-breaker-hystrix1</module>
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
         <module>spring-cloud-circuit-breaker-hystrix-turbine</module>
         <module>spring-cloud-circuit-breaker-resilience4j1</module>
         <module>spring-cloud-circuit-breaker-resilience4j2</module>
+        <module>spring-cloud-config-client</module>
+        <module>spring-cloud-config-server</module>
+        <module>spring-cloud-eureka-microservice1</module>
+        <module>spring-cloud-eureka-microservice2</module>
+        <module>spring-cloud-eureka-microservice3</module>
+        <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-gateway</module>
+        <module>spring-cloud-gateway-dynamicroute</module>
+        <module>spring-cloud-gateway-resilience4j</module>
+        <module>spring-cloud-gateway-sentinel</module>
+        <module>spring-cloud-microservice1</module>
+        <module>spring-cloud-microservice2</module>
+        <module>spring-cloud-microservice3</module>
+        <module>spring-cloud-nacos-microservice1</module>
+        <module>spring-cloud-nacos-microservice2</module>
+        <module>spring-cloud-nacos-microservice3</module>
+        <module>spring-cloud-sleuth-zipkin1</module>
+        <module>spring-cloud-sleuth-zipkin2</module>
+        <module>spring-cloud-stream-kafka-consumer</module>
+        <module>spring-cloud-stream-kafka-producer</module>
+        <module>spring-cloud-stream-kafka-streams-consumer</module>
+        <module>spring-cloud-stream-kafka-streams-producer</module>
+        <module>spring-cloud-stream-rabbitmq-consumer</module>
+        <module>spring-cloud-stream-rabbitmq-producer</module>
+        <module>spring-cloud-zuul</module>
     </modules>
 
     <properties>
@@ -78,7 +84,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR7</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
