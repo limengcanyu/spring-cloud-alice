@@ -27,7 +27,7 @@ public class EurekaClientController {
     @RequestMapping("/eurekaClient/serviceUrl")
     public String serviceUrl() {
         // 根据服务名称获取服务实例注册信息
-        InstanceInfo instance = discoveryClient.getNextServerFromEureka("spring-cloud-microservice2", false);
+        InstanceInfo instance = discoveryClient.getNextServerFromEureka("spring-cloud-eureka-microservice1", false);
         return instance.getHomePageUrl();
     }
 }
