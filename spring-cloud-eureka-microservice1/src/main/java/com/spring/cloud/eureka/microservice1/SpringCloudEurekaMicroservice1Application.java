@@ -3,6 +3,8 @@ package com.spring.cloud.eureka.microservice1;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//@EnablePrometheusEndpoint // Prometheus add
+//@EnableSpringBootMetricsCollector // Prometheus add
 @SpringBootApplication
 public class SpringCloudEurekaMicroservice1Application {
 

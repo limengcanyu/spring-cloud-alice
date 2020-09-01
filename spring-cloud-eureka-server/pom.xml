@@ -49,5 +49,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- Prometheus add start -->
+        <!-- https://mvnrepository.com/artifact/at.twinformatics/eureka-consul-adapter -->
+        <dependency>
+            <groupId>at.twinformatics</groupId>
+            <artifactId>eureka-consul-adapter</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <!-- Prometheus add end -->
     </dependencies>
 </project>
