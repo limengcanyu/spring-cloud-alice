@@ -1,5 +1,42 @@
 # skywalking
 
+## docker
+
+docker search skywalking
+
+docker pull apache/skywalking-oap-server 
+docker pull apache/skywalking-ui
+
+docker run \
+--name skywalking \
+ -d \
+ -p 11800:11800 \
+ -p 12800:12800 \
+ --restart always \
+ --link elasticsearch:elasticsearch \
+ -e TZ=Asia/Shanghai \
+ -e SW_STORAGE=elasticsearch \
+ -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 \
+ apache/skywalking-oap-server 
+ 
+docker run \
+--name skywalking-ui \
+-d \
+ -p 7070:8080 \
+--link skywalking:skywalking \
+ -e TZ=Asia/Shanghai \
+-e SW_OAP_ADDRESS=skywalking:12800 \
+ --restart always \
+apache/skywalking-ui \
+
+UI地址
+
+http://内网宿主机ip:7070
+
+连接地址为
+
+内网宿主机ip:11800
+
 ## start backend and ui
 
 linux:
@@ -64,6 +101,14 @@ storage:
 
 alarm rule definition file: config/alarm-settings.yml
 
+## 服务按顺序启动
+
+eureka-server
+microservice1
+microservice2
+gateway
+
+每个服务都需要agent
 
 
 
