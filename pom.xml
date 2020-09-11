@@ -35,9 +35,6 @@
         <module>spring-cloud-gateway-dynamicroute</module>
         <module>spring-cloud-gateway-resilience4j</module>
         <module>spring-cloud-gateway-sentinel</module>
-        <module>spring-cloud-microservice1</module>
-        <module>spring-cloud-microservice2</module>
-        <module>spring-cloud-microservice3</module>
         <module>spring-cloud-nacos-microservice1</module>
         <module>spring-cloud-nacos-microservice2</module>
         <module>spring-cloud-nacos-microservice3</module>
