@@ -14,6 +14,12 @@ import java.util.function.Consumer;
  */
 @Configuration
 public class ConsumerConfiguration {
+    /**
+     * using functional programming model (see Spring Cloud Function support)
+     * to define a single message handler as Consumer.
+     *
+     * @return
+     */
     @Bean
     public Consumer<Person> personConsumer() {
         return person -> {
