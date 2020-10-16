@@ -1,5 +1,3 @@
-server.port: 8901
+server.port: 8910
 
-#spring.cloud.stream.bindings.personConsumer-in-0.destination: personConsumer-topic
-spring.cloud.stream.bindings.personConsumer-in-0.group: personConsumerGroup
-
+spring.cloud.stream.bindings.input.group: hdfsWrite
