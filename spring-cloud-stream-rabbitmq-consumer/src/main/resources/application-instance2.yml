@@ -1,0 +1,4 @@
+server.port: 8902
+
+#spring.cloud.stream.bindings.personConsumer-in-0.destination: personConsumer-topic
+spring.cloud.stream.bindings.personConsumer-in-0.group: personConsumerGroup

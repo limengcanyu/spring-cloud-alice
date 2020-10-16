@@ -1,4 +1,4 @@
-package com.spring.cloud.stream.rabbitmq.producer.config;
+package com.spring.cloud.stream.rabbitmq.consumer.config;
 
 import com.spring.cloud.stream.rabbitmq.producer.entity.Person;
 import org.springframework.context.annotation.Bean;
