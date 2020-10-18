@@ -2,18 +2,13 @@ package com.spring.cloud.stream.kafka.producer;
 
 import com.spring.cloud.stream.kafka.producer.channel.OutputChannel;
 import com.spring.cloud.stream.kafka.producer.message.User;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @DirtiesContext
 public class SpringCloudStreamKafkaProducerApplicationTest {
