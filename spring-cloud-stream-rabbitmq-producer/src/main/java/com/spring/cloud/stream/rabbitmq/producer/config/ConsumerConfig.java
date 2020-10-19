@@ -12,7 +12,7 @@ public class ConsumerConfig {
     @Bean
     public Consumer<String> stringConsumer() {
         return value -> {
-            log.debug("============ stringConsumer: {}", value);
+            log.debug("============ stringConsumer input: {}", value);
         };
     }
 }

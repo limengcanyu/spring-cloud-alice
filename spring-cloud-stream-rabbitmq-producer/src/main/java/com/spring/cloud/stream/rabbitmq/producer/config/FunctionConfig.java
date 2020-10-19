@@ -15,15 +15,22 @@ import java.util.function.Function;
 @Configuration
 public class FunctionConfig {
 
-    /**
-     *
-     * @return
-     */
+    @Bean
+    public Function<String, String> inputCase() {
+        return value -> "input case";
+    }
+
+    @Bean
+    public Function<String, String> lowerCase() {
+        return value -> value.toLowerCase() + " hello case";
+    }
+
     @Bean
     public Function<String, String> uppercase() {
         return value -> {
-            log.debug("============ uppercase: {}", value);
-            return value.toUpperCase();
+            String retString = value.toUpperCase();
+            log.debug("============ uppercase input: {} output: {}", value, retString);
+            return retString;
         };
     }
 }
