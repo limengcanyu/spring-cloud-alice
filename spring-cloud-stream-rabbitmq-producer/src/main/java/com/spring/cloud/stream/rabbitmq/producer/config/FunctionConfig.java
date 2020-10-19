@@ -17,18 +17,26 @@ public class FunctionConfig {
 
     @Bean
     public Function<String, String> inputCase() {
-        return value -> "input case";
+        return value -> {
+            String retString = value.toLowerCase() + " inputCase";
+            log.debug("============ inputCase input: {} output: {}", value, retString);
+            return retString;
+        };
     }
 
     @Bean
     public Function<String, String> lowerCase() {
-        return value -> value.toLowerCase() + " hello case";
+        return value -> {
+            String retString = value.toLowerCase() + " lowerCase";
+            log.debug("============ lowerCase input: {} output: {}", value, retString);
+            return retString;
+        };
     }
 
     @Bean
     public Function<String, String> uppercase() {
         return value -> {
-            String retString = value.toUpperCase();
+            String retString = value.toUpperCase() + " uppercase";
             log.debug("============ uppercase input: {} output: {}", value, retString);
             return retString;
         };
