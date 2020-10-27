@@ -1,14 +1,14 @@
 package com.spring.cloud.nacos.microservice1.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import com.spring.cloud.nacos.microservice1.feignclient.Service2Client;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * <p>Description: </p>
@@ -20,52 +20,28 @@ import java.util.Map;
 @RestController
 public class EchoController {
 
-    @GetMapping("/")
-    public String home() {
-        log.debug("calling MicroService1 home");
-        return "MicroService1 home";
+    @Autowired
+    private Service2Client service2Client;
+
+    /**
+     * localhost:8800/echo
+     *
+     * @return
+     */
+    @GetMapping("/echo")
+    public String echo() {
+        return "service1";
     }
 
     /**
-     * localhost:8800/echo/1212
+     * localhost:8800/echoService1/service1
      *
-     * @param string
+     * @param content
      * @return
      */
-    @RequestMapping("/echo/{string}")
-    public String echo(@PathVariable String string) {
-        log.debug("calling MicroService1 echo");
-        return "MicroService1 echo " + string;
-    }
-
-    /**
-     * localhost:8800/echoParam?user=1212
-     *
-     * @param user
-     * @return
-     */
-    @RequestMapping("/echoParam")
-    public String echoParam(@RequestParam String user) {
-        log.debug("calling MicroService1 echoParam");
-        return "MicroService1 echoParam " + user;
-    }
-
-    @RequestMapping("/echo2/{string}")
-    public String echo2(@PathVariable String string) {
-        log.debug("calling MicroService1 echo2");
-        return "MicroService1 echo2 " + string;
-    }
-
-    @RequestMapping("/modifyRequestBody")
-    public String modifyRequestBody(@RequestBody Map<String, Object> param) {
-        log.debug("calling MicroService1 modifyRequestBody");
-        return "MicroService1 modifyRequestBody " + param;
-    }
-
-    @RequestMapping("/save")
-    public String save(@RequestBody JSONObject routeJsonObject) {
-        log.debug("calling MicroService1 save");
-        return "MicroService1 save " + JSONObject.toJSONString(routeJsonObject);
+    @RequestMapping("/echoService1/{content}")
+    public String echoService1(@PathVariable String content) {
+        return "service1 return " + service2Client.echoService2(content);
     }
 
     /**

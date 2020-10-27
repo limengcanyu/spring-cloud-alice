@@ -38,8 +38,11 @@
         <module>spring-cloud-nacos-microservice1</module>
         <module>spring-cloud-nacos-microservice2</module>
         <module>spring-cloud-nacos-microservice3</module>
+        <module>spring-cloud-nacos-microservice4</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
+        <module>spring-cloud-sleuth-zipkin3</module>
+        <module>spring-cloud-sleuth-zipkin4</module>
         <module>spring-cloud-stream-kafka-consumer</module>
         <module>spring-cloud-stream-kafka-producer</module>
         <module>spring-cloud-stream-kafka-streams-consumer</module>
