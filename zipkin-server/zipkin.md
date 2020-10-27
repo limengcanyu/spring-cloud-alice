@@ -10,9 +10,10 @@ http://192.168.81.129:9411/zipkin/
 Java
 
 ```
-java -jar zipkin.jar
+cd D:\IdeaProjects-MyProject\spring-cloud-alice\zipkin-server
+java -jar zipkin-server-2.22.0-exec.jar
 
-http://192.168.81.129:9411/zipkin/
+http://127.0.0.1:9411/zipkin/
 
 ```
 
