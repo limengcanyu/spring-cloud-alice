@@ -1,6 +1,6 @@
 package com.spring.cloud.nacos.microservice2.controller;
 
-import com.spring.cloud.nacos.microservice2.feignClient.Service3Client;
+import com.spring.cloud.nacos.microservice2.feign.Service3Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -3,7 +3,7 @@ server.port: 8870
 spring.cloud.nacos.discovery.server-addr: 127.0.0.1:8848
 
 # find Zipkin through service discovery
-spring.zipkin.baseUrl: http://192.168.81.129:9411/
+spring.zipkin.baseUrl: http://localhost:9411/
 
 # LOGGING
 # Instead of logging the request in the handler explicitly, you could set
