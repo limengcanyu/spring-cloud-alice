@@ -39,6 +39,10 @@
         <module>spring-cloud-nacos-microservice2</module>
         <module>spring-cloud-nacos-microservice3</module>
         <module>spring-cloud-nacos-microservice4</module>
+        <module>spring-cloud-sleuth-skywalking1</module>
+        <module>spring-cloud-sleuth-skywalking2</module>
+        <module>spring-cloud-sleuth-skywalking3</module>
+        <module>spring-cloud-sleuth-skywalking4</module>
         <module>spring-cloud-sleuth-zipkin1</module>
         <module>spring-cloud-sleuth-zipkin2</module>
         <module>spring-cloud-sleuth-zipkin3</module>

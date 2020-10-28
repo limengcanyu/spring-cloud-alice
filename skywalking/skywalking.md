@@ -1,5 +1,12 @@
 # skywalking
 
+Docker Images for convenience
+
+Base, https://hub.docker.com/r/apache/skywalking-base
+SkyWalking OAP Server, https://hub.docker.com/r/apache/skywalking-oap-server
+SkyWalking UI, https://hub.docker.com/r/apache/skywalking-ui
+
+
 ## docker
 
 docker search skywalking
@@ -7,27 +14,12 @@ docker search skywalking
 docker pull apache/skywalking-oap-server 
 docker pull apache/skywalking-ui
 
-docker run \
---name skywalking \
- -d \
- -p 11800:11800 \
- -p 12800:12800 \
- --restart always \
- --link elasticsearch:elasticsearch \
- -e TZ=Asia/Shanghai \
- -e SW_STORAGE=elasticsearch \
- -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 \
- apache/skywalking-oap-server 
+docker run --name skywalking -d -p 11800:11800 -p 12800:12800 --restart always \
+  --link elasticsearch:elasticsearch -e TZ=Asia/Shanghai -e SW_STORAGE=elasticsearch \
+  -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 apache/skywalking-oap-server 
  
-docker run \
---name skywalking-ui \
--d \
- -p 7070:8080 \
---link skywalking:skywalking \
- -e TZ=Asia/Shanghai \
--e SW_OAP_ADDRESS=skywalking:12800 \
- --restart always \
-apache/skywalking-ui \
+docker run --name skywalking-ui -d -p 7070:8080 --link skywalking:skywalking -e TZ=Asia/Shanghai \
+  -e SW_OAP_ADDRESS=skywalking:12800 --restart always apache/skywalking-ui
 
 UI地址
 
@@ -37,7 +29,9 @@ http://内网宿主机ip:7070
 
 内网宿主机ip:11800
 
-## start backend and ui
+apache-skywalking-apm-8.2.0.tar.gz
+
+## start
 
 linux:
 
@@ -45,32 +39,16 @@ linux:
 
 windows:
 
-D:/apache-skywalking-apm-8.1.0/apache-skywalking-apm-bin/bin/startup.bat
+D:/apache-skywalking-apm-8.2.0/bin/startup.bat
+
+log
+
+D:\apache-skywalking-apm-8.2.0\logs
 
 tail -fn 300 skywalking-oap-server.log
 tail -fn 300 webapp.log
 
-## start backend-setup
-
-linux:
-
-/Users/rock/Downloads/apache-skywalking-apm-bin/bin/oapService.sh
-
-windows:
-
-D:/apache-skywalking-apm-8.1.0/apache-skywalking-apm-bin/bin/oapService.bat
-
-## start ui-setup
-
-linux:
-
-/Users/rock/Downloads/apache-skywalking-apm-bin/bin/webappService.sh
-
-windows:
-
-D:/apache-skywalking-apm-8.1.0/apache-skywalking-apm-bin/bin/webappService.bat
-
-UI默认地址：
+ui
 
 localhost:8080
 
