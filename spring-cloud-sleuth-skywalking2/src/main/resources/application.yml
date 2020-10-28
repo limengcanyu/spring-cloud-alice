@@ -10,3 +10,7 @@ logging.pattern.console: ${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}
 
 # 发现客户端注册之后，Eureka默认认为是可用状态，不再检查发现客户端是否可用，开启发现客户端心跳检查，将发现客户端状态定时发送给Eureka
 eureka.client.healthcheck.enabled: true
+
+skywalking.agent.service_name: spring-cloud-sleuth-skywalking2
+skywalking.collector.backend_service: localhost:11800
+
