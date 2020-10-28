@@ -29,7 +29,8 @@ http://内网宿主机ip:7070
 
 内网宿主机ip:11800
 
-apache-skywalking-apm-8.2.0.tar.gz
+
+解压apache-skywalking-apm-8.2.0.tar.gz
 
 ## start
 
@@ -79,14 +80,28 @@ storage:
 
 alarm rule definition file: config/alarm-settings.yml
 
-## 服务按顺序启动
+## 服务启动JVM参数
 
-eureka-server
-microservice1
-microservice2
-gateway
+linux:
 
-每个服务都需要agent
+-javaagent:/Users/rock/IdeaProjects/spring-cloud-alice/skywalking-agent/agent/skywalking-agent.jar
+-Dskywalking.agent.service_name=spring-cloud-sleuth-skywalking1
+-Dskywalking.collector.backend_service=localhost:11800
+
+windows:
+
+Git Bash
+
+cd D:/IdeaProjects-MyProject/spring-cloud-alice/spring-cloud-sleuth-skywalking1/target
+E:/Java/jdk-14.0.2/bin/java \
+-javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/agent/skywalking-agent.jar \
+-Dskywalking.agent.service_name=spring-cloud-sleuth-skywalking1 \
+-Dskywalking.collector.backend_service=localhost:11800 \
+-jar spring-cloud-sleuth-skywalking1-0.0.1-SNAPSHOT.jar
 
 
+IDEA VM参数
+-javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/agent/skywalking-agent.jar
+-Dskywalking.agent.service_name=spring-cloud-sleuth-skywalking1
+-Dskywalking.collector.backend_service=localhost:11800
 
