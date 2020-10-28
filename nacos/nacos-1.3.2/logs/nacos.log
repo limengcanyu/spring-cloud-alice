@@ -1,0 +1,172 @@
+2020-10-28 12:51:25,078 INFO Starting Nacos v1.3.2 on LAPTOP-K6HDOK94 with PID 8216 (D:\IdeaProjects-MyProject\spring-cloud-alice\nacos\nacos\target\nacos-server.jar started by EDZ in D:\IdeaProjects-MyProject\spring-cloud-alice\nacos\nacos\bin)
+
+2020-10-28 12:51:25,078 INFO The following profiles are active: standalone
+
+2020-10-28 12:51:27,533 INFO Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$148cc48c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2020-10-28 12:51:27,595 INFO Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2020-10-28 12:51:27,604 INFO Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@43ed0ff3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2020-10-28 12:51:27,605 INFO Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$3961673e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2020-10-28 12:51:27,611 INFO Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2020-10-28 12:51:28,009 INFO Tomcat initialized with port(s): 8848 (http)
+
+2020-10-28 12:51:28,033 INFO Starting service [Tomcat]
+
+2020-10-28 12:51:28,033 INFO Starting Servlet Engine: Apache Tomcat/9.0.13
+
+2020-10-28 12:51:28,044 INFO The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\Java\jdk-14.0.2\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;E:\Git\cmd;E:\IDM Computer Solutions\UltraEdit;E:\Go\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\EDZ\AppData\Local\Microsoft\WindowsApps;C:\Users\EDZ\go\bin;E:\Java\jdk-14.0.2\bin;E:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;E:\gradle-6.6-all\gradle-6.6\bin;C:\Users\EDZ\AppData\Local\GitHubDesktop\bin;.]
+
+2020-10-28 12:51:28,152 INFO Initializing Spring embedded WebApplicationContext
+
+2020-10-28 12:51:28,152 INFO Root WebApplicationContext: initialization completed in 3004 ms
+
+2020-10-28 12:51:28,581 WARN HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+
+2020-10-28 12:51:28,581 INFO HikariPool-1 - Starting...
+
+2020-10-28 12:51:28,587 WARN Registered driver with driverClassName=org.apache.derby.jdbc.EmbeddedDriver was not found, trying direct instantiation.
+
+2020-10-28 12:51:29,030 INFO HikariPool-1 - Driver does not support get/set network timeout for connections. (Feature not implemented: No details.)
+
+2020-10-28 12:51:29,033 INFO HikariPool-1 - Start completed.
+
+2020-10-28 12:51:29,734 INFO Nacos-related cluster resource initialization
+
+2020-10-28 12:51:29,741 INFO The cluster resource is initialized
+
+2020-10-28 12:51:30,136 INFO Reflections took 49 ms to scan 1 urls, producing 6 keys and 24 values 
+
+2020-10-28 12:51:30,174 INFO Reflections took 6 ms to scan 1 urls, producing 2 keys and 12 values 
+
+2020-10-28 12:51:30,185 INFO Reflections took 7 ms to scan 1 urls, producing 3 keys and 15 values 
+
+2020-10-28 12:51:30,893 INFO Initializing ExecutorService 'applicationTaskExecutor'
+
+2020-10-28 12:51:31,045 INFO Adding welcome page: class path resource [static/index.html]
+
+2020-10-28 12:51:31,346 INFO Creating filter chain: Ant [pattern='/**'], []
+
+2020-10-28 12:51:31,386 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d17ee50, org.springframework.security.web.context.SecurityContextPersistenceFilter@3fd05b3e, org.springframework.security.web.header.HeaderWriterFilter@611640f0, org.springframework.security.web.csrf.CsrfFilter@609e57da, org.springframework.security.web.authentication.logout.LogoutFilter@72bdd7c7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a481728, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@479b5066, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@44fdce3c, org.springframework.security.web.session.SessionManagementFilter@7affc159, org.springframework.security.web.access.ExceptionTranslationFilter@4d0e54e0]
+
+2020-10-28 12:51:31,460 INFO Exposing 2 endpoint(s) beneath base path '/actuator'
+
+2020-10-28 12:51:31,485 INFO Initializing ExecutorService 'taskScheduler'
+
+2020-10-28 12:51:31,577 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2020-10-28 12:51:31,581 INFO Started Nacos in 7.567 seconds (JVM running for 8.138)
+
+2020-10-28 12:51:31,582 INFO Nacos Log files: D:\IdeaProjects-MyProject\spring-cloud-alice\nacos\nacos\logs
+
+2020-10-28 12:51:31,583 INFO Nacos Log files: D:\IdeaProjects-MyProject\spring-cloud-alice\nacos\nacos\conf
+
+2020-10-28 12:51:31,584 INFO Nacos Log files: D:\IdeaProjects-MyProject\spring-cloud-alice\nacos\nacos\data
+
+2020-10-28 12:51:31,584 INFO Nacos started successfully in stand alone mode. use embedded storage
+
+2020-10-28 12:54:54,738 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2020-10-28 12:54:54,738 INFO Initializing Servlet 'dispatcherServlet'
+
+2020-10-28 12:54:54,747 INFO Completed initialization in 8 ms
+
+2020-10-28 13:01:30,358 INFO [capacityManagement] start correct usage
+
+2020-10-28 13:01:30,371 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 13:01:30,486 WARN clearConfigHistory start
+
+2020-10-28 13:11:30,372 INFO [capacityManagement] start correct usage
+
+2020-10-28 13:11:30,373 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 13:11:30,499 WARN clearConfigHistory start
+
+2020-10-28 13:36:34,469 WARN clearConfigHistory start
+
+2020-10-28 13:36:53,161 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m54s2ms468µs900ns).
+
+2020-10-28 13:41:54,372 INFO [capacityManagement] start correct usage
+
+2020-10-28 13:41:54,372 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 13:46:34,470 WARN clearConfigHistory start
+
+2020-10-28 13:51:54,380 INFO [capacityManagement] start correct usage
+
+2020-10-28 13:51:54,380 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 13:56:34,475 WARN clearConfigHistory start
+
+2020-10-28 14:01:54,381 INFO [capacityManagement] start correct usage
+
+2020-10-28 14:01:54,381 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 14:06:34,477 WARN clearConfigHistory start
+
+2020-10-28 14:11:55,628 INFO [capacityManagement] start correct usage
+
+2020-10-28 14:11:55,628 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 14:16:35,732 WARN clearConfigHistory start
+
+2020-10-28 14:21:55,631 INFO [capacityManagement] start correct usage
+
+2020-10-28 14:21:55,631 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 14:26:35,735 WARN clearConfigHistory start
+
+2020-10-28 14:31:55,632 INFO [capacityManagement] start correct usage
+
+2020-10-28 14:31:55,632 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 14:36:35,745 WARN clearConfigHistory start
+
+2020-10-28 16:53:57,481 WARN clearConfigHistory start
+
+2020-10-28 16:54:14,440 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h17m19s202ms444µs700ns).
+
+2020-10-28 16:58:44,833 INFO [capacityManagement] start correct usage
+
+2020-10-28 16:58:44,833 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:03:57,498 WARN clearConfigHistory start
+
+2020-10-28 17:08:44,835 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:08:44,835 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:13:57,511 WARN clearConfigHistory start
+
+2020-10-28 17:18:44,835 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:18:44,835 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:23:57,513 WARN clearConfigHistory start
+
+2020-10-28 17:28:44,837 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:28:44,837 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:33:57,516 WARN clearConfigHistory start
+
+2020-10-28 17:38:44,838 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:38:44,838 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:43:57,520 WARN clearConfigHistory start
+
+2020-10-28 17:48:44,840 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:48:44,841 INFO [capacityManagement] end correct usage, cost: 0s
+
+2020-10-28 17:53:57,521 WARN clearConfigHistory start
+
+2020-10-28 17:58:44,843 INFO [capacityManagement] start correct usage
+
+2020-10-28 17:58:44,843 INFO [capacityManagement] end correct usage, cost: 0s
+

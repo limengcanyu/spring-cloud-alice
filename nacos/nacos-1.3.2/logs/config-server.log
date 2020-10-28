@@ -1,0 +1,38 @@
+2020-10-28 12:51:25,065 INFO notifyConnectTimeout:200
+
+2020-10-28 12:51:25,068 INFO notifySocketTimeout:8000
+
+2020-10-28 12:51:25,068 INFO isHealthCheck:true
+
+2020-10-28 12:51:25,068 INFO maxHealthCheckFailCount:12
+
+2020-10-28 12:51:25,068 INFO maxContent:10485760
+
+2020-10-28 12:51:28,417 INFO use local db service for init
+
+2020-10-28 12:51:29,095 WARN Lexical error at line 4, column 66.  Encountered: <EOF> after : "".
+
+2020-10-28 12:51:29,103 WARN Syntax error: Encountered "*" at line 1, column 1.
+
+2020-10-28 12:51:29,412 INFO use StandaloneDatabaseOperateImpl
+
+2020-10-28 12:51:30,413 WARN DumpService start
+
+2020-10-28 12:51:30,414 INFO start clear all config-info.
+
+2020-10-28 12:51:30,418 WARN clear all config-info failed.
+
+2020-10-28 12:51:30,419 WARN clear all config-info-tenant failed.
+
+2020-10-28 12:51:30,455 INFO start clear all config-info-beta.
+
+2020-10-28 12:51:30,455 WARN clear all config-info-beta failed.
+
+2020-10-28 12:51:30,455 WARN clear all config-info-beta-tenant failed.
+
+2020-10-28 12:51:30,464 INFO start clear all config-info-tag.
+
+2020-10-28 12:51:30,464 WARN clear all config-info-tag failed.
+
+2020-10-28 12:51:30,464 WARN clear all config-info-tag-tenant failed.
+
