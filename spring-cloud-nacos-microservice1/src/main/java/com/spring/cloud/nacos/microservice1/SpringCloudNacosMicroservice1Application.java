@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableFeignClients(basePackages = "com.spring.cloud.nacos.microservice1.feignclient")
+@EnableFeignClients(basePackages = "com.spring.cloud.nacos.microservice1.feign")
 @SpringBootApplication
 public class SpringCloudNacosMicroservice1Application {
 

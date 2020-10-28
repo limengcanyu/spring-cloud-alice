@@ -1,6 +1,6 @@
 package com.spring.cloud.nacos.microservice1.controller;
 
-import com.spring.cloud.nacos.microservice1.feignclient.Service2Client;
+import com.spring.cloud.nacos.microservice1.feignClient.Service2Client;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
