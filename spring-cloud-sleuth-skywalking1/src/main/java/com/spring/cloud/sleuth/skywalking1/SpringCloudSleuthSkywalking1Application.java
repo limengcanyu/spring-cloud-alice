@@ -1,6 +1,7 @@
 package com.spring.cloud.sleuth.skywalking1;
 
 import com.spring.cloud.sleuth.skywalking1.feign.SkyWalking2Client;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @EnableFeignClients
 @SpringBootApplication
@@ -39,6 +41,7 @@ public class SpringCloudSleuthSkywalking1Application {
 	 */
 	@RequestMapping("/echoSkywalking1/{content}")
 	public String echoSkywalking1(@PathVariable String content) {
+		log.debug("echoSkywalking1 receive param: {}", content);
 		return "Skywalking1 return " + skyWalking2Client.echoSkywalking2(content);
 	}
 

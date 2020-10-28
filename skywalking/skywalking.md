@@ -40,7 +40,7 @@ linux:
 
 windows:
 
-D:/apache-skywalking-apm-8.2.0/bin/startup.bat
+D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/apache-skywalking-apm-8.2.0/bin/startup.bat
 
 log
 
@@ -94,14 +94,14 @@ Git Bash
 
 cd D:/IdeaProjects-MyProject/spring-cloud-alice/spring-cloud-sleuth-skywalking1/target
 E:/Java/jdk-14.0.2/bin/java \
--javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/agent/skywalking-agent.jar \
+-javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/apache-skywalking-apm-8.2.0/agent/skywalking-agent.jar \
 -Dskywalking.agent.service_name=spring-cloud-sleuth-skywalking1 \
 -Dskywalking.collector.backend_service=localhost:11800 \
 -jar spring-cloud-sleuth-skywalking1-0.0.1-SNAPSHOT.jar
 
 
 IDEA VM参数
--javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/agent/skywalking-agent.jar
+-javaagent:D:/IdeaProjects-MyProject/spring-cloud-alice/skywalking/apache-skywalking-apm-8.2.0/agent/skywalking-agent.jar
 -Dskywalking.agent.service_name=spring-cloud-sleuth-skywalking1
 -Dskywalking.collector.backend_service=localhost:11800
 

@@ -27,6 +27,7 @@ hs_err_pid*
 *.iml
 target
 nacos
+apache-skywalking-apm-8.2.0
 
 
 
