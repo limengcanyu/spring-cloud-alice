@@ -16,9 +16,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>spring-boot-admin-client1</module>
-        <module>spring-boot-admin-client2</module>
-        <module>spring-boot-admin-server</module>
+        <module>spring-boot-admin-eureka-client1</module>
+        <module>spring-boot-admin-eureka-client2</module>
+        <module>spring-boot-admin-eureka-server</module>
+        <module>spring-boot-admin-nacos-client1</module>
+        <module>spring-boot-admin-nacos-client2</module>
+        <module>spring-boot-admin-nacos-server</module>
         <module>spring-cloud-circuit-breaker-hystrix1</module>
         <module>spring-cloud-circuit-breaker-hystrix2</module>
         <module>spring-cloud-circuit-breaker-hystrix-dashboard</module>
