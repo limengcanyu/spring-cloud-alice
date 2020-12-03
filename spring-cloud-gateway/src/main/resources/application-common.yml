@@ -20,6 +20,7 @@ spring.cloud.gateway.discovery.locator.lower-case-service-id: true
 # 开启服务发现，可从注册中心发现服务
 spring.cloud.gateway.discovery.locator.enabled: true
 
+# enable /gateway actuator endpoint
 management.endpoint.gateway.enabled: true # default value
 management.endpoints.web.exposure.include: gateway
 
