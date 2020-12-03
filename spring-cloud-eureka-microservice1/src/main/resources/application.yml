@@ -1,6 +1,6 @@
 #spring.profiles.active: commons
 
-server.port: 8800
+server.port: 8700
 spring.application.name: spring-cloud-eureka-microservice1
 
 eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

@@ -1,4 +1,4 @@
-server.port: 8820
+server.port: 8850
 spring.application.name: spring-cloud-eureka-microservice3
 
 eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/

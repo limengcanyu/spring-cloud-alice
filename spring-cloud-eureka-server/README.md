@@ -5,4 +5,5 @@
 -Dskywalking.agent.service_name=spring-cloud-eureka-server
 -Dskywalking.collector.backend_service=localhost:11800
 
+注：Eureka Server不可用后，已经注册的服务还可以通过Feign相互调用，因为注册过的服务都会缓存注册中心的注册信息
 
