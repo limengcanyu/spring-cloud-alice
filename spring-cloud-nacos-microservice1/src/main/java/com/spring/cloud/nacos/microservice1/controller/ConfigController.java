@@ -31,7 +31,7 @@ public class ConfigController {
     @Value(value = "${order.pay-timeout-seconds}")
     private Integer payTimeoutSeconds;
 
-    @Value("${xxx-password:}")
+    @Value("${order.xxx-password:}")
     private String xxxPassword;
 
     @RequestMapping("/get")
@@ -47,9 +47,11 @@ public class ConfigController {
     @RequestMapping("/getPayTimeoutSeconds")
     public int getPayTimeoutSeconds() {
         log.debug("payTimeoutSeconds: {}", payTimeoutSeconds);
+        log.debug("xxx-password: {}", xxxPassword);
+
         log.debug("orderProperties payTimeoutSeconds: {}", orderProperties.getPayTimeoutSeconds());
-        log.debug("xxx-password: {}", orderProperties.getXxxPassword());
         log.debug("orderProperties xxx-password: {}", orderProperties.getXxxPassword());
+
         return payTimeoutSeconds;
     }
 }
