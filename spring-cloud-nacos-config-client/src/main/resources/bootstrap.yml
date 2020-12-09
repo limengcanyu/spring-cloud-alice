@@ -24,10 +24,15 @@ spring.cloud.nacos.config.group: DEFAULT_GROUP
 spring.cloud.nacos.config.file-extension: yaml
 
 
+# nacos配置中心配置
 #order:
-#  pay-timeout-seconds: 150 # 订单支付超时时长，单位：秒。
-#  create-frequency-seconds: 60 # 订单创建频率，单位：秒
-#  xxx-password: ENC(XNVYkcNNQWso6NW1AqjnJCnTbYMLZWghsmOs+Q9GWag=)
+#  id: order_001
+#  password: ENC(2F34BZlow/Ots+XhwRGjfKUohhmPb95xxZ8NDGu6LGE=)
+#
+#product:
+#  id: product_001
+#
+#useLocalCache: false
 #
 #jasypt:
 #  encryptor:
@@ -35,4 +40,3 @@ spring.cloud.nacos.config.file-extension: yaml
 #    algorithm: PBEWITHMD5ANDDES
 #    # 加密密钥
 #    password: sdfsadfsdf
-
