@@ -16,7 +16,7 @@ spring:
 #            response-timeout: 200
 #            connect-timeout: 200
         - id: microservice1_route
-          uri: lb://spring-cloud-microservice1
+          uri: lb://spring-cloud-eureka-microservice1
           predicates:
             - Path=/microservice1/**
           # StripPrefix: 接受一个非负整数，对应的具体实现是StripPrefixGatewayFilterFactory，做用是去掉前缀，整数对应层数。
