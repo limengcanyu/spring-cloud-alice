@@ -16,12 +16,10 @@ class SpringCloudNacosConfigClientApplicationTests {
 
     @Test
     void encode() {
-        // 第一个加密
         String password = "samuro001002";
         System.out.println(encryptor.encrypt(password));
         // viZXzfXv673GQHcsjRZy8p8R9qQmCzzFsU3qXXkBECk=
 
-        // 第一个加密
         password = "artanis001002";
         System.out.println(encryptor.encrypt(password));
         // 2F34BZlow/Ots+XhwRGjfKUohhmPb95xxZ8NDGu6LGE=

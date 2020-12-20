@@ -27,10 +27,21 @@ spring.cloud.nacos.config.file-extension: yaml
 # nacos配置中心配置
 #order:
 #  id: order_001
-#  password: ENC(2F34BZlow/Ots+XhwRGjfKUohhmPb95xxZ8NDGu6LGE=)
+#  # password: ENC(2F34BZlow/Ots+XhwRGjfKUohhmPb95xxZ8NDGu6LGE=)
+#  password: viZXzfXv673GQHcsjRZy8p8R9qQmCzzFsU3qXXkBECk=
+#  #password: 2F34BZlow/Ots+XhwRGjfKUohhmPb95xxZ8NDGu6LGE=
 #
 #product:
 #  id: product_001
+#
+#spring.datasource.type: com.alibaba.druid.pool.DruidDataSource
+#
+#spring.datasource.driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#spring.datasource.url: jdbc:p6spy:mysql://localhost:3306/artanis?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+#
+#spring.datasource.username: root
+#spring.datasource.password: JEhlPX06gycwiV9w3/GXHggHFj/Mw57pESSYgGc7BRM=
+#
 #
 #useLocalCache: false
 #

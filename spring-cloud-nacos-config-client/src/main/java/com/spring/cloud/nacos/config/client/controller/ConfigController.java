@@ -1,10 +1,7 @@
 package com.spring.cloud.nacos.config.client.controller;
 
-import com.spring.cloud.nacos.config.client.config.OrderProperties;
-import com.spring.cloud.nacos.config.client.service.ConfigService;
+import com.spring.cloud.nacos.config.client.service.NacosConfigService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +22,7 @@ import javax.annotation.Resource;
 public class ConfigController {
 
     @Resource
-    private ConfigService configService;
+    private NacosConfigService nacosConfigService;
 
     /**
      * localhost:8800/getConfig
@@ -34,6 +31,7 @@ public class ConfigController {
      */
     @RequestMapping("/getConfig")
     public String getConfig() {
-        return configService.getConfig();
+        return nacosConfigService.getConfig();
     }
+
 }
