@@ -9,6 +9,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.spring.cloud</groupId>
@@ -64,24 +65,36 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <java.version>15</java.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+
         <zipkin.server.version>2.12.9</zipkin.server.version>
         <zipkin.autoconfigure.ui.version>2.12.9</zipkin.autoconfigure.ui.version>
+
         <lombok.version>1.18.16</lombok.version>
         <fastjson.version>1.2.75</fastjson.version>
         <gson.version>2.8.6</gson.version>
+
         <mysql.connector.java.version>8.0.19</mysql.connector.java.version>
         <druid.spring.boot.starter.version>1.1.21</druid.spring.boot.starter.version>
+
         <spring.cloud.alibaba.seata.version>2.2.0.RELEASE</spring.cloud.alibaba.seata.version>
         <seata.all.version>1.1.0</seata.all.version>
+
         <spring.boot.admin.starter.server.version>2.2.2</spring.boot.admin.starter.server.version>
+
         <commons.pool2.version>2.7.0</commons.pool2.version>
+
         <jjwt.api.version>0.10.7</jjwt.api.version>
         <jjwt.impl.version>0.10.7</jjwt.impl.version>
         <jjwt.jackson.version>0.10.7</jjwt.jackson.version>
+
         <token.bucket.version>1.7</token.bucket.version>
+
         <springfox.swagger2.version>2.9.2</springfox.swagger2.version>
         <springfox.swagger.ui.version>2.9.2</springfox.swagger.ui.version>
+
         <jasypt.spring.boot.starter.version>2.1.2</jasypt.spring.boot.starter.version>
         <mybatis.plus.boot.starter.version>3.3.1</mybatis.plus.boot.starter.version>
         <mybatis.plus.generator.version>3.3.1</mybatis.plus.generator.version>
@@ -95,7 +108,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR9</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
