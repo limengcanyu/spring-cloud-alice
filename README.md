@@ -1,52 +1,63 @@
-# spring-cloud-alice
+## 重要变更
 
-````
-spring-cloud-eureka-server                   localhost:8761
-spring-cloud-admin-server                    localhost:8770
-spring-cloud-gateway                         localhost:8780   localhost:8781   localhost:8782
-spring-cloud-zuul                            localhost:8790
-spring-cloud-microservice1                   localhost:8800   localhost:8801   localhost:8802
-spring-cloud-microservice2                   localhost:8810
-spring-cloud-microservice3                   localhost:8820
-spring-cloud-security                        localhost:8830
-spring-cloud-zipkin-server                   localhost:9411
-spring-cloud-sleuth                          localhost:8850
-spring-cloud-sleuth-zipkin1                  localhost:8860
-spring-cloud-sleuth-zipkin2                  localhost:8870
-spring-cloud-stream-kafka                    localhost:8880
-spring-cloud-stream-kafka-consumer           localhost:8890
-spring-cloud-stream-kafka-producer           localhost:8900
-spring-cloud-stream-kafka-streams            localhost:8910
-spring-cloud-stream-kafka-streams-consumer   localhost:8920
-spring-cloud-stream-kafka-streams-producer   localhost:8930
-spring-cloud-stream-rabbitmq                 localhost:8940
-spring-cloud-stream-rabbitmq-consumer        localhost:8950
-spring-cloud-stream-rabbitmq-producer        localhost:8960
-spring-cloud-config-server                   localhost:8970
-spring-cloud-config-client                   localhost:8980
-````
+- Spring Cloud 2020 版本 基于 Spring Boot 2.4 构建，不支持低版本
 
-Zuul��֤token�Ƿ���ڣ����΢�������token����ΪҪ��ȡ�⻧��Ϣ���ֹ���֤���Ͳ��ö����֤token��
+- Spring Cloud 2020 已全面移除以下过期依赖
 
-## Disabling Ribbon with Eureka Server and Client starters
+```
+spring-cloud-netflix-archaius
+spring-cloud-netflix-concurrency-limits
+spring-cloud-netflix-core
+spring-cloud-netflix-dependencies
+spring-cloud-netflix-hystrix
+spring-cloud-netflix-hystrix-contract
+spring-cloud-netflix-hystrix-dashboard
+spring-cloud-netflix-hystrix-stream
+spring-cloud-netflix-ribbon
+spring-cloud-netflix-sidecar
+spring-cloud-netflix-turbine
+spring-cloud-netflix-turbine-stream
+spring-cloud-netflix-zuul
+spring-cloud-starter-netflix-archaius
+spring-cloud-starter-netflix-hystrix
+spring-cloud-starter-netflix-hystrix-dashboard
+spring-cloud-starter-netflix-ribbon
+spring-cloud-starter-netflix-turbine
+spring-cloud-starter-netflix-turbine-stream
+spring-cloud-starter-netflix-zuul
+```
 
-spring-cloud-starter-netflix-eureka-server and spring-cloud-starter-netflix-eureka-client come along with a spring-cloud-starter-netflix-ribbon. Since Ribbon load-balancer is now in maintenance mode, we suggest switching to using the Spring Cloud LoadBalancer, also included in Eureka starters, instead.
+- Spring Cloud Commons 默认关闭 Bootstrap 启动引导， 如需兼容之前版本请添加 `spring-cloud-starter-bootstrap`
 
-In order to that, you can set the value of spring.cloud.loadbalancer.ribbon.enabled property to false.
+- Spring Cloud Commons 新增 Spring Cloud LoadBalancer 正式 GA 标识生产可用
 
-You can then also exclude ribbon-related dependencies from Eureka starters in your build files, like so:
+- Spring Cloud Security 项目已经完全被移除
 
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    <exclusions>
-        <exclusion>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>com.netflix.ribbon</groupId>
-            <artifactId>ribbon-eureka</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
+- Spring Cloud Openfeign 支持 Spring Cloud CircuitBreakers 抽象适配，支持 Spring Cloud LoadBalancer
+
+- Spring Cloud Gateway 基于 Spring Cloud LoadBalancer 重构，不再支持 Ribbon
+
+
+## 依赖更新
+
+| Module | Version |
+| --- | --- |
+| Spring Cloud Circuitbreaker | 2.0.0 |
+| Spring Cloud Contract | 3.0.0 |
+| Spring Cloud Kubernetes | 2.0.0 |
+| Spring Cloud Commons | 3.0.0 |
+| Spring Cloud Openfeign | 3.0.0 |
+| Spring Cloud Cloudfoundry | 3.0.0 |
+| Spring Cloud Security | 3.0.0 |
+| Spring Cloud Bus | 3.0.0 |
+| Spring Cloud Cli | 3.0.0 |
+| Spring Cloud Zookeeper | 3.0.0 |
+| Spring Cloud Sleuth | 3.0.0 |
+| Spring Cloud Consul | 3.0.0 |
+| Spring Cloud Starter Build | 2020.0.0 |
+| Spring Cloud Gateway | 3.0.0 |
+| Spring Cloud Netflix | 3.0.0 |
+| Spring Cloud Vault | 3.0.0 |
+| Spring Cloud Config | 3.0.0 |
+| Spring Cloud Task | 2.3.0 |
+
