@@ -58,5 +58,10 @@
             <version>1.4.0</version>
         </dependency>
         <!-- Prometheus add end -->
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>
     </dependencies>
 </project>
